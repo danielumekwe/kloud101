@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import CurrencySwitcher from "@/components/CurrencySwitcher";
 import { useState, useRef, useEffect } from "react";
 import {
   Server,
@@ -257,6 +258,13 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
 
       {/* Auth */}
       <div className="border-t border-slate-800 px-6 py-5 space-y-3">
+        <div className="mb-4">
+  <p className="text-sm text-slate-500 mb-2">
+    Currency
+  </p>
+
+  <CurrencySwitcher />
+</div>
         <Link
           href="/login"
           onClick={onClose}
@@ -459,6 +467,7 @@ export default function Navbar() {
 
         {/* Desktop auth */}
         <div className="hidden items-center gap-3 lg:flex">
+          <CurrencySwitcher />
           <Link
             href="/login"
             className="rounded-lg border border-white/10 px-4 py-2 text-base font-medium text-slate-300 hover:border-white/20 hover:text-white transition"

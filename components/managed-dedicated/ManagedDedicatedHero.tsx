@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useCurrency } from "@/context/CurrencyContext";
 
 export default function ManagedDedicatedHero() {
+  const { formatPrice } = useCurrency();
+
   return (
     <section className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-24">
 
@@ -24,14 +29,14 @@ export default function ManagedDedicatedHero() {
 
             <div className="max-w-xl bg-slate-900 border border-slate-700 rounded-2xl p-8 mb-8">
 
-              <div className="flex items-end gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-3">
 
                 <span className="text-gray-400">
                   Starts at
                 </span>
 
                 <span className="text-6xl font-bold text-blue-500">
-                  $149
+                  {formatPrice(149)}
                 </span>
 
                 <span className="text-gray-400 mb-1">

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   Check,
@@ -5,12 +7,13 @@ import {
   Cpu,
   Mail,
 } from "lucide-react";
+import { useCurrency } from "@/context/CurrencyContext";
 
 const plans = [
   {
     title: "Managed VPS Special",
     icon: Server,
-    price: "$19",
+    price: 19,
     link: "/managed-vps",
     featured: false,
     features: [
@@ -27,7 +30,7 @@ const plans = [
   {
     title: "Managed Dedicated Server",
     icon: Cpu,
-    price: "$99",
+    price: 99,
     link: "/managed-dedicated",
     featured: true,
     features: [
@@ -44,7 +47,7 @@ const plans = [
   {
     title: "Business Email Hosting",
     icon: Mail,
-    price: "$1.99",
+    price: 1.99,
     link: "/business-email",
     featured: false,
     features: [
@@ -61,6 +64,8 @@ const plans = [
 ];
 
 export default function FeaturedSolutions() {
+  const { formatPrice } = useCurrency();
+
   return (
     <section className="py-16 md:py-24 bg-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -124,14 +129,11 @@ export default function FeaturedSolutions() {
                   </h3>
 
                   {/* Price */}
-                  <div className="flex items-center justify-center mb-8 md:mb-10">
-                    <span className="text-gray-400 text-lg md:text-xl mr-1">
-                      $
-                    </span>
+                  <div className="flex flex-wrap items-center justify-center gap-2 mb-8 md:mb-10">
                     <span className="text-5xl md:text-6xl font-bold text-white">
-                      {plan.price.replace("$", "")}
+                      {formatPrice(plan.price)}
                     </span>
-                    <span className="text-gray-400 ml-2 md:ml-3 text-sm md:text-base">
+                    <span className="text-gray-400 text-sm md:text-base">
                       Per Month
                     </span>
                   </div>

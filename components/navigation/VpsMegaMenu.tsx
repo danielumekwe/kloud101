@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useCurrency } from "@/context/CurrencyContext";
 import {
   Server,
   HardDrive,
@@ -13,6 +14,8 @@ import {
 } from "lucide-react";
 
 export default function VpsMegaMenu() {
+  const { formatPrice } = useCurrency();
+
   return (
     <div className="absolute left-1/2 top-full z-50 mt-4 w-[950px] -translate-x-1/2 rounded-3xl border border-slate-200 bg-white p-8 shadow-2xl">
 
@@ -35,7 +38,7 @@ export default function VpsMegaMenu() {
               </h3>
 
               <p className="text-sm text-slate-500 mt-2">
-                KVM Cloud VPS from $3/mo
+                KVM Cloud VPS from {formatPrice(3)}/mo
               </p>
             </Link>
 

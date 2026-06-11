@@ -1,4 +1,10 @@
+"use client";
+
+import { useCurrency } from "@/context/CurrencyContext";
+
 export default function DedicatedPricing() {
+  const { formatPrice } = useCurrency();
+
   const servers = [
     {
       name: "Xeon E3",
@@ -6,7 +12,7 @@ export default function DedicatedPricing() {
       ram: "32 GB RAM",
       storage: "2 x 1TB SSD",
       bandwidth: "10 TB Bandwidth",
-      price: "$79/mo",
+      price: 79,
     },
     {
       name: "Xeon Silver",
@@ -14,7 +20,7 @@ export default function DedicatedPricing() {
       ram: "64 GB RAM",
       storage: "2 x 2TB SSD",
       bandwidth: "20 TB Bandwidth",
-      price: "$129/mo",
+      price: 129,
       featured: true,
     },
     {
@@ -23,7 +29,7 @@ export default function DedicatedPricing() {
       ram: "128 GB RAM",
       storage: "4 x 2TB SSD",
       bandwidth: "Unmetered",
-      price: "$249/mo",
+      price: 249,
     },
   ]
 
@@ -65,8 +71,9 @@ export default function DedicatedPricing() {
                 {server.name}
               </h3>
 
-              <div className="text-4xl font-bold mb-6">
-                {server.price}
+              <div className="flex flex-wrap items-end gap-2 text-4xl font-bold mb-6">
+                <span>{formatPrice(server.price)}</span>
+                <span className="text-lg text-gray-400">/mo</span>
               </div>
 
               <ul className="space-y-3 text-gray-400 mb-8">

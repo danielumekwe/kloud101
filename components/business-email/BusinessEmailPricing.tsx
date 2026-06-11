@@ -1,23 +1,26 @@
+"use client";
+
 import Link from "next/link";
+import { useCurrency } from "@/context/CurrencyContext";
 
 const plans = [
   {
     name: "Starter",
-    price: "$1.99",
+    price: 1.99,
     storage: "5GB Mailbox",
     users: "1 Email Account",
     featured: false,
   },
   {
     name: "Business",
-    price: "$4.99",
+    price: 4.99,
     storage: "25GB Mailbox",
     users: "10 Email Accounts",
     featured: true,
   },
   {
     name: "Enterprise",
-    price: "$9.99",
+    price: 9.99,
     storage: "100GB Mailbox",
     users: "Unlimited Accounts",
     featured: false,
@@ -25,6 +28,8 @@ const plans = [
 ];
 
 export default function BusinessEmailPricing() {
+  const { formatPrice } = useCurrency();
+
   return (
     <section
       id="plans"
@@ -70,10 +75,10 @@ export default function BusinessEmailPricing() {
                 {plan.name}
               </h3>
 
-              <div className="flex items-end gap-2 mb-8">
+              <div className="flex flex-wrap items-end gap-2 mb-8">
 
                 <span className="text-5xl font-bold text-blue-500">
-                  {plan.price}
+                  {formatPrice(plan.price)}
                 </span>
 
                 <span className="text-gray-400 mb-1">

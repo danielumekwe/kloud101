@@ -1,16 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import { useCurrency } from "@/context/CurrencyContext";
 
 const plans = [
   {
     name: "Starter",
-    price: "$4.99",
+    price: 4.99,
     retention: "30 Days Retention",
     websites: "1 Website",
     backup: "Daily Backups",
   },
   {
     name: "Business",
-    price: "$9.99",
+    price: 9.99,
     retention: "90 Days Retention",
     websites: "5 Websites",
     backup: "Hourly Backups",
@@ -18,7 +21,7 @@ const plans = [
   },
   {
     name: "Enterprise",
-    price: "$19.99",
+    price: 19.99,
     retention: "365 Days Retention",
     websites: "Unlimited Websites",
     backup: "Real-Time Backups",
@@ -26,6 +29,8 @@ const plans = [
 ];
 
 export default function BackupSecurityPlans() {
+  const { formatPrice } = useCurrency();
+
   return (
     <section
       id="plans"
@@ -71,10 +76,10 @@ export default function BackupSecurityPlans() {
                 {plan.name}
               </h3>
 
-              <div className="flex items-end gap-2 mb-8">
+              <div className="flex flex-wrap items-end gap-2 mb-8">
 
                 <span className="text-5xl font-bold text-blue-500">
-                  {plan.price}
+                  {formatPrice(plan.price)}
                 </span>
 
                 <span className="text-gray-400 mb-1">

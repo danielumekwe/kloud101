@@ -1,20 +1,24 @@
-// components/dedicated/DedicatedPricing.tsx
+"use client";
+
+import { useCurrency } from "@/context/CurrencyContext";
 
 export default function DedicatedPricing() {
+  const { formatPrice } = useCurrency();
+
   const servers = [
     {
       cpu: "Intel Xeon E3",
       ram: "32GB DDR4",
       storage: "2 x 480GB SSD",
       bandwidth: "10TB",
-      price: "$79/mo",
+      price: 79,
     },
     {
       cpu: "Intel Xeon E5",
       ram: "64GB DDR4",
       storage: "2 x 960GB SSD",
       bandwidth: "20TB",
-      price: "$129/mo",
+      price: 129,
       featured: true,
     },
     {
@@ -22,7 +26,7 @@ export default function DedicatedPricing() {
       ram: "128GB DDR4",
       storage: "2 x 1.92TB NVMe",
       bandwidth: "30TB",
-      price: "$249/mo",
+      price: 249,
     },
   ];
 
@@ -73,7 +77,10 @@ export default function DedicatedPricing() {
                   <td className="p-5">{server.bandwidth}</td>
 
                   <td className="p-5 font-bold text-blue-500">
-                    {server.price}
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span>{formatPrice(server.price)}</span>
+                      <span className="text-sm text-gray-400">/mo</span>
+                    </div>
                   </td>
 
                   <td className="p-5">

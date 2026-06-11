@@ -1,29 +1,35 @@
+"use client";
+
+import { useCurrency } from "@/context/CurrencyContext";
+
 export default function WindowsPricing() {
+  const { formatPrice } = useCurrency();
+
   const plans = [
     {
       name: "Starter",
-      price: "$10",
+      price: 10,
       cpu: "2 vCPU",
       ram: "4 GB RAM",
       storage: "60 GB SSD",
     },
     {
       name: "Business",
-      price: "$20",
+      price: 20,
       cpu: "4 vCPU",
       ram: "8 GB RAM",
       storage: "120 GB SSD",
     },
     {
       name: "Professional",
-      price: "$40",
+      price: 40,
       cpu: "8 vCPU",
       ram: "16 GB RAM",
       storage: "240 GB SSD",
     },
     {
       name: "Enterprise",
-      price: "$80",
+      price: 80,
       cpu: "16 vCPU",
       ram: "32 GB RAM",
       storage: "480 GB SSD",
@@ -58,8 +64,8 @@ export default function WindowsPricing() {
                 {plan.name}
               </h3>
 
-              <div className="text-5xl font-bold text-blue-500 mb-6">
-                {plan.price}
+              <div className="flex flex-wrap items-end gap-2 text-5xl font-bold text-blue-500 mb-6">
+                <span>{formatPrice(plan.price)}</span>
                 <span className="text-lg text-gray-400">
                   /mo
                 </span>

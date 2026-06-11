@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
+import { useCurrency } from "@/context/CurrencyContext";
 
 const plans = [
   {
     name: "Starter",
-    price: "$9.99",
+    price: 9.99,
     cpu: "2 vCPU",
     ram: "4GB RAM",
     storage: "50GB NVMe SSD",
@@ -11,7 +14,7 @@ const plans = [
   },
   {
     name: "Business",
-    price: "$19.99",
+    price: 19.99,
     cpu: "4 vCPU",
     ram: "8GB RAM",
     storage: "100GB NVMe SSD",
@@ -20,7 +23,7 @@ const plans = [
   },
   {
     name: "Enterprise",
-    price: "$39.99",
+    price: 39.99,
     cpu: "8 vCPU",
     ram: "16GB RAM",
     storage: "250GB NVMe SSD",
@@ -29,6 +32,8 @@ const plans = [
 ];
 
 export default function CloudHostingPricing() {
+  const { formatPrice } = useCurrency();
+
   return (
     <section
       id="plans"
@@ -74,10 +79,10 @@ export default function CloudHostingPricing() {
                 {plan.name}
               </h3>
 
-              <div className="flex items-end gap-2 mb-8">
+              <div className="flex flex-wrap items-end gap-2 mb-8">
 
                 <span className="text-5xl font-bold text-blue-500">
-                  {plan.price}
+                  {formatPrice(plan.price)}
                 </span>
 
                 <span className="text-gray-400 mb-1">

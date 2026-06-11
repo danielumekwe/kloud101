@@ -1,26 +1,32 @@
+"use client";
+
+import { useCurrency } from "@/context/CurrencyContext";
+
 export default function StoragePricing() {
+  const { formatPrice } = useCurrency();
+
   const plans = [
     {
       slices: "1 TB",
-      price: "$3",
+      price: 3,
       ram: "2 GB RAM",
       transfer: "2 TB Transfer",
     },
     {
       slices: "4 TB",
-      price: "$12",
+      price: 12,
       ram: "8 GB RAM",
       transfer: "8 TB Transfer",
     },
     {
       slices: "8 TB",
-      price: "$24",
+      price: 24,
       ram: "16 GB RAM",
       transfer: "16 TB Transfer",
     },
     {
       slices: "12 TB",
-      price: "$36",
+      price: 36,
       ram: "24 GB RAM",
       transfer: "24 TB Transfer",
     },
@@ -54,8 +60,8 @@ export default function StoragePricing() {
                 {plan.slices}
               </h3>
 
-              <div className="text-5xl font-bold text-blue-500 mb-6">
-                {plan.price}
+              <div className="flex flex-wrap items-end gap-2 text-5xl font-bold text-blue-500 mb-6">
+                <span>{formatPrice(plan.price)}</span>
                 <span className="text-lg text-gray-400">
                   /mo
                 </span>

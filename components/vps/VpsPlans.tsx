@@ -1,4 +1,10 @@
+"use client";
+
+import { useCurrency } from "@/context/CurrencyContext";
+
 export default function VpsPlans() {
+  const { formatPrice } = useCurrency();
+
   const plans = [
     {
       slice: "1 Slice",
@@ -6,7 +12,7 @@ export default function VpsPlans() {
       ram: "2 GB RAM",
       storage: "30 GB NVMe SSD",
       bandwidth: "2 TB Transfer",
-      price: "$3/mo",
+      price: 3,
     },
     {
       slice: "2 Slices",
@@ -14,7 +20,7 @@ export default function VpsPlans() {
       ram: "4 GB RAM",
       storage: "60 GB NVMe SSD",
       bandwidth: "4 TB Transfer",
-      price: "$6/mo",
+      price: 6,
       featured: true,
     },
     {
@@ -23,7 +29,7 @@ export default function VpsPlans() {
       ram: "8 GB RAM",
       storage: "120 GB NVMe SSD",
       bandwidth: "8 TB Transfer",
-      price: "$12/mo",
+      price: 12,
     },
     {
       slice: "8 Slices",
@@ -31,7 +37,7 @@ export default function VpsPlans() {
       ram: "16 GB RAM",
       storage: "240 GB NVMe SSD",
       bandwidth: "16 TB Transfer",
-      price: "$24/mo",
+      price: 24,
     },
   ];
 
@@ -73,8 +79,9 @@ export default function VpsPlans() {
                 {plan.slice}
               </h3>
 
-              <div className="text-5xl font-bold text-blue-500 mb-6">
-                {plan.price}
+              <div className="flex flex-wrap items-end gap-2 text-5xl font-bold text-blue-500 mb-6">
+                <span>{formatPrice(plan.price)}</span>
+                <span className="text-lg text-gray-400">/mo</span>
               </div>
 
               <ul className="space-y-3 text-gray-400 mb-8">

@@ -1,18 +1,24 @@
+"use client";
+
+import { useCurrency } from "@/context/CurrencyContext";
+
 export default function ManagedDedicatedPricing() {
+  const { formatPrice } = useCurrency();
+
   const plans = [
     {
       name: "Essential",
       cpu: "Intel Xeon E3",
       ram: "32GB RAM",
       storage: "2 x 1TB SSD",
-      price: "$149/mo",
+      price: 149,
     },
     {
       name: "Business",
       cpu: "Intel Xeon Silver",
       ram: "64GB RAM",
       storage: "2 x 2TB SSD",
-      price: "$249/mo",
+      price: 249,
       featured: true,
     },
     {
@@ -20,7 +26,7 @@ export default function ManagedDedicatedPricing() {
       cpu: "Dual Xeon Gold",
       ram: "128GB RAM",
       storage: "4 x 2TB SSD",
-      price: "$399/mo",
+      price: 399,
     },
   ];
 
@@ -62,8 +68,9 @@ export default function ManagedDedicatedPricing() {
                 {plan.name}
               </h3>
 
-              <div className="text-5xl font-bold text-blue-500 mb-6">
-                {plan.price}
+              <div className="flex flex-wrap items-end gap-2 text-5xl font-bold text-blue-500 mb-6">
+                <span>{formatPrice(plan.price)}</span>
+                <span className="text-lg text-gray-400">/mo</span>
               </div>
 
               <div className="space-y-4 text-gray-300">

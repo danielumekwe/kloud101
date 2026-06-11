@@ -1,25 +1,31 @@
+"use client";
+
+import { useCurrency } from "@/context/CurrencyContext";
+
 export default function VpsPricing() {
+  const { formatPrice } = useCurrency();
+
   const plans = [
     {
       name: "Starter",
       ram: "2 GB RAM",
       cpu: "1 vCPU",
       storage: "50 GB SSD",
-      price: "$8/mo",
+      price: 8,
     },
     {
       name: "Business",
       ram: "4 GB RAM",
       cpu: "2 vCPU",
       storage: "100 GB SSD",
-      price: "$16/mo",
+      price: 16,
     },
     {
       name: "Professional",
       ram: "8 GB RAM",
       cpu: "4 vCPU",
       storage: "200 GB SSD",
-      price: "$32/mo",
+      price: 32,
     },
   ]
 
@@ -46,9 +52,10 @@ export default function VpsPricing() {
                 {plan.name}
               </h3>
 
-              <p className="text-4xl font-bold mb-6">
-                {plan.price}
-              </p>
+              <div className="flex flex-wrap items-end gap-2 text-4xl font-bold mb-6">
+                <span>{formatPrice(plan.price)}</span>
+                <span className="text-lg text-gray-400">/mo</span>
+              </div>
 
               <ul className="space-y-3 text-gray-400 mb-8">
                 <li>{plan.cpu}</li>

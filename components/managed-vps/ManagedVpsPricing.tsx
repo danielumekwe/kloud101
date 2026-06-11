@@ -1,18 +1,24 @@
+"use client";
+
+import { useCurrency } from "@/context/CurrencyContext";
+
 export default function ManagedVpsPricing() {
+  const { formatPrice } = useCurrency();
+
   const plans = [
     {
       name: "Starter",
       cpu: "2 vCPU",
       ram: "4GB RAM",
       storage: "80GB NVMe",
-      price: "$12/mo",
+      price: 12,
     },
     {
       name: "Business",
       cpu: "4 vCPU",
       ram: "8GB RAM",
       storage: "160GB NVMe",
-      price: "$24/mo",
+      price: 24,
       featured: true,
     },
     {
@@ -20,7 +26,7 @@ export default function ManagedVpsPricing() {
       cpu: "8 vCPU",
       ram: "16GB RAM",
       storage: "320GB NVMe",
-      price: "$49/mo",
+      price: 49,
     },
   ];
 
@@ -66,8 +72,9 @@ export default function ManagedVpsPricing() {
                 {plan.name}
               </h3>
 
-              <div className="text-5xl font-bold text-blue-500 mb-6">
-                {plan.price}
+              <div className="flex flex-wrap items-end gap-2 text-5xl font-bold text-blue-500 mb-6">
+                <span>{formatPrice(plan.price)}</span>
+                <span className="text-lg text-gray-400">/mo</span>
               </div>
 
               <div className="space-y-4 text-gray-300">
