@@ -87,9 +87,12 @@ export default function ManagedDedicatedPricing() {
 
               </div>
 
-              <button className="w-full mt-8 bg-blue-600 hover:bg-blue-700 py-4 rounded-xl font-semibold">
+              <a
+                href="https://my.kloud101.com/"
+                className="w-full block text-center mt-8 bg-blue-600 hover:bg-blue-700 py-4 rounded-xl font-semibold"
+              >
                 Order Now
-              </button>
+              </a>
 
             </div>
           ))}

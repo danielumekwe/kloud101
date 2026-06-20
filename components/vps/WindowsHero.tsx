@@ -45,9 +45,12 @@ export default function WindowsHero() {
 
               <div className="flex gap-4 mt-6">
 
-                <button className="bg-blue-600 px-8 py-4 rounded-xl">
+                <a
+                  href="https://my.kloud101.com/vps/order/windows-vps"
+                  className="bg-blue-600 px-8 py-4 rounded-xl"
+                >
                   Order Windows VPS
-                </button>
+                </a>
 
                 <button className="border border-slate-700 px-8 py-4 rounded-xl">
                   Compare Plans

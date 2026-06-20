@@ -63,9 +63,12 @@ export default function VpsPricing() {
                 <li>{plan.storage}</li>
               </ul>
 
-              <button className="w-full bg-blue-600 py-3 rounded-lg">
+              <a
+                href="https://my.kloud101.com/vps/order/linux-vps"
+                className="w-full block text-center bg-blue-600 py-3 rounded-lg"
+              >
                 Deploy Now
-              </button>
+              </a>
             </div>
           ))}
 

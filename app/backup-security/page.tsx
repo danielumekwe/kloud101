@@ -10,7 +10,7 @@ import BackupSecurityCta from "@/components/backup-security/BackupSecurityCta";
 
 export default function BackupSecurityPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-white dark:bg-black text-slate-900 dark:text-white">
 
       <Navbar />
 

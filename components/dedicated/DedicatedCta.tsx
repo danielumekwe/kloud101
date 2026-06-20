@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function DedicatedCta() {
   return (
     <section className="py-24">
@@ -17,13 +19,19 @@ export default function DedicatedCta() {
 
           <div className="flex flex-wrap justify-center gap-4">
 
-            <button className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-semibold">
+            <a
+              href="https://my.kloud101.com/"
+              className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-semibold"
+            >
               Deploy Server
-            </button>
+            </a>
 
-            <button className="border border-slate-700 hover:border-slate-500 px-8 py-4 rounded-xl font-semibold">
+            <Link
+              href="/contact"
+              className="border border-slate-700 hover:border-slate-500 px-8 py-4 rounded-xl font-semibold"
+            >
               Contact Sales
-            </button>
+            </Link>
 
           </div>
 

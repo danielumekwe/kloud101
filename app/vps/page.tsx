@@ -13,7 +13,7 @@ import RelatedProducts from "@/components/vps/RelatedProducts";
 import VpsCta from "@/components/vps/VpsCta";
 export default function VPSPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-white dark:bg-black text-slate-900 dark:text-white">
 
       <Navbar />
 
@@ -60,7 +60,7 @@ export default function VPSPage() {
                 <div className="flex flex-wrap gap-4">
 
                   <a
-                    href="#plans"
+                    href="https://my.kloud101.com/vps/order/linux-vps"
                     className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-semibold transition"
                   >
                     Order VPS

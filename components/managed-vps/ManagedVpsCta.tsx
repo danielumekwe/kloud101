@@ -37,12 +37,12 @@ export default function ManagedVpsCta() {
 
               <div className="flex flex-wrap gap-4">
 
-                <Link
-                  href="/register"
+                <a
+                  href="https://my.kloud101.com/vps/order/managed-vps"
                   className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-semibold transition"
                 >
                   Deploy Managed VPS
-                </Link>
+                </a>
 
                 <Link
                   href="/contact"

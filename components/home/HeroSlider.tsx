@@ -262,7 +262,7 @@ function SlideIllustration({ slide, index }: { slide: Slide; index: number }) {
 
 function ProgressBar({ duration, active, paused }: { duration: number; active: boolean; paused: boolean }) {
   return (
-    <div className="h-0.5 w-full bg-white/10 rounded-full overflow-hidden">
+    <div className="h-0.5 w-full bg-slate-200 dark:bg-white/10 rounded-full overflow-hidden">
       <div
         className="h-full bg-blue-500 rounded-full origin-left"
         style={{
@@ -349,7 +349,7 @@ export default function HeroSlider() {
       `}</style>
 
       <section
-        className="relative bg-black overflow-hidden"
+        className="relative bg-white dark:bg-black overflow-hidden"
         aria-label="Hero slider"
         aria-roledescription="carousel"
         onMouseEnter={() => setPaused(true)}
@@ -399,12 +399,12 @@ export default function HeroSlider() {
                 </div>
 
                 {/* Headline — text-6xl matching the original */}
-                <h1 className="fade-up-2 text-6xl font-bold text-white mb-6 leading-[1.08] tracking-tight">
+                <h1 className="fade-up-2 text-6xl font-bold text-slate-900 dark:text-white mb-6 leading-[1.08] tracking-tight">
                   {slide.title}
                 </h1>
 
                 {/* Description — text-xl matching original */}
-                <p className="fade-up-3 text-gray-400 text-xl leading-relaxed mb-8 max-w-lg">
+                <p className="fade-up-3 text-slate-600 dark:text-gray-400 text-xl leading-relaxed mb-8 max-w-lg">
                   {slide.description}
                 </p>
 
@@ -415,7 +415,7 @@ export default function HeroSlider() {
                       <span className="text-3xl font-bold text-blue-400">
                         {value}
                       </span>
-                      <span className="text-xs text-gray-500 mt-1 font-medium uppercase tracking-wider">
+                      <span className="text-xs text-slate-500 dark:text-gray-500 mt-1 font-medium uppercase tracking-wider">
                         {label}
                       </span>
                     </div>
@@ -432,7 +432,7 @@ export default function HeroSlider() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </button>
-                  <button className="inline-flex items-center gap-2 border border-gray-700 hover:border-gray-500 px-6 py-3 rounded-lg text-white font-semibold transition-all duration-200 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30">
+                  <button className="inline-flex items-center gap-2 border border-slate-300 dark:border-gray-700 hover:border-slate-400 dark:hover:border-gray-500 px-6 py-3 rounded-lg text-slate-900 dark:text-white font-semibold transition-all duration-200 hover:bg-black/5 dark:hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-300 dark:focus-visible:ring-white/30">
                     Learn More
                   </button>
                 </div>
@@ -452,7 +452,7 @@ export default function HeroSlider() {
         </div>
 
         {/* ── Bottom control bar ── */}
-        <div className="relative border-t border-white/[0.06]">
+        <div className="relative border-t border-slate-200 dark:border-white/[0.06]">
           <div className="max-w-7xl mx-auto px-8 py-5 flex items-center gap-5">
 
             {/* Prev / Next */}
@@ -490,7 +490,7 @@ export default function HeroSlider() {
                   <ProgressBar duration={SLIDE_DURATION} active={i === current} paused={paused} />
                   <span
                     className={`text-[10px] font-medium uppercase tracking-wider truncate transition-colors duration-200 hidden sm:block ${
-                      i === current ? "text-blue-400" : "text-gray-600 group-hover:text-gray-400"
+                      i === current ? "text-blue-400" : "text-slate-400 dark:text-gray-600 group-hover:text-slate-600 dark:group-hover:text-gray-400"
                     }`}
                   >
                     {s.badge}
@@ -500,8 +500,8 @@ export default function HeroSlider() {
             </div>
 
             {/* Counter */}
-            <div className="flex-shrink-0 text-sm font-mono text-gray-500 tabular-nums">
-              <span className="text-white font-semibold">{String(current + 1).padStart(2, "0")}</span>
+            <div className="flex-shrink-0 text-sm font-mono text-slate-400 dark:text-gray-500 tabular-nums">
+              <span className="text-slate-900 dark:text-white font-semibold">{String(current + 1).padStart(2, "0")}</span>
               <span className="mx-1">/</span>
               {String(totalSlides).padStart(2, "0")}
             </div>
@@ -510,7 +510,7 @@ export default function HeroSlider() {
             <button
               onClick={() => setPaused((p) => !p)}
               aria-label={paused ? "Play slideshow" : "Pause slideshow"}
-              className="flex-shrink-0 w-9 h-9 rounded-lg border border-gray-700 bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="flex-shrink-0 w-9 h-9 rounded-lg border border-slate-300 dark:border-gray-700 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-slate-500 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
             >
               {paused ? (
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">

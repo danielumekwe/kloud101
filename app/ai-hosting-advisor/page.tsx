@@ -395,7 +395,7 @@ export default function AIHostingAdvisorPage() {
     <>
       <Navbar />
 
-      <main className="min-h-screen bg-[#020510] text-white overflow-x-hidden">
+      <main className="min-h-screen bg-white dark:bg-[#020510] text-slate-900 dark:text-white overflow-x-hidden">
 
         {/* ── HERO ─────────────────────────────────────────────────────────── */}
         <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">

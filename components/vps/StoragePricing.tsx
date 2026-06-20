@@ -72,9 +72,12 @@ export default function StoragePricing() {
                 <p>{plan.transfer}</p>
               </div>
 
-              <button className="w-full bg-blue-600 py-3 rounded-xl mt-8">
+              <a
+                href="https://my.kloud101.com/vps/order/storage-vps"
+                className="w-full block text-center bg-blue-600 py-3 rounded-xl mt-8"
+              >
                 Deploy
-              </button>
+              </a>
 
             </div>
           ))}

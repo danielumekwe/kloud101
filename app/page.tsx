@@ -18,7 +18,7 @@ import HomeCTA from "@/components/home/HomeCTA";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-white dark:bg-black text-slate-900 dark:text-white">
       <Navbar />
       <HeroSlider />
       <FeaturedSolutions />

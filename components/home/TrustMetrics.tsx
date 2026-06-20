@@ -27,7 +27,7 @@ const metrics = [
 
 export default function TrustMetrics() {
   return (
-    <section className="py-32 bg-slate-950">
+    <section className="py-32 bg-slate-50 dark:bg-slate-950">
 
       <div className="max-w-7xl mx-auto px-6">
 

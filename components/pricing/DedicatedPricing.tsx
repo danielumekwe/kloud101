@@ -83,9 +83,12 @@ export default function DedicatedPricing() {
                 <li>{server.bandwidth}</li>
               </ul>
 
-              <button className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-semibold transition">
+              <a
+                href="https://my.kloud101.com/"
+                className="w-full block text-center bg-blue-600 hover:bg-blue-700 py-3 rounded-lg font-semibold transition"
+              >
                 Order Server
-              </button>
+              </a>
             </div>
           ))}
 

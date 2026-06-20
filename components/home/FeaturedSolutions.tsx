@@ -67,7 +67,7 @@ export default function FeaturedSolutions() {
   const { formatPrice } = useCurrency();
 
   return (
-    <section className="py-16 md:py-24 bg-slate-950">
+    <section className="py-16 md:py-24 bg-white dark:bg-slate-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
@@ -76,13 +76,13 @@ export default function FeaturedSolutions() {
             Featured Solutions
           </span>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mt-4 mb-6 leading-tight">
             Managed Cloud Solutions
             <br className="hidden sm:block" />
             For Modern Businesses
           </h2>
 
-          <p className="text-gray-400 max-w-3xl mx-auto text-base md:text-lg">
+          <p className="text-slate-600 dark:text-gray-400 max-w-3xl mx-auto text-base md:text-lg">
             Launch, manage and scale your business with fully managed
             infrastructure, professional email hosting and enterprise-grade
             support.
@@ -99,8 +99,8 @@ export default function FeaturedSolutions() {
                 key={plan.title}
                 className={`group relative rounded-3xl border transition-all duration-300 ${
                   plan.featured
-                    ? "border-blue-500 bg-black shadow-xl shadow-blue-500/10 md:-translate-y-4"
-                    : "border-slate-800 bg-black hover:border-blue-500 hover:-translate-y-2"
+                    ? "border-blue-500 bg-white dark:bg-black shadow-xl shadow-blue-500/10 md:-translate-y-4"
+                    : "border-slate-200 dark:border-slate-800 bg-white dark:bg-black hover:border-blue-500 hover:-translate-y-2"
                 }`}
               >
                 {plan.featured && (
@@ -124,16 +124,16 @@ export default function FeaturedSolutions() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-center text-xl md:text-2xl font-bold text-white mb-6 md:mb-8">
+                  <h3 className="text-center text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-6 md:mb-8">
                     {plan.title}
                   </h3>
 
                   {/* Price */}
                   <div className="flex flex-wrap items-center justify-center gap-2 mb-8 md:mb-10">
-                    <span className="text-5xl md:text-6xl font-bold text-white">
+                    <span className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white">
                       {formatPrice(plan.price)}
                     </span>
-                    <span className="text-gray-400 text-sm md:text-base">
+                    <span className="text-slate-500 dark:text-gray-400 text-sm md:text-base">
                       Per Month
                     </span>
                   </div>
@@ -149,7 +149,7 @@ export default function FeaturedSolutions() {
                           size={18}
                           className="text-blue-500 flex-shrink-0"
                         />
-                        <span className="text-gray-300 text-sm md:text-base">
+                        <span className="text-slate-600 dark:text-gray-300 text-sm md:text-base">
                           {feature}
                         </span>
                       </div>
@@ -162,7 +162,7 @@ export default function FeaturedSolutions() {
                     className={`block text-center py-3.5 md:py-4 rounded-xl font-semibold text-sm md:text-base transition-all duration-200 active:scale-95 ${
                       plan.featured
                         ? "bg-blue-600 hover:bg-blue-700 text-white"
-                        : "bg-slate-900 hover:bg-slate-800 border border-slate-700 text-gray-300 hover:text-white"
+                        : "bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white"
                     }`}
                   >
                     Select Plan

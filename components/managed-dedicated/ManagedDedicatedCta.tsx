@@ -37,12 +37,12 @@ export default function ManagedDedicatedCta() {
 
               <div className="flex flex-wrap gap-4">
 
-                <Link
-                  href="/register"
+                <a
+                  href="https://my.kloud101.com/"
                   className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-semibold transition"
                 >
                   Deploy Managed Dedicated
-                </Link>
+                </a>
 
                 <Link
                   href="/contact"

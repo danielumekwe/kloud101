@@ -160,7 +160,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
       {/* Top bar */}
       <div className="flex items-center justify-between border-b border-slate-800 px-6 py-5">
         <Link href="/" onClick={onClose}>
-          <Image src="/logo.svg" alt="Kloud101" width={140} height={38} priority />
+          <Image src="/logo-wordmark.png" alt="Kloud101" width={152} height={32} priority />
         </Link>
         <button
           onClick={onClose}
@@ -273,7 +273,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
           Login
         </Link>
         <Link
-          href="/register"
+          href="https://my.kloud101.com/"
           onClick={onClose}
           className="block w-full rounded-lg bg-blue-600 px-4 py-3 text-center text-base font-semibold text-white hover:bg-blue-500 transition"
         >
@@ -321,19 +321,20 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`sticky top-0 z-40 flex items-center justify-between px-6 py-0 lg:px-10 bg-black text-white transition-shadow duration-300 ${
-          scrolled ? "shadow-lg shadow-black/40" : ""
+        className={`sticky top-0 z-40 flex items-center justify-between px-6 py-0 lg:px-10 bg-white dark:bg-black text-slate-900 dark:text-white transition-shadow duration-300 ${
+          scrolled ? "shadow-lg shadow-black/10 dark:shadow-black/40" : ""
         }`}
-        style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+        style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}
       >
         {/* Logo */}
-        <Link href="/" className="flex shrink-0 items-center py-5">
+        <Link href="/" className="flex shrink-0 items-center py-3">
           <Image
-            src="/logo.svg"
+            src="/logo-wordmark.png"
             alt="Kloud101"
-            width={160}
-            height={44}
+            width={152}
+            height={32}
             priority
+            className="invert dark:invert-0"
           />
         </Link>
 
@@ -341,7 +342,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-1 lg:flex">
           <Link
             href="/"
-            className="rounded-lg px-4 py-2 text-base font-medium text-slate-300 hover:bg-white/5 hover:text-white transition"
+            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition"
           >
             Home
           </Link>
@@ -355,8 +356,8 @@ export default function Navbar() {
             <button
               className={`flex items-center gap-1.5 rounded-lg px-4 py-2 text-base font-medium transition ${
                 activeMenu === "cloud"
-                  ? "bg-white/8 text-white"
-                  : "text-slate-300 hover:bg-white/5 hover:text-white"
+                  ? "bg-black/5 dark:bg-white/8 text-slate-900 dark:text-white"
+                  : "text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white"
               }`}
             >
               Cloud Services
@@ -407,8 +408,8 @@ export default function Navbar() {
             <button
               className={`flex items-center gap-1.5 rounded-lg px-4 py-2 text-base font-medium transition ${
                 activeMenu === "servers"
-                  ? "bg-white/8 text-white"
-                  : "text-slate-300 hover:bg-white/5 hover:text-white"
+                  ? "bg-black/5 dark:bg-white/8 text-slate-900 dark:text-white"
+                  : "text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white"
               }`}
             >
               Servers
@@ -452,14 +453,14 @@ export default function Navbar() {
 
           <Link
             href="/about"
-            className="rounded-lg px-4 py-2 text-base font-medium text-slate-300 hover:bg-white/5 hover:text-white transition"
+            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition"
           >
             About
           </Link>
 
           <Link
             href="/contact"
-            className="rounded-lg px-4 py-2 text-base font-medium text-slate-300 hover:bg-white/5 hover:text-white transition"
+            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition"
           >
             Contact
           </Link>
@@ -470,7 +471,7 @@ export default function Navbar() {
           <CurrencySwitcher />
           <Link
             href="/login"
-            className="rounded-lg border border-white/10 px-4 py-2 text-base font-medium text-slate-300 hover:border-white/20 hover:text-white transition"
+            className="rounded-lg border border-slate-200 dark:border-white/10 px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-white/20 hover:text-slate-900 dark:hover:text-white transition"
           >
             Login
           </Link>

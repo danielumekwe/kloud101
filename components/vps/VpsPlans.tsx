@@ -91,9 +91,12 @@ export default function VpsPlans() {
                 <li>{plan.bandwidth}</li>
               </ul>
 
-              <button className="w-full bg-blue-600 hover:bg-blue-700 py-3 rounded-xl font-semibold">
+              <a
+                href="https://my.kloud101.com/vps/order/linux-vps"
+                className="w-full block text-center bg-blue-600 hover:bg-blue-700 py-3 rounded-xl font-semibold"
+              >
                 Deploy VPS
-              </button>
+              </a>
             </div>
           ))}
         </div>

@@ -91,9 +91,12 @@ export default function ManagedVpsPricing() {
 
               </div>
 
-              <button className="w-full mt-8 bg-blue-600 hover:bg-blue-700 py-4 rounded-xl font-semibold transition">
+              <a
+                href="https://my.kloud101.com/vps/order/managed-vps"
+                className="w-full block text-center mt-8 bg-blue-600 hover:bg-blue-700 py-4 rounded-xl font-semibold transition"
+              >
                 Order Now
-              </button>
+              </a>
 
             </div>
           ))}

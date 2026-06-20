@@ -49,7 +49,7 @@ const steps = [
 
 export default function BusinessGrowthJourney() {
   return (
-    <section className="py-32 bg-black">
+    <section className="py-32 bg-white dark:bg-black">
 
       <div className="max-w-6xl mx-auto px-6">
 
@@ -59,13 +59,13 @@ export default function BusinessGrowthJourney() {
             Business Growth Journey
           </span>
 
-          <h2 className="text-5xl lg:text-6xl font-bold mt-6 mb-6">
+          <h2 className="text-5xl lg:text-6xl font-bold text-slate-900 dark:text-white mt-6 mb-6">
             Everything Your Business Needs
             <br />
             To Succeed Online
           </h2>
 
-          <p className="text-slate-400 text-xl max-w-3xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 text-xl max-w-3xl mx-auto">
             From your first domain name to enterprise infrastructure,
             Kloud101 provides every tool needed to launch, protect and
             scale your business online.
@@ -94,11 +94,11 @@ export default function BusinessGrowthJourney() {
 
                   <div>
 
-                    <h3 className="text-2xl font-bold mb-3">
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
                       {step.title}
                     </h3>
 
-                    <p className="text-slate-400 text-lg leading-relaxed">
+                    <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
                       {step.description}
                     </p>
 

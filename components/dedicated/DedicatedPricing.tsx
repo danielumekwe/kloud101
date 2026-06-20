@@ -84,9 +84,12 @@ export default function DedicatedPricing() {
                   </td>
 
                   <td className="p-5">
-                    <button className="bg-blue-600 px-5 py-2 rounded-lg">
+                    <a
+                      href="https://my.kloud101.com/"
+                      className="inline-block bg-blue-600 px-5 py-2 rounded-lg"
+                    >
                       Deploy
-                    </button>
+                    </a>
                   </td>
                 </tr>
               ))}

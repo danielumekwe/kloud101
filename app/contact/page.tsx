@@ -538,7 +538,7 @@ export default function ContactPage() {
         }
       `}</style>
 
-      <div className="relative min-h-screen bg-[#030712] text-white antialiased">
+      <div className="relative min-h-screen bg-[#030712] dark:bg-[#030712] text-white antialiased">
         <AnimatedBackground />
 
         <div className="relative z-10">

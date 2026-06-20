@@ -32,7 +32,7 @@ const stats = [
 
 export default function GlobalInfrastructure() {
   return (
-    <section className="py-32 bg-slate-950">
+    <section className="py-32 bg-white dark:bg-slate-950">
 
       <div className="max-w-7xl mx-auto px-6">
 
