@@ -5,6 +5,7 @@ import "./globals.css";
 import { CurrencyProvider } from "@/context/CurrencyContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import ThemeToggle from "@/components/ThemeToggle";
+import CookieBanner from "@/components/legal/CookieBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,6 +49,7 @@ export default function RootLayout({
           <CurrencyProvider>
             {children}
             <ThemeToggle />
+            <CookieBanner />
           </CurrencyProvider>
         </ThemeProvider>
       </body>

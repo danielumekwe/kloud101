@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-black border-t border-slate-200 dark:border-slate-800">
+    <footer className="bg-white dark:bg-black border-t border-slate-200 dark:border-slate-800 print:hidden">
 
       <div className="max-w-7xl mx-auto px-6 py-20">
 
@@ -49,35 +49,23 @@ export default function Footer() {
 
             <div className="space-y-3 text-slate-500 dark:text-slate-400">
 
-              <Link href="/managed-vps" className="block hover:text-white">
+              <Link href="/managed-vps" className="block hover:text-white transition-colors">
                 Managed VPS
               </Link>
 
-              <Link
-                href="/managed-dedicated"
-                className="block hover:text-white"
-              >
+              <Link href="/managed-dedicated" className="block hover:text-white transition-colors">
                 Managed Dedicated Servers
               </Link>
 
-              <Link
-                href="/cloud-hosting"
-                className="block hover:text-white"
-              >
+              <Link href="/cloud-hosting" className="block hover:text-white transition-colors">
                 Cloud Hosting
               </Link>
 
-              <Link
-                href="/business-email"
-                className="block hover:text-white"
-              >
+              <Link href="/business-email" className="block hover:text-white transition-colors">
                 Business Email
               </Link>
 
-              <Link
-                href="/backup-security"
-                className="block hover:text-white"
-              >
+              <Link href="/backup-security" className="block hover:text-white transition-colors">
                 Backup & Security
               </Link>
 
@@ -95,23 +83,23 @@ export default function Footer() {
 
             <div className="space-y-3 text-slate-500 dark:text-slate-400">
 
-              <Link href="#" className="block hover:text-white">
+              <Link href="#" className="block hover:text-white transition-colors">
                 Startup Solutions
               </Link>
 
-              <Link href="#" className="block hover:text-white">
+              <Link href="#" className="block hover:text-white transition-colors">
                 SME Solutions
               </Link>
 
-              <Link href="#" className="block hover:text-white">
+              <Link href="#" className="block hover:text-white transition-colors">
                 Agency Solutions
               </Link>
 
-              <Link href="#" className="block hover:text-white">
+              <Link href="#" className="block hover:text-white transition-colors">
                 Enterprise Solutions
               </Link>
 
-              <Link href="#" className="block hover:text-white">
+              <Link href="#" className="block hover:text-white transition-colors">
                 E-Commerce Solutions
               </Link>
 
@@ -129,23 +117,28 @@ export default function Footer() {
 
             <div className="space-y-3 text-slate-500 dark:text-slate-400">
 
-              <Link href="/blog" className="block hover:text-white">
+              <Link href="/blog" className="block hover:text-white transition-colors">
                 Blog
               </Link>
 
-              <Link
-                href="/knowledge-base"
-                className="block hover:text-white"
-              >
+              <Link href="/knowledge-base" className="block hover:text-white transition-colors">
                 Knowledge Base
               </Link>
 
-              <Link href="/tutorials" className="block hover:text-white">
+              <Link href="/tutorials" className="block hover:text-white transition-colors">
                 Tutorials
               </Link>
 
-              <Link href="/status" className="block hover:text-white">
+              <Link href="/status" className="block hover:text-white transition-colors">
                 Status Page
+              </Link>
+
+              <Link href="/contact" className="block hover:text-white transition-colors">
+                Contact Us
+              </Link>
+
+              <Link href="/register" className="block hover:text-white transition-colors">
+                Create Account
               </Link>
 
             </div>
@@ -162,26 +155,23 @@ export default function Footer() {
 
             <div className="space-y-3 text-slate-500 dark:text-slate-400">
 
-              <Link href="/about" className="block hover:text-white">
+              <Link href="/about" className="block hover:text-white transition-colors">
                 About Us
               </Link>
 
-              <Link href="/partners" className="block hover:text-white">
+              <Link href="/partners" className="block hover:text-white transition-colors">
                 Partners
               </Link>
 
-              <Link href="/careers" className="block hover:text-white">
+              <Link href="/careers" className="block hover:text-white transition-colors">
                 Careers
               </Link>
 
-              <Link
-                href="/affiliate-program"
-                className="block hover:text-white"
-              >
+              <Link href="/affiliate-program" className="block hover:text-white transition-colors">
                 Affiliate Program
               </Link>
 
-              <Link href="/contact" className="block hover:text-white">
+              <Link href="/contact" className="block hover:text-white transition-colors">
                 Contact
               </Link>
 
@@ -191,27 +181,51 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Bar */}
+        {/* Legal Links Row */}
 
-        <div className="border-t border-slate-200 dark:border-slate-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800">
 
-          <p className="text-slate-500 text-sm">
-            © {new Date().getFullYear()} Kloud101. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 
-          <div className="flex flex-wrap gap-6 text-sm text-slate-500 dark:text-slate-500">
+            <p className="text-slate-500 text-sm">
+              © {new Date().getFullYear()} Kloud101. All rights reserved.
+            </p>
 
-            <Link href="/privacy-policy" className="hover:text-white">
-              Privacy Policy
-            </Link>
+            <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-slate-500 dark:text-slate-500">
 
-            <Link href="/terms-of-service" className="hover:text-white">
-              Terms of Service
-            </Link>
+              <Link href="/privacy-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
 
-            <Link href="/acceptable-use-policy" className="hover:text-white">
-              Acceptable Use Policy
-            </Link>
+              <Link href="/terms-of-service" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                Terms of Service
+              </Link>
+
+              <Link href="/cookie-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                Cookie Policy
+              </Link>
+
+              <Link href="/refund-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                Refund Policy
+              </Link>
+
+              <Link href="/service-level-agreement" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                SLA
+              </Link>
+
+              <Link href="/acceptable-use-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                Acceptable Use
+              </Link>
+
+              <Link href="/abuse-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                Abuse Policy
+              </Link>
+
+              <Link href="/dmca-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+                DMCA
+              </Link>
+
+            </div>
 
           </div>
 

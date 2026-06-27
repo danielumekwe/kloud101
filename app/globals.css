@@ -128,3 +128,95 @@
     @apply font-sans;
   }
 }
+
+/* ── Legal document prose styles ─────────────────────────────────────────── */
+
+@layer components {
+  .legal-content {
+    @apply text-slate-700 dark:text-slate-300 leading-relaxed;
+
+    h1 {
+      @apply text-2xl font-bold text-slate-900 dark:text-white mt-10 mb-4 first:mt-0;
+    }
+    h2 {
+      @apply text-xl font-semibold text-slate-900 dark:text-white mt-10 mb-4 scroll-mt-20;
+    }
+    h3 {
+      @apply text-lg font-semibold text-slate-800 dark:text-slate-100 mt-8 mb-3 scroll-mt-20;
+    }
+    h4 {
+      @apply text-base font-semibold text-slate-800 dark:text-slate-100 mt-6 mb-2;
+    }
+    p {
+      @apply mb-4;
+    }
+    ul {
+      @apply mb-4 ml-6 space-y-2 list-disc;
+    }
+    ol {
+      @apply mb-4 ml-6 space-y-2 list-decimal;
+    }
+    li {
+      @apply leading-relaxed;
+    }
+    li > ul,
+    li > ol {
+      @apply mt-2 mb-0;
+    }
+    strong, b {
+      @apply font-semibold text-slate-900 dark:text-white;
+    }
+    em, i {
+      @apply italic;
+    }
+    a {
+      @apply text-blue-600 dark:text-blue-400 hover:underline;
+    }
+    blockquote {
+      @apply border-l-4 border-blue-500/40 pl-4 italic text-slate-500 dark:text-slate-400 my-6;
+    }
+    hr {
+      @apply border-slate-200 dark:border-slate-800 my-8;
+    }
+    table {
+      @apply w-full border-collapse text-sm my-6;
+    }
+    th {
+      @apply text-left font-semibold text-slate-900 dark:text-white bg-slate-100 dark:bg-slate-800 px-4 py-2.5 border border-slate-200 dark:border-slate-700;
+    }
+    td {
+      @apply px-4 py-2.5 border border-slate-200 dark:border-slate-700;
+    }
+    tr:nth-child(even) {
+      @apply bg-slate-50 dark:bg-slate-900/50;
+    }
+    code {
+      @apply font-mono text-sm bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded px-1.5 py-0.5;
+    }
+    pre {
+      @apply bg-slate-900 text-slate-100 rounded-xl p-4 overflow-x-auto text-sm my-6;
+    }
+    pre code {
+      @apply bg-transparent p-0 text-inherit;
+    }
+  }
+}
+
+/* ── Print styles ─────────────────────────────────────────────────────────── */
+
+@media print {
+  .print\:hidden { display: none !important; }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .legal-content {
+    color: black !important;
+
+    h1, h2, h3, h4 { color: black !important; }
+    a { color: #1d4ed8 !important; }
+    code { background: #f1f5f9 !important; color: black !important; }
+  }
+}
