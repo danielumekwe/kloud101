@@ -8,25 +8,25 @@ export default function StoragePricing() {
   const plans = [
     {
       slices: "1 TB",
-      price: 3,
+      price: 4.5,
       ram: "2 GB RAM",
       transfer: "2 TB Transfer",
     },
     {
       slices: "4 TB",
-      price: 12,
+      price: 13.5,
       ram: "8 GB RAM",
       transfer: "8 TB Transfer",
     },
     {
       slices: "8 TB",
-      price: 24,
+      price: 25.5,
       ram: "16 GB RAM",
       transfer: "16 TB Transfer",
     },
     {
       slices: "12 TB",
-      price: 36,
+      price: 37.5,
       ram: "24 GB RAM",
       transfer: "24 TB Transfer",
     },
