@@ -266,7 +266,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
   <CurrencySwitcher />
 </div>
         <Link
-          href="/login"
+          href="https://my.kloud101.com/login"
           onClick={onClose}
           className="block w-full rounded-lg border border-slate-700 px-4 py-3 text-center text-base font-medium text-slate-300 hover:border-slate-500 hover:text-white transition"
         >
@@ -470,13 +470,13 @@ export default function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           <CurrencySwitcher />
           <Link
-            href="/login"
+            href="https://my.kloud101.com/login"
             className="rounded-lg border border-slate-200 dark:border-white/10 px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-white/20 hover:text-slate-900 dark:hover:text-white transition"
           >
             Login
           </Link>
           <Link
-            href="/register"
+            href="https://my.kloud101.com/register"
             className="rounded-lg bg-blue-600 px-4 py-2 text-base font-semibold text-white hover:bg-blue-500 transition"
           >
             Get Started

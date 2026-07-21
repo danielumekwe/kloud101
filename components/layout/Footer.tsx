@@ -137,7 +137,7 @@ export default function Footer() {
                 Contact Us
               </Link>
 
-              <Link href="/register" className="block hover:text-white transition-colors">
+              <Link href="https://my.kloud101.com/register" className="block hover:text-white transition-colors">
                 Create Account
               </Link>
 

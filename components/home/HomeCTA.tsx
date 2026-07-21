@@ -89,7 +89,7 @@ export default function HomeCTA() {
           <div className="flex flex-wrap justify-center gap-4">
 
             <Link
-              href="/register"
+              href="https://my.kloud101.com/register"
               className="px-10 py-5 bg-blue-600 hover:bg-blue-700 rounded-xl font-semibold text-lg transition"
             >
               Get Started

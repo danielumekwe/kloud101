@@ -39,7 +39,7 @@ export default function CloudHostingCta() {
               <div className="flex flex-wrap gap-4">
 
                 <Link
-                  href="/register"
+                  href="https://my.kloud101.com/register"
                   className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-semibold transition"
                 >
                   Get Started

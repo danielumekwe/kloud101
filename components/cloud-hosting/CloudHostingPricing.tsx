@@ -112,7 +112,7 @@ export default function CloudHostingPricing() {
               </div>
 
               <Link
-                href="/register"
+                href="https://my.kloud101.com/register"
                 className="block text-center bg-blue-600 hover:bg-blue-700 py-4 rounded-xl font-semibold transition"
               >
                 Get Started

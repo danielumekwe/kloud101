@@ -76,7 +76,7 @@ export default function ComplianceLayout({
             You need to be signed in as an administrator to access this area.
           </p>
           <Link
-            href="/login"
+            href="https://my.kloud101.com/admin/login"
             className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl text-sm transition-colors"
           >
             Sign in

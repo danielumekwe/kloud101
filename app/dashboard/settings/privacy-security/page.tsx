@@ -346,13 +346,13 @@ export default function PrivacySecurityPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
-                href="/login"
+                href="https://my.kloud101.com/login"
                 className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl text-sm transition-colors"
               >
                 Sign in
               </Link>
               <Link
-                href="/register"
+                href="https://my.kloud101.com/register"
                 className="px-6 py-2.5 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 font-medium rounded-xl text-sm transition-colors"
               >
                 Create account
