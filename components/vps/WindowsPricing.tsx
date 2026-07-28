@@ -8,28 +8,28 @@ export default function WindowsPricing() {
   const plans = [
     {
       name: "Starter",
-      price: 10,
+      price: 11.5,
       cpu: "2 vCPU",
       ram: "4 GB RAM",
       storage: "60 GB SSD",
     },
     {
       name: "Business",
-      price: 20,
+      price: 21.5,
       cpu: "4 vCPU",
       ram: "8 GB RAM",
       storage: "120 GB SSD",
     },
     {
       name: "Professional",
-      price: 40,
+      price: 41.5,
       cpu: "8 vCPU",
       ram: "16 GB RAM",
       storage: "240 GB SSD",
     },
     {
       name: "Enterprise",
-      price: 80,
+      price: 81.5,
       cpu: "16 vCPU",
       ram: "32 GB RAM",
       storage: "480 GB SSD",

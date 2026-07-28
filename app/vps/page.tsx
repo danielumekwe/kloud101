@@ -48,7 +48,7 @@ export default function VPSPage() {
                   </span>
 
                   <span className="text-6xl font-bold text-blue-500">
-                    $3
+                    $4.50
                   </span>
 
                   <span className="text-slate-600 text-xl mb-1">

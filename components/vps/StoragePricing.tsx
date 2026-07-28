@@ -14,19 +14,19 @@ export default function StoragePricing() {
     },
     {
       slices: "4 TB",
-      price: 13.5,
+      price: 18,
       ram: "8 GB RAM",
       transfer: "8 TB Transfer",
     },
     {
       slices: "8 TB",
-      price: 25.5,
+      price: 36,
       ram: "16 GB RAM",
       transfer: "16 TB Transfer",
     },
     {
       slices: "12 TB",
-      price: 37.5,
+      price: 54,
       ram: "24 GB RAM",
       transfer: "24 TB Transfer",
     },

@@ -11,14 +11,14 @@ export default function ManagedVpsPricing() {
       cpu: "2 vCPU",
       ram: "4GB RAM",
       storage: "80GB NVMe",
-      price: 12,
+      price: 13.5,
     },
     {
       name: "Business",
       cpu: "4 vCPU",
       ram: "8GB RAM",
       storage: "160GB NVMe",
-      price: 24,
+      price: 25.5,
       featured: true,
     },
     {
@@ -26,7 +26,7 @@ export default function ManagedVpsPricing() {
       cpu: "8 vCPU",
       ram: "16GB RAM",
       storage: "320GB NVMe",
-      price: 49,
+      price: 50.5,
     },
   ];
 

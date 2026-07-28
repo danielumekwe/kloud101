@@ -21,7 +21,7 @@ export default function ManagedVpsHero() {
 
             <h1 className="text-6xl lg:text-7xl font-bold mt-4 mb-8">
               Managed VPS Hosting
-              With cPanel Included
+              
             </h1>
 
             <div className="max-w-xl bg-blue-50 border border-slate-200 rounded-2xl p-8 mb-8">
@@ -33,7 +33,7 @@ export default function ManagedVpsHero() {
                 </span>
 
                 <span className="text-6xl font-bold text-blue-500">
-                  {formatPrice(12)}
+                  {formatPrice(13.50)}
                 </span>
 
                 <span className="text-slate-600 mb-1">

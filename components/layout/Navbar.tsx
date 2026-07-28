@@ -181,6 +181,14 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
           Home
         </Link>
 
+        <Link
+          href="/vps"
+          onClick={onClose}
+          className="block rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-slate-900 transition"
+        >
+          VPS
+        </Link>
+
         {/* Cloud Services accordion */}
         <div>
           <button
@@ -345,6 +353,13 @@ export default function Navbar() {
             className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition"
           >
             Home
+          </Link>
+
+          <Link
+            href="/vps"
+            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition"
+          >
+            VPS
           </Link>
 
           {/* Cloud Services */}

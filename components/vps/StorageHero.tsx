@@ -34,7 +34,7 @@ export default function StorageHero() {
                 </span>
 
                 <span className="text-6xl font-bold text-blue-500">
-                  {formatPrice(3)}
+                  {formatPrice(4.50)}
                 </span>
 
                 <span className="text-slate-600 mb-1">

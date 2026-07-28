@@ -34,7 +34,7 @@ export default function WindowsHero() {
                 </span>
 
                 <span className="text-6xl font-bold text-blue-500">
-                  {formatPrice(10)}
+                  {formatPrice(11.50)}
                 </span>
 
                 <span className="text-slate-600 mb-1">
