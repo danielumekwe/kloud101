@@ -41,7 +41,7 @@ const panels = [
 
 export default function ControlPanels() {
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -51,7 +51,7 @@ export default function ControlPanels() {
             Control Panel Options
           </h2>
 
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-slate-600 max-w-3xl mx-auto">
             Manage websites, databases, email accounts and server resources
             using your preferred control panel.
           </p>
@@ -63,7 +63,7 @@ export default function ControlPanels() {
           {panels.map((panel) => (
             <div
               key={panel.title}
-              className="bg-black border border-slate-800 rounded-2xl p-8 hover:border-blue-500 transition"
+              className="bg-white border border-slate-200 rounded-2xl p-8 hover:border-blue-500 transition"
             >
               <panel.icon
                 size={42}
@@ -74,7 +74,7 @@ export default function ControlPanels() {
                 {panel.title}
               </h3>
 
-              <p className="text-gray-400 mb-6">
+              <p className="text-slate-600 mb-6">
                 {panel.description}
               </p>
 

@@ -27,7 +27,7 @@ const metrics = [
 
 export default function TrustMetrics() {
   return (
-    <section className="py-32 bg-slate-50 dark:bg-slate-950">
+    <section className="py-32 bg-slate-50">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -42,7 +42,7 @@ export default function TrustMetrics() {
             Depend On
           </h2>
 
-          <p className="text-slate-400 text-xl max-w-3xl mx-auto">
+          <p className="text-slate-600 text-xl max-w-3xl mx-auto">
             Built for reliability, performance and business continuity.
             Everything you need to operate with confidence.
           </p>
@@ -64,7 +64,7 @@ export default function TrustMetrics() {
                 {metric.label}
               </h3>
 
-              <p className="text-slate-400 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {metric.description}
               </p>
 

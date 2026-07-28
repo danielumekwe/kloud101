@@ -40,7 +40,7 @@ export default function DedicatedFaq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
       <div className="max-w-4xl mx-auto px-6">
 
         <div className="text-center mb-16">
@@ -48,7 +48,7 @@ export default function DedicatedFaq() {
             Frequently Asked Questions
           </h2>
 
-          <p className="text-gray-400">
+          <p className="text-slate-600">
             Common questions about dedicated servers.
           </p>
         </div>
@@ -58,7 +58,7 @@ export default function DedicatedFaq() {
           {faqs.map((faq, index) => (
             <div
               key={faq.question}
-              className="border border-slate-800 rounded-2xl overflow-hidden"
+              className="border border-slate-200 rounded-2xl overflow-hidden"
             >
               <button
                 onClick={() =>
@@ -78,7 +78,7 @@ export default function DedicatedFaq() {
               </button>
 
               {open === index && (
-                <div className="px-6 pb-6 text-gray-400">
+                <div className="px-6 pb-6 text-slate-600">
                   {faq.answer}
                 </div>
               )}

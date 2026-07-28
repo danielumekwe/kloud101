@@ -25,7 +25,7 @@ import {
 
 const STATUS_COLORS: Record<string, string> = {
   pending: "bg-yellow-500/10 border-yellow-500/20 text-yellow-400",
-  processing: "bg-blue-500/10 border-blue-500/20 text-blue-400",
+  processing: "bg-blue-500/10 border-blue-500/20 text-blue-600",
   completed: "bg-green-500/10 border-green-500/20 text-green-400",
   rejected: "bg-red-500/10 border-red-500/20 text-red-400",
 }
@@ -97,15 +97,15 @@ export default function AccountDeletionRequestsPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-xl font-bold text-white">Account Deletion Requests</h1>
-          <p className="text-sm text-slate-400 mt-1">
+          <h1 className="text-xl font-bold text-slate-900">Account Deletion Requests</h1>
+          <p className="text-sm text-slate-600 mt-1">
             Review and process user account deletion requests.
           </p>
         </div>
         <button
           onClick={() => load(page)}
           disabled={loading}
-          className="flex items-center gap-2 px-4 py-2 text-sm bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl border border-slate-700 transition-colors disabled:opacity-50"
+          className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-100 hover:bg-blue-200 text-slate-700 rounded-xl border border-slate-200 transition-colors disabled:opacity-50"
         >
           <RefreshCw className={cn("w-4 h-4", loading && "animate-spin")} />
           Refresh
@@ -124,12 +124,12 @@ export default function AccountDeletionRequestsPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
         {[
-          { label: "Total", value: total, color: "text-white" },
+          { label: "Total", value: total, color: "text-slate-900" },
           { label: "Awaiting review", value: pending, color: "text-yellow-400" },
-          { label: "In progress", value: processing, color: "text-blue-400" },
+          { label: "In progress", value: processing, color: "text-blue-600" },
           { label: "Completed", value: requests.filter((r) => r.status === "completed").length, color: "text-green-400" },
         ].map(({ label, value, color }) => (
-          <div key={label} className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+          <div key={label} className="bg-blue-50 border border-slate-200 rounded-xl p-4">
             <p className="text-xs text-slate-500 mb-1">{label}</p>
             <p className={cn("text-2xl font-bold", color)}>{value}</p>
           </div>
@@ -153,11 +153,11 @@ export default function AccountDeletionRequestsPage() {
           <p className="text-slate-500">No account deletion requests.</p>
         </div>
       ) : (
-        <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+        <div className="bg-blue-50 border border-slate-200 rounded-xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm min-w-[640px]">
               <thead>
-                <tr className="border-b border-slate-800">
+                <tr className="border-b border-slate-200">
                   {["User", "Status", "Submitted", "Notes", "Actions"].map((h) => (
                     <th key={h} className="text-left text-xs font-semibold text-slate-500 px-4 py-3">{h}</th>
                   ))}
@@ -165,10 +165,10 @@ export default function AccountDeletionRequestsPage() {
               </thead>
               <tbody>
                 {requests.map((req) => (
-                  <tr key={req.id} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30 transition-colors">
-                    <td className="px-4 py-3 text-white">{req.email}</td>
+                  <tr key={req.id} className="border-b border-slate-200 last:border-0 hover:bg-blue-100/30 transition-colors">
+                    <td className="px-4 py-3 text-slate-900">{req.email}</td>
                     <td className="px-4 py-3"><StatusBadge status={req.status} /></td>
-                    <td className="px-4 py-3 text-slate-400 text-xs whitespace-nowrap">
+                    <td className="px-4 py-3 text-slate-600 text-xs whitespace-nowrap">
                       {new Date(req.createdAt).toLocaleString()}
                     </td>
                     <td className="px-4 py-3 text-slate-500 text-xs max-w-[200px] truncate">
@@ -187,7 +187,7 @@ export default function AccountDeletionRequestsPage() {
                             <button
                               onClick={() => handleUpdate(req.id, "rejected")}
                               disabled={updating === req.id}
-                              className="px-2.5 py-1 text-xs bg-slate-800 border border-slate-700 text-slate-400 hover:bg-slate-700 rounded-lg transition-colors disabled:opacity-50"
+                              className="px-2.5 py-1 text-xs bg-blue-100 border border-slate-200 text-slate-600 hover:bg-blue-200 rounded-lg transition-colors disabled:opacity-50"
                             >
                               Reject
                             </button>
@@ -208,11 +208,11 @@ export default function AccountDeletionRequestsPage() {
           <p className="text-xs text-slate-500">Page {page} of {totalPages}</p>
           <div className="flex gap-2">
             <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1 || loading}
-              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-slate-800 border border-slate-700 text-slate-300 rounded-lg hover:bg-slate-700 disabled:opacity-40 transition-colors">
+              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-blue-100 border border-slate-200 text-slate-700 rounded-lg hover:bg-blue-200 disabled:opacity-40 transition-colors">
               <ChevronLeft className="w-4 h-4" /> Prev
             </button>
             <button onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages || loading}
-              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-slate-800 border border-slate-700 text-slate-300 rounded-lg hover:bg-slate-700 disabled:opacity-40 transition-colors">
+              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-blue-100 border border-slate-200 text-slate-700 rounded-lg hover:bg-blue-200 disabled:opacity-40 transition-colors">
               Next <ChevronRight className="w-4 h-4" />
             </button>
           </div>
@@ -223,24 +223,24 @@ export default function AccountDeletionRequestsPage() {
       {confirmReq && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Confirm deletion">
           <div className="absolute inset-0 bg-black/70" onClick={() => setConfirmReq(null)} aria-hidden="true" />
-          <div className="relative bg-slate-900 border border-red-900/50 rounded-2xl shadow-2xl p-6 max-w-md w-full">
+          <div className="relative bg-blue-50 border border-red-900/50 rounded-2xl shadow-2xl p-6 max-w-md w-full">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center gap-2">
                 <AlertTriangle className="w-5 h-5 text-red-400" />
-                <h3 className="font-semibold text-white">Confirm Account Deletion</h3>
+                <h3 className="font-semibold text-slate-900">Confirm Account Deletion</h3>
               </div>
-              <button onClick={() => setConfirmReq(null)} className="text-slate-400 hover:text-white">
+              <button onClick={() => setConfirmReq(null)} className="text-slate-600 hover:text-slate-900">
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <p className="text-sm text-slate-400 mb-4">
+            <p className="text-sm text-slate-600 mb-4">
               You are about to permanently delete the account for{" "}
-              <strong className="text-white">{confirmReq.email}</strong>. This cannot be undone.
+              <strong className="text-slate-900">{confirmReq.email}</strong>. This cannot be undone.
             </p>
 
             <div className="mb-4">
-              <label htmlFor="del-notes" className="block text-sm font-medium text-slate-400 mb-1.5">
+              <label htmlFor="del-notes" className="block text-sm font-medium text-slate-600 mb-1.5">
                 Admin notes (optional)
               </label>
               <textarea
@@ -248,7 +248,7 @@ export default function AccountDeletionRequestsPage() {
                 value={confirmNotes}
                 onChange={(e) => setConfirmNotes(e.target.value)}
                 rows={2}
-                className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 resize-none"
+                className="w-full px-3 py-2 bg-blue-100 border border-slate-200 rounded-lg text-sm text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-red-500 resize-none"
                 placeholder="Reason or notes…"
               />
             </div>
@@ -256,14 +256,14 @@ export default function AccountDeletionRequestsPage() {
             <div className="flex gap-3">
               <button
                 onClick={() => setConfirmReq(null)}
-                className="flex-1 py-2.5 text-sm border border-slate-700 text-slate-400 hover:bg-slate-800 rounded-xl transition-colors"
+                className="flex-1 py-2.5 text-sm border border-slate-200 text-slate-600 hover:bg-blue-100 rounded-xl transition-colors"
               >
                 Cancel
               </button>
               <button
                 onClick={() => handleUpdate(confirmReq.id, "completed", confirmNotes)}
                 disabled={updating === confirmReq.id}
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-xl disabled:opacity-60 transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-red-600 hover:bg-red-700 text-slate-900 text-sm font-medium rounded-xl disabled:opacity-60 transition-colors"
               >
                 {updating === confirmReq.id ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
                 Confirm deletion

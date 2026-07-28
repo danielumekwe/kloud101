@@ -8,11 +8,11 @@ import {
 
 export default function CloudHostingCta() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-white">
 
       <div className="max-w-6xl mx-auto px-6">
 
-        <div className="rounded-3xl border border-blue-500/30 bg-gradient-to-r from-blue-950/40 to-slate-950 p-12">
+        <div className="rounded-3xl border border-blue-500/30 bg-gradient-to-r from-blue-50 to-white p-12">
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
@@ -30,7 +30,7 @@ export default function CloudHostingCta() {
                 To The Cloud?
               </h2>
 
-              <p className="text-gray-400 text-lg mb-8">
+              <p className="text-slate-600 text-lg mb-8">
                 Launch websites, applications and online businesses
                 on reliable cloud infrastructure built for speed,
                 security and scalability.
@@ -47,7 +47,7 @@ export default function CloudHostingCta() {
 
                 <Link
                   href="/contact"
-                  className="border border-slate-700 hover:border-slate-500 px-8 py-4 rounded-xl font-semibold transition"
+                  className="border border-slate-200 hover:border-slate-300 px-8 py-4 rounded-xl font-semibold transition"
                 >
                   Contact Sales
                 </Link>
@@ -60,7 +60,7 @@ export default function CloudHostingCta() {
 
             <div className="grid sm:grid-cols-2 gap-4">
 
-              <div className="bg-black border border-slate-800 rounded-2xl p-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6">
 
                 <Cloud
                   size={40}
@@ -71,13 +71,13 @@ export default function CloudHostingCta() {
                   High Availability
                 </h3>
 
-                <p className="text-gray-400 text-sm">
+                <p className="text-slate-600 text-sm">
                   Reliable infrastructure designed for uptime.
                 </p>
 
               </div>
 
-              <div className="bg-black border border-slate-800 rounded-2xl p-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6">
 
                 <HardDrive
                   size={40}
@@ -88,13 +88,13 @@ export default function CloudHostingCta() {
                   Daily Backups
                 </h3>
 
-                <p className="text-gray-400 text-sm">
+                <p className="text-slate-600 text-sm">
                   Protect your data with automated backups.
                 </p>
 
               </div>
 
-              <div className="bg-black border border-slate-800 rounded-2xl p-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6">
 
                 <Shield
                   size={40}
@@ -105,13 +105,13 @@ export default function CloudHostingCta() {
                   Free SSL Security
                 </h3>
 
-                <p className="text-gray-400 text-sm">
+                <p className="text-slate-600 text-sm">
                   Secure websites and applications.
                 </p>
 
               </div>
 
-              <div className="bg-black border border-slate-800 rounded-2xl p-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6">
 
                 <Headphones
                   size={40}
@@ -122,7 +122,7 @@ export default function CloudHostingCta() {
                   24/7 Support
                 </h3>
 
-                <p className="text-gray-400 text-sm">
+                <p className="text-slate-600 text-sm">
                   Expert assistance whenever needed.
                 </p>
 

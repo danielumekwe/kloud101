@@ -8,7 +8,7 @@ export default function CloudHostingHero() {
   const { formatPrice } = useCurrency();
 
   return (
-    <section className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-24">
+    <section className="bg-gradient-to-r from-blue-50 via-white to-blue-50 py-24">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -27,11 +27,11 @@ export default function CloudHostingHero() {
               Built For Modern Businesses
             </h1>
 
-            <div className="max-w-xl bg-slate-900/70 backdrop-blur border border-slate-700 rounded-2xl p-8 mb-8">
+            <div className="max-w-xl bg-white/70 backdrop-blur border border-slate-200 rounded-2xl p-8 mb-8">
 
               <div className="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-3 mb-6">
 
-                <span className="text-gray-400 text-xl">
+                <span className="text-slate-600 text-xl">
                   Starts at
                 </span>
 
@@ -39,7 +39,7 @@ export default function CloudHostingHero() {
                   {formatPrice(9.99)}
                 </span>
 
-                <span className="text-gray-400 text-xl mb-1">
+                <span className="text-slate-600 text-xl mb-1">
                   /month
                 </span>
 
@@ -56,7 +56,7 @@ export default function CloudHostingHero() {
 
                 <Link
                   href="#plans"
-                  className="border border-slate-700 hover:border-slate-500 px-8 py-4 rounded-xl font-semibold transition"
+                  className="border border-slate-200 hover:border-slate-300 px-8 py-4 rounded-xl font-semibold transition"
                 >
                   Compare Plans
                 </Link>
@@ -65,7 +65,7 @@ export default function CloudHostingHero() {
 
             </div>
 
-            <p className="text-gray-400 text-lg max-w-2xl leading-relaxed mb-10">
+            <p className="text-slate-600 text-lg max-w-2xl leading-relaxed mb-10">
               Deploy websites, applications and business platforms on
               enterprise-grade cloud infrastructure with high availability,
               NVMe storage, daily backups and built-in security.
@@ -73,25 +73,25 @@ export default function CloudHostingHero() {
 
             <div className="grid grid-cols-2 gap-4">
 
-              <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+              <div className="bg-blue-50 border border-slate-200 rounded-xl p-4">
                 <div className="font-semibold">
                   99.9% Uptime
                 </div>
               </div>
 
-              <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+              <div className="bg-blue-50 border border-slate-200 rounded-xl p-4">
                 <div className="font-semibold">
                   NVMe SSD Storage
                 </div>
               </div>
 
-              <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+              <div className="bg-blue-50 border border-slate-200 rounded-xl p-4">
                 <div className="font-semibold">
                   Daily Backups
                 </div>
               </div>
 
-              <div className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+              <div className="bg-blue-50 border border-slate-200 rounded-xl p-4">
                 <div className="font-semibold">
                   Free SSL Certificates
                 </div>
@@ -116,9 +116,9 @@ export default function CloudHostingHero() {
                 className="object-contain"
               />
 
-              <div className="absolute top-10 left-0 bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl px-5 py-4">
+              <div className="absolute top-10 left-0 bg-white/90 backdrop-blur border border-slate-200 rounded-xl px-5 py-4">
 
-                <div className="text-sm text-gray-400">
+                <div className="text-sm text-slate-600">
                   Uptime
                 </div>
 
@@ -128,9 +128,9 @@ export default function CloudHostingHero() {
 
               </div>
 
-              <div className="absolute bottom-10 right-0 bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl px-5 py-4">
+              <div className="absolute bottom-10 right-0 bg-white/90 backdrop-blur border border-slate-200 rounded-xl px-5 py-4">
 
-                <div className="text-sm text-gray-400">
+                <div className="text-sm text-slate-600">
                   Storage
                 </div>
 

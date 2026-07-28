@@ -62,7 +62,7 @@ const features = [
 
 export default function BusinessEmailFeatures() {
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -77,7 +77,7 @@ export default function BusinessEmailFeatures() {
             For Professional Communication
           </h2>
 
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-slate-600 max-w-3xl mx-auto">
             Powerful business email tools designed to help your team
             communicate, collaborate and grow efficiently.
           </p>
@@ -89,7 +89,7 @@ export default function BusinessEmailFeatures() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="bg-black border border-slate-800 rounded-2xl p-6"
+              className="bg-white border border-slate-200 rounded-2xl p-6"
             >
               <feature.icon
                 size={42}
@@ -100,7 +100,7 @@ export default function BusinessEmailFeatures() {
                 {feature.title}
               </h3>
 
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-slate-600 text-sm leading-relaxed">
                 {feature.description}
               </p>
 

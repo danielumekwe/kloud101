@@ -82,7 +82,7 @@ function AnimatedBackground() {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
       {/* Base gradient */}
-      <div className="absolute inset-0 bg-[#030712]" />
+      <div className="absolute inset-0 bg-white" />
 
       {/* Grid overlay */}
       <div
@@ -100,7 +100,7 @@ function AnimatedBackground() {
       <div className="absolute bottom-[10%] left-[20%] w-[400px] h-[400px] rounded-full bg-cyan-500/6 blur-[100px] animate-pulse-slow" />
 
       {/* Subtle radial vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,#030712_100%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,#ffffff_100%)]" />
     </div>
   );
 }
@@ -115,15 +115,15 @@ interface FloatingCardProps {
 function FloatingCard({ icon, label, value, delay = "0s" }: FloatingCardProps) {
   return (
     <div
-      className="flex items-center gap-3 px-4 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md shadow-xl animate-float"
+      className="flex items-center gap-3 px-4 py-3 rounded-xl border border-slate-200 bg-blue-50 backdrop-blur-md shadow-xl animate-float"
       style={{ animationDelay: delay }}
     >
-      <div className="w-8 h-8 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 flex-shrink-0">
+      <div className="w-8 h-8 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-600 flex-shrink-0">
         {icon}
       </div>
       <div>
-        <p className="text-[10px] text-slate-400 uppercase tracking-wider font-medium">{label}</p>
-        <p className="text-sm text-white font-semibold leading-tight">{value}</p>
+        <p className="text-[10px] text-slate-600 uppercase tracking-wider font-medium">{label}</p>
+        <p className="text-sm text-slate-900 font-semibold leading-tight">{value}</p>
       </div>
     </div>
   );
@@ -143,18 +143,18 @@ function ContactCard({ icon, title, description, contact, href, cta, color }: Co
   return (
     <a
       href={href}
-      className="group relative flex flex-col gap-4 p-6 rounded-2xl border border-white/8 bg-white/[0.03] backdrop-blur-sm hover:bg-white/[0.07] hover:border-white/20 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      className="group relative flex flex-col gap-4 p-6 rounded-2xl border border-slate-200 bg-blue-50/60 backdrop-blur-sm hover:bg-blue-50/80 hover:border-blue-300 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
       aria-label={`${title}: ${contact}`}
     >
       <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${color} transition-transform duration-300 group-hover:scale-110`}>
         {icon}
       </div>
       <div className="flex-1">
-        <h3 className="text-white font-semibold text-base mb-1">{title}</h3>
-        <p className="text-slate-400 text-sm leading-relaxed mb-3">{description}</p>
-        <p className="text-blue-400 text-sm font-medium break-all">{contact}</p>
+        <h3 className="text-slate-900 font-semibold text-base mb-1">{title}</h3>
+        <p className="text-slate-600 text-sm leading-relaxed mb-3">{description}</p>
+        <p className="text-blue-600 text-sm font-medium break-all">{contact}</p>
       </div>
-      <span className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-300 group-hover:text-white transition-colors duration-200">
+      <span className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors duration-200">
         {cta}
         <svg className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -163,7 +163,7 @@ function ContactCard({ icon, title, description, contact, href, cta, color }: Co
 
       {/* Hover glow */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-        style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.08)" }} />
+        style={{ boxShadow: "inset 0 1px 0 rgba(15,23,42,0.06)" }} />
     </a>
   );
 }
@@ -195,12 +195,12 @@ function FloatingInput({ id, label, type = "text", value, onChange, required, au
         required={required}
         autoComplete={autoComplete}
         aria-label={label}
-        className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-transparent focus:outline-none focus:border-blue-500/70 focus:bg-white/8 transition-all duration-200 autofill:bg-white/5"
+        className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-blue-50 border border-slate-200 text-slate-900 text-sm placeholder-transparent focus:outline-none focus:border-blue-500/70 focus:bg-blue-50 transition-all duration-200 autofill:bg-blue-50"
         placeholder={label}
       />
       <label
         htmlFor={id}
-        className={`absolute left-4 pointer-events-none transition-all duration-200 ${active ? "top-2 text-[10px] text-blue-400 font-medium tracking-wide uppercase" : "top-1/2 -translate-y-1/2 text-sm text-slate-400"}`}
+        className={`absolute left-4 pointer-events-none transition-all duration-200 ${active ? "top-2 text-[10px] text-blue-600 font-medium tracking-wide uppercase" : "top-1/2 -translate-y-1/2 text-sm text-slate-600"}`}
       >
         {label}{required && <span className="text-blue-500 ml-0.5">*</span>}
       </label>
@@ -229,23 +229,23 @@ function FloatingSelect({ id, label, value, onChange, options, required }: Float
         onChange={onChange}
         required={required}
         aria-label={label}
-        className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-blue-500/70 focus:bg-white/8 transition-all duration-200 appearance-none cursor-pointer"
-        style={{ colorScheme: "dark" }}
+        className="peer w-full px-4 pt-6 pb-2 rounded-xl bg-blue-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-blue-500/70 focus:bg-blue-50 transition-all duration-200 appearance-none cursor-pointer"
+        style={{ colorScheme: "light" }}
       >
-        <option value="" disabled className="bg-[#0f172a] text-slate-400" />
+        <option value="" disabled className="bg-white text-slate-600" />
         {options.map((opt) => (
-          <option key={opt} value={opt} className="bg-[#0f172a] text-white">
+          <option key={opt} value={opt} className="bg-white text-slate-900">
             {opt}
           </option>
         ))}
       </select>
       <label
         htmlFor={id}
-        className={`absolute left-4 pointer-events-none transition-all duration-200 ${active ? "top-2 text-[10px] text-blue-400 font-medium tracking-wide uppercase" : "top-1/2 -translate-y-1/2 text-sm text-slate-400"}`}
+        className={`absolute left-4 pointer-events-none transition-all duration-200 ${active ? "top-2 text-[10px] text-blue-600 font-medium tracking-wide uppercase" : "top-1/2 -translate-y-1/2 text-sm text-slate-600"}`}
       >
         {label}{required && <span className="text-blue-500 ml-0.5">*</span>}
       </label>
-      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-slate-600">
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
@@ -280,11 +280,11 @@ function FloatingTextarea({ id, label, value, onChange, rows = 4, required }: Fl
         rows={rows}
         aria-label={label}
         placeholder={label}
-        className="peer w-full px-4 pt-7 pb-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm placeholder-transparent focus:outline-none focus:border-blue-500/70 focus:bg-white/8 transition-all duration-200 resize-none"
+        className="peer w-full px-4 pt-7 pb-3 rounded-xl bg-blue-50 border border-slate-200 text-slate-900 text-sm placeholder-transparent focus:outline-none focus:border-blue-500/70 focus:bg-blue-50 transition-all duration-200 resize-none"
       />
       <label
         htmlFor={id}
-        className={`absolute left-4 pointer-events-none transition-all duration-200 ${active ? "top-2 text-[10px] text-blue-400 font-medium tracking-wide uppercase" : "top-4 text-sm text-slate-400"}`}
+        className={`absolute left-4 pointer-events-none transition-all duration-200 ${active ? "top-2 text-[10px] text-blue-600 font-medium tracking-wide uppercase" : "top-4 text-sm text-slate-600"}`}
       >
         {label}{required && <span className="text-blue-500 ml-0.5">*</span>}
       </label>
@@ -532,13 +532,13 @@ export default function ContactPage() {
         input:-webkit-autofill,
         input:-webkit-autofill:hover,
         input:-webkit-autofill:focus {
-          -webkit-box-shadow: 0 0 0px 1000px rgba(255,255,255,0.05) inset;
+          -webkit-box-shadow: 0 0 0px 1000px rgba(239,246,255,0.6) inset;
           -webkit-text-fill-color: #fff;
           transition: background-color 5000s ease-in-out 0s;
         }
       `}</style>
 
-      <div className="relative min-h-screen bg-[#030712] dark:bg-[#030712] text-white antialiased">
+      <div className="relative min-h-screen bg-white text-slate-900 antialiased">
         <AnimatedBackground />
 
         <div className="relative z-10">
@@ -555,7 +555,7 @@ export default function ContactPage() {
                   {/* Badge */}
                   <div className="inline-flex items-center gap-2.5 self-start px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                    <span className="text-xs font-semibold text-blue-300 tracking-wider uppercase">
+                    <span className="text-xs font-semibold text-slate-600 tracking-wider uppercase">
                       Kloud101 Contact Center
                     </span>
                   </div>
@@ -563,14 +563,14 @@ export default function ContactPage() {
                   {/* Headline */}
                   <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight">
                     Talk To{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600">
                       Cloud Infrastructure
                     </span>{" "}
                     Experts
                   </h1>
 
                   {/* Sub-headline */}
-                  <p className="text-slate-400 text-lg leading-relaxed max-w-xl">
+                  <p className="text-slate-600 text-lg leading-relaxed max-w-xl">
                     Whether you&apos;re launching a startup, migrating enterprise workloads,
                     scaling a SaaS platform, or building a hosting business, our cloud
                     specialists are ready to help.
@@ -587,7 +587,7 @@ export default function ContactPage() {
                     </a>
                     <a
                       href="#contact-form"
-                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 hover:border-white/25 text-white font-semibold text-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-slate-200 bg-blue-50 hover:bg-blue-100 hover:border-blue-300 text-slate-900 font-semibold text-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200"
                     >
                       <IconClock />
                       Schedule Consultation
@@ -643,9 +643,9 @@ export default function ContactPage() {
           <section className="py-20 px-4" aria-label="Contact methods">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-14" data-reveal>
-                <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-3">Get In Touch</p>
-                <h2 className="text-3xl font-bold text-white">Choose Your Channel</h2>
-                <p className="text-slate-400 mt-3 max-w-xl mx-auto">
+                <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3">Get In Touch</p>
+                <h2 className="text-3xl font-bold text-slate-900">Choose Your Channel</h2>
+                <p className="text-slate-600 mt-3 max-w-xl mx-auto">
                   Every team at Kloud101 is standing by. Pick the best route for your query.
                 </p>
               </div>
@@ -658,7 +658,7 @@ export default function ContactPage() {
                   contact="sales@kloud101.com"
                   href="mailto:sales@kloud101.com"
                   cta="Email Sales"
-                  color="bg-blue-500/20 border border-blue-500/30 text-blue-400"
+                  color="bg-blue-500/20 border border-blue-500/30 text-blue-600"
                 />
                 <ContactCard
                   icon={<IconHeadset />}
@@ -707,16 +707,16 @@ export default function ContactPage() {
             <div className="max-w-4xl mx-auto">
               {/* Section header */}
               <div className="text-center mb-14" data-reveal>
-                <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-3">Send A Message</p>
-                <h2 className="text-3xl font-bold text-white">Tell Us About Your Project</h2>
-                <p className="text-slate-400 mt-3 max-w-xl mx-auto">
+                <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3">Send A Message</p>
+                <h2 className="text-3xl font-bold text-slate-900">Tell Us About Your Project</h2>
+                <p className="text-slate-600 mt-3 max-w-xl mx-auto">
                   Complete the form below and a cloud specialist will respond within one business day.
                 </p>
               </div>
 
               {/* Form card */}
               <div
-                className="relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm overflow-hidden p-8 md:p-10"
+                className="relative rounded-2xl border border-slate-200 bg-blue-50/60 backdrop-blur-sm overflow-hidden p-8 md:p-10"
                 data-reveal
               >
                 {/* Top accent line */}
@@ -729,13 +729,13 @@ export default function ContactPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-white">Message Sent Successfully</h3>
-                    <p className="text-slate-400 max-w-sm">
+                    <h3 className="text-xl font-bold text-slate-900">Message Sent Successfully</h3>
+                    <p className="text-slate-600 max-w-sm">
                       Thanks for reaching out. A Kloud101 specialist will contact you within one business day.
                     </p>
                     <button
                       onClick={() => setFormStatus("idle")}
-                      className="mt-2 px-5 py-2 rounded-lg border border-white/15 bg-white/5 hover:bg-white/10 text-sm text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                      className="mt-2 px-5 py-2 rounded-lg border border-slate-200 bg-blue-50 hover:bg-blue-100 text-sm text-slate-900 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                     >
                       Send Another Message
                     </button>
@@ -892,9 +892,9 @@ export default function ContactPage() {
           <section className="py-20 px-4" aria-label="Office locations">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-14" data-reveal>
-                <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-3">Where We Operate</p>
-                <h2 className="text-3xl font-bold text-white">Global Presence</h2>
-                <p className="text-slate-400 mt-3 max-w-xl mx-auto">
+                <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3">Where We Operate</p>
+                <h2 className="text-3xl font-bold text-slate-900">Global Presence</h2>
+                <p className="text-slate-600 mt-3 max-w-xl mx-auto">
                   Kloud101 operates data centres and support teams across three continents to ensure low-latency, high-availability infrastructure wherever your users are.
                 </p>
               </div>
@@ -934,24 +934,24 @@ export default function ContactPage() {
                 ].map(({ flag, country, region, coverage, hours, services, color, border }) => (
                   <div
                     key={country}
-                    className={`relative rounded-2xl border ${border} bg-white/[0.03] overflow-hidden p-6 hover:bg-white/[0.06] transition-all duration-300 group`}
+                    className={`relative rounded-2xl border ${border} bg-blue-50/60 overflow-hidden p-6 hover:bg-blue-50/70 transition-all duration-300 group`}
                   >
                     {/* gradient blob */}
                     <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${color} rounded-bl-full opacity-60 pointer-events-none`} />
 
                     <div className="relative">
                       <span className="text-4xl mb-4 block" role="img" aria-label={country}>{flag}</span>
-                      <h3 className="text-white font-bold text-xl mb-0.5">{country}</h3>
-                      <p className="text-blue-400 text-sm font-medium mb-5">{region}</p>
+                      <h3 className="text-slate-900 font-bold text-xl mb-0.5">{country}</h3>
+                      <p className="text-blue-600 text-sm font-medium mb-5">{region}</p>
 
                       <div className="space-y-3 mb-5">
-                        <div className="flex items-center gap-2 text-sm text-slate-400">
+                        <div className="flex items-center gap-2 text-sm text-slate-600">
                           <IconGlobe />
-                          <span>Coverage: <strong className="text-slate-200">{coverage}</strong></span>
+                          <span>Coverage: <strong className="text-slate-700">{coverage}</strong></span>
                         </div>
-                        <div className="flex items-center gap-2 text-sm text-slate-400">
+                        <div className="flex items-center gap-2 text-sm text-slate-600">
                           <IconClock />
-                          <span>Hours: <strong className="text-slate-200">{hours}</strong></span>
+                          <span>Hours: <strong className="text-slate-700">{hours}</strong></span>
                         </div>
                       </div>
 
@@ -959,7 +959,7 @@ export default function ContactPage() {
                         <p className="text-[11px] uppercase tracking-widest text-slate-500 mb-2 font-semibold">Services Available</p>
                         <div className="flex flex-wrap gap-1.5">
                           {services.map((s) => (
-                            <span key={s} className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-white/5 border border-white/10 text-slate-300">
+                            <span key={s} className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-blue-50 border border-slate-200 text-slate-700">
                               {s}
                             </span>
                           ))}
@@ -978,9 +978,9 @@ export default function ContactPage() {
           <section className="py-20 px-4" aria-label="Why Kloud101">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-14" data-reveal>
-                <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest mb-3">Our Advantages</p>
-                <h2 className="text-3xl font-bold text-white">Why Contact Kloud101?</h2>
-                <p className="text-slate-400 mt-3 max-w-xl mx-auto">
+                <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3">Our Advantages</p>
+                <h2 className="text-3xl font-bold text-slate-900">Why Contact Kloud101?</h2>
+                <p className="text-slate-600 mt-3 max-w-xl mx-auto">
                   We don&apos;t just sell cloud services — we architect long-term infrastructure strategies with you.
                 </p>
               </div>
@@ -991,7 +991,7 @@ export default function ContactPage() {
                     icon: <IconUsers />,
                     title: "Cloud Experts",
                     description: "Certified engineers with deep expertise across AWS-compatible, bare-metal, and managed cloud stacks.",
-                    color: "text-blue-400",
+                    color: "text-blue-600",
                     bg: "bg-blue-500/10 border-blue-500/20",
                   },
                   {
@@ -1032,14 +1032,14 @@ export default function ContactPage() {
                 ].map(({ icon, title, description, color, bg }) => (
                   <div
                     key={title}
-                    className="group flex gap-4 p-6 rounded-2xl border border-white/8 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/15 transition-all duration-300"
+                    className="group flex gap-4 p-6 rounded-2xl border border-slate-200 bg-blue-50/50 hover:bg-blue-50/70 hover:border-blue-300 transition-all duration-300"
                   >
                     <div className={`w-11 h-11 rounded-xl border flex items-center justify-center flex-shrink-0 ${bg} ${color} transition-transform duration-300 group-hover:scale-110`}>
                       {icon}
                     </div>
                     <div>
-                      <h3 className="text-white font-semibold mb-1.5">{title}</h3>
-                      <p className="text-slate-400 text-sm leading-relaxed">{description}</p>
+                      <h3 className="text-slate-900 font-semibold mb-1.5">{title}</h3>
+                      <p className="text-slate-600 text-sm leading-relaxed">{description}</p>
                     </div>
                   </div>
                 ))}
@@ -1052,16 +1052,16 @@ export default function ContactPage() {
           ══════════════════════════════════════════════════════════════════ */}
           <section className="py-20 px-4" aria-label="Call to action">
             <div className="max-w-4xl mx-auto" data-reveal>
-              <div className="relative rounded-3xl overflow-hidden border border-blue-500/25 bg-gradient-to-br from-blue-900/30 via-indigo-900/20 to-[#030712] p-12 text-center">
+              <div className="relative rounded-3xl overflow-hidden border border-blue-500/25 bg-gradient-to-br from-blue-50 via-indigo-50 to-white p-12 text-center">
                 {/* Background glows */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-blue-600/20 blur-[80px] rounded-full pointer-events-none" />
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-indigo-600/15 blur-[60px] rounded-full pointer-events-none" />
 
                 {/* Grid overlay */}
                 <div
-                  className="absolute inset-0 opacity-[0.03]"
+                  className="absolute inset-0 opacity-[0.04]"
                   style={{
-                    backgroundImage: "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+                    backgroundImage: "linear-gradient(rgba(37,99,235,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.5) 1px, transparent 1px)",
                     backgroundSize: "40px 40px",
                   }}
                 />
@@ -1069,16 +1069,16 @@ export default function ContactPage() {
                 <div className="relative">
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 mb-6">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                    <span className="text-xs font-semibold text-blue-300 uppercase tracking-wider">Get Started Today</span>
+                    <span className="text-xs font-semibold text-slate-600 uppercase tracking-wider">Get Started Today</span>
                   </div>
 
-                  <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                  <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
                     Ready To Build On{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
                       Better Infrastructure?
                     </span>
                   </h2>
-                  <p className="text-slate-400 text-lg mb-10 max-w-xl mx-auto">
+                  <p className="text-slate-600 text-lg mb-10 max-w-xl mx-auto">
                     Let&apos;s design the perfect cloud environment for your business.
                   </p>
 
@@ -1094,7 +1094,7 @@ export default function ContactPage() {
                     </a>
                     <a
                       href="#contact-form"
-                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 hover:border-white/30 text-white font-semibold text-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+                      className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-slate-200 bg-blue-50 hover:bg-blue-100 hover:border-blue-300 text-slate-900 font-semibold text-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200"
                     >
                       Request Proposal
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -1104,15 +1104,15 @@ export default function ContactPage() {
                   </div>
 
                   {/* Trust markers */}
-                  <div className="flex flex-wrap justify-center gap-6 mt-10 pt-8 border-t border-white/8">
+                  <div className="flex flex-wrap justify-center gap-6 mt-10 pt-8 border-t border-slate-200">
                     {[
                       { icon: <IconShield />, text: "SOC 2 Compliant" },
                       { icon: <IconCheck />, text: "99.99% SLA" },
                       { icon: <IconClock />, text: "24/7 Response" },
                       { icon: <IconGlobe />, text: "Global CDN" },
                     ].map(({ icon, text }) => (
-                      <div key={text} className="flex items-center gap-1.5 text-slate-400 text-sm">
-                        <span className="text-blue-400">{icon}</span>
+                      <div key={text} className="flex items-center gap-1.5 text-slate-600 text-sm">
+                        <span className="text-blue-600">{icon}</span>
                         {text}
                       </div>
                     ))}

@@ -34,7 +34,7 @@ export default function Features() {
           Why Choose Kloud101
         </h2>
 
-        <p className="text-center text-gray-400 mb-16">
+        <p className="text-center text-slate-600 mb-16">
           Built for developers, agencies and businesses.
         </p>
 
@@ -42,13 +42,13 @@ export default function Features() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="border border-gray-800 rounded-2xl p-8"
+              className="border border-slate-200 rounded-2xl p-8"
             >
               <h3 className="text-2xl font-semibold mb-4">
                 {feature.title}
               </h3>
 
-              <p className="text-gray-400">
+              <p className="text-slate-600">
                 {feature.description}
               </p>
             </div>

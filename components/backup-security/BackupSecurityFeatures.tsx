@@ -62,7 +62,7 @@ const features = [
 
 export default function BackupSecurityFeatures() {
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
       <div className="max-w-7xl mx-auto px-6">
         
         <div className="text-center mb-16">
@@ -76,7 +76,7 @@ export default function BackupSecurityFeatures() {
             For Your Business
           </h2>
 
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-slate-600 max-w-3xl mx-auto">
             Secure your websites, applications and business data
             with enterprise-grade backup and security solutions.
           </p>
@@ -91,7 +91,7 @@ export default function BackupSecurityFeatures() {
             return (
               <div
                 key={feature.title}
-                className="bg-black border border-slate-800 rounded-2xl p-6 hover:border-blue-500 transition"
+                className="bg-white border border-slate-200 rounded-2xl p-6 hover:border-blue-500 transition"
               >
                 <Icon
                   size={42}
@@ -102,7 +102,7 @@ export default function BackupSecurityFeatures() {
                   {feature.title}
                 </h3>
 
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-slate-600 text-sm leading-relaxed">
                   {feature.description}
                 </p>
               </div>

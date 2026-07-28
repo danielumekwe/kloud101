@@ -48,7 +48,7 @@ const useCases = [
 
 export default function VpsUseCases() {
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -64,7 +64,7 @@ export default function VpsUseCases() {
             your own virtual server.
           </h2>
 
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-3xl mx-auto">
             Cloud VPS is ideal when you need complete control over
             applications, operating systems and resource allocation.
           </p>
@@ -76,7 +76,7 @@ export default function VpsUseCases() {
           {useCases.map((item) => (
             <div
               key={item.title}
-              className="bg-slate-900 border border-slate-800 rounded-xl p-8 hover:border-blue-500 transition"
+              className="bg-blue-50 border border-slate-200 rounded-xl p-8 hover:border-blue-500 transition"
             >
               <item.icon
                 size={42}
@@ -87,7 +87,7 @@ export default function VpsUseCases() {
                 {item.title}
               </h3>
 
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {item.description}
               </p>
 

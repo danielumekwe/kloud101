@@ -50,7 +50,7 @@ export default function BusinessEmailFaq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-slate-950" id="faq">
+    <section className="py-24 bg-blue-50" id="faq">
 
       <div className="max-w-4xl mx-auto px-6">
 
@@ -64,7 +64,7 @@ export default function BusinessEmailFaq() {
             Business Email FAQ
           </h2>
 
-          <p className="text-gray-400">
+          <p className="text-slate-600">
             Answers to common questions about our business email hosting service.
           </p>
 
@@ -75,7 +75,7 @@ export default function BusinessEmailFaq() {
           {faqs.map((faq, index) => (
             <div
               key={faq.question}
-              className="border border-slate-800 rounded-2xl overflow-hidden bg-black"
+              className="border border-slate-200 rounded-2xl overflow-hidden bg-white"
             >
               <button
                 onClick={() =>
@@ -95,7 +95,7 @@ export default function BusinessEmailFaq() {
               </button>
 
               {openIndex === index && (
-                <div className="px-6 pb-6 text-gray-400 leading-relaxed">
+                <div className="px-6 pb-6 text-slate-600 leading-relaxed">
                   {faq.answer}
                 </div>
               )}

@@ -56,7 +56,7 @@ const services = [
 
 export default function ServiceCards() {
   return (
-    <section className="py-24 bg-slate-50 dark:bg-slate-950">
+    <section className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center mb-16">
@@ -65,11 +65,11 @@ export default function ServiceCards() {
             Cloud Services
           </span>
 
-          <h2 className="text-5xl font-bold text-slate-900 dark:text-white mt-4 mb-4">
+          <h2 className="text-5xl font-bold text-slate-900 mt-4 mb-4">
             Infrastructure Built For Growth
           </h2>
 
-          <p className="text-slate-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-slate-600 max-w-3xl mx-auto">
             Everything your business needs to launch, grow and scale online —
             from managed infrastructure to business communication and security.
           </p>
@@ -85,7 +85,7 @@ export default function ServiceCards() {
               <Link
                 key={service.title}
                 href={service.link}
-                className="group bg-white dark:bg-black border border-slate-200 dark:border-slate-800 rounded-3xl p-8 hover:border-blue-500 transition-all duration-300"
+                className="group bg-white border border-slate-200 rounded-3xl p-8 hover:border-blue-500 transition-all duration-300"
               >
                 <div className="w-14 h-14 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6">
 
@@ -96,11 +96,11 @@ export default function ServiceCards() {
 
                 </div>
 
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
                   {service.title}
                 </h3>
 
-                <p className="text-slate-600 dark:text-gray-400 leading-relaxed mb-8">
+                <p className="text-slate-600 leading-relaxed mb-8">
                   {service.description}
                 </p>
 

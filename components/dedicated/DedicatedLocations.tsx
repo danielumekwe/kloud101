@@ -9,7 +9,7 @@ const locations = [
 
 export default function DedicatedLocations() {
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center mb-16">
@@ -17,7 +17,7 @@ export default function DedicatedLocations() {
             Global Data Centers
           </h2>
 
-          <p className="text-gray-400">
+          <p className="text-slate-600">
             Deploy dedicated servers closer to your customers.
           </p>
         </div>
@@ -27,7 +27,7 @@ export default function DedicatedLocations() {
           {locations.map((location) => (
             <div
               key={location}
-              className="border border-slate-800 rounded-2xl p-8 text-center bg-black"
+              className="border border-slate-200 rounded-2xl p-8 text-center bg-white"
             >
               <h3 className="font-semibold text-lg">
                 {location}

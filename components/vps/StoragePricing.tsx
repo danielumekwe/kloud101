@@ -43,7 +43,7 @@ export default function StoragePricing() {
             Storage VPS Plans
           </h2>
 
-          <p className="text-gray-400 mt-4">
+          <p className="text-slate-600 mt-4">
             Scale storage as your data grows.
           </p>
 
@@ -54,7 +54,7 @@ export default function StoragePricing() {
           {plans.map((plan) => (
             <div
               key={plan.slices}
-              className="bg-slate-950 border border-slate-800 rounded-2xl p-8"
+              className="bg-blue-50 border border-slate-200 rounded-2xl p-8"
             >
               <h3 className="text-2xl font-bold mb-4">
                 {plan.slices}
@@ -62,12 +62,12 @@ export default function StoragePricing() {
 
               <div className="flex flex-wrap items-end gap-2 text-5xl font-bold text-blue-500 mb-6">
                 <span>{formatPrice(plan.price)}</span>
-                <span className="text-lg text-gray-400">
+                <span className="text-lg text-slate-600">
                   /mo
                 </span>
               </div>
 
-              <div className="space-y-3 text-gray-400">
+              <div className="space-y-3 text-slate-600">
                 <p>{plan.ram}</p>
                 <p>{plan.transfer}</p>
               </div>

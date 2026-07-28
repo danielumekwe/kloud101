@@ -3,8 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import { CurrencyProvider } from "@/context/CurrencyContext";
-import { ThemeProvider } from "@/context/ThemeContext";
-import ThemeToggle from "@/components/ThemeToggle";
 import CookieBanner from "@/components/legal/CookieBanner";
 
 const geistSans = Geist({
@@ -34,24 +32,14 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('kloud101-theme')||'dark';if(t==='dark')document.documentElement.classList.add('dark');})();`,
-          }}
-        />
-      </head>
       <body
         suppressHydrationWarning
         className="min-h-full flex flex-col"
       >
-        <ThemeProvider>
-          <CurrencyProvider>
-            {children}
-            <ThemeToggle />
-            <CookieBanner />
-          </CurrencyProvider>
-        </ThemeProvider>
+        <CurrencyProvider>
+          {children}
+          <CookieBanner />
+        </CurrencyProvider>
       </body>
     </html>
   );

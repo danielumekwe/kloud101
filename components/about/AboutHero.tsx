@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function AboutHero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-slate-950 via-black to-black py-24 lg:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white py-24 lg:py-32">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -13,7 +13,7 @@ export default function AboutHero() {
 
           <div>
 
-            <span className="inline-flex items-center px-4 py-2 rounded-full border border-blue-500/30 text-blue-400 mb-8">
+            <span className="inline-flex items-center px-4 py-2 rounded-full border border-blue-500/30 text-blue-600 mb-8">
               About Kloud101
             </span>
 
@@ -23,7 +23,7 @@ export default function AboutHero() {
             
             </h1>
 
-            <p className="text-xl text-gray-400 leading-relaxed max-w-2xl mb-10">
+            <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mb-10">
               Kloud101 delivers cloud VPS hosting, dedicated servers,
               web hosting, email hosting and enterprise infrastructure
               solutions designed for developers, agencies and businesses
@@ -41,7 +41,7 @@ export default function AboutHero() {
 
               <Link
                 href="/vps"
-                className="border border-slate-700 hover:border-slate-500 px-8 py-4 rounded-xl font-semibold transition"
+                className="border border-slate-200 hover:border-slate-300 px-8 py-4 rounded-xl font-semibold transition"
               >
                 Explore Services
               </Link>
@@ -65,9 +65,9 @@ export default function AboutHero() {
                 className="object-contain"
               />
 
-              <div className="absolute top-10 left-0 bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl px-5 py-4">
+              <div className="absolute top-10 left-0 bg-white/90 backdrop-blur border border-slate-200 rounded-xl px-5 py-4">
 
-                <div className="text-sm text-gray-400">
+                <div className="text-sm text-slate-600">
                   Uptime
                 </div>
 
@@ -77,9 +77,9 @@ export default function AboutHero() {
 
               </div>
 
-              <div className="absolute bottom-10 right-0 bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl px-5 py-4">
+              <div className="absolute bottom-10 right-0 bg-white/90 backdrop-blur border border-slate-200 rounded-xl px-5 py-4">
 
-                <div className="text-sm text-gray-400">
+                <div className="text-sm text-slate-600">
                   Support
                 </div>
 

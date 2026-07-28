@@ -62,7 +62,7 @@ const benefits = [
 
 export default function CloudHostingBenefits() {
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -76,7 +76,7 @@ export default function CloudHostingBenefits() {
             Enterprise Features Built In
           </h2>
 
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-slate-600 max-w-3xl mx-auto">
             Everything you need to host websites, applications and
             business workloads on a modern cloud platform.
           </p>
@@ -88,7 +88,7 @@ export default function CloudHostingBenefits() {
           {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="bg-black border border-slate-800 rounded-2xl p-6"
+              className="bg-white border border-slate-200 rounded-2xl p-6"
             >
               <benefit.icon
                 size={40}
@@ -99,7 +99,7 @@ export default function CloudHostingBenefits() {
                 {benefit.title}
               </h3>
 
-              <p className="text-gray-400 text-sm leading-relaxed">
+              <p className="text-slate-600 text-sm leading-relaxed">
                 {benefit.description}
               </p>
 

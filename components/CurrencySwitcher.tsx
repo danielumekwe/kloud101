@@ -14,10 +14,10 @@ e.target.value as "NGN" | "USD" | "GBP" | "EUR"
 )
 }
 className="
-bg-slate-900
+bg-blue-50
 border
-border-slate-700
-text-white
+border-slate-200
+text-slate-900
 rounded-lg
 px-3
 py-2

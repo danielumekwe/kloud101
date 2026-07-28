@@ -34,7 +34,7 @@ const items = [
 
 export default function AboutHighlights() {
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
       <div className="max-w-6xl mx-auto px-6">
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -42,7 +42,7 @@ export default function AboutHighlights() {
           {items.map((item) => (
             <div
               key={item.title}
-              className="bg-black border border-slate-800 rounded-2xl p-8"
+              className="bg-white border border-slate-200 rounded-2xl p-8"
             >
               <item.icon
                 size={40}
@@ -53,7 +53,7 @@ export default function AboutHighlights() {
                 {item.title}
               </h3>
 
-              <p className="text-gray-400 mb-6">
+              <p className="text-slate-600 mb-6">
                 {item.description}
               </p>
 

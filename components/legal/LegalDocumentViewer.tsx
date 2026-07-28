@@ -66,7 +66,7 @@ function highlightSearch(html: string, query: string): string {
   const regex = new RegExp(`(${escaped})`, "gi")
   return html.replace(
     regex,
-    '<mark class="bg-yellow-300 dark:bg-yellow-600 text-slate-900 dark:text-white rounded px-0.5">$1</mark>'
+    '<mark class="bg-yellow-300 text-slate-900 rounded px-0.5">$1</mark>'
   )
 }
 
@@ -224,7 +224,7 @@ export default function LegalDocumentViewer({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white dark:bg-black">
+      <div className="min-h-screen bg-white">
         <Navbar />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="flex flex-col items-center gap-4 text-slate-500">
@@ -241,15 +241,15 @@ export default function LegalDocumentViewer({
 
   if (error || !doc) {
     return (
-      <div className="min-h-screen bg-white dark:bg-black">
+      <div className="min-h-screen bg-white">
         <Navbar />
         <div className="flex items-center justify-center min-h-[60vh] px-6">
           <div className="flex flex-col items-center gap-4 text-center max-w-md">
             <AlertCircle className="w-12 h-12 text-red-500" />
-            <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
+            <h1 className="text-2xl font-bold text-slate-900">
               {fallbackTitle ?? slug.replace(/-/g, " ")}
             </h1>
-            <p className="text-slate-500 dark:text-slate-400">
+            <p className="text-slate-500">
               {error ?? "Document unavailable."}
             </p>
             <Link
@@ -268,13 +268,13 @@ export default function LegalDocumentViewer({
   // ─── Main Render ──────────────────────────────────────────────────────────
 
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
+    <div className="min-h-screen bg-white">
       <ReadingProgress />
       <Navbar />
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
 
-      <section className="relative bg-slate-950 text-white overflow-hidden print:hidden">
+      <section className="relative bg-blue-50 text-slate-900 overflow-hidden print:hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -288,37 +288,37 @@ export default function LegalDocumentViewer({
 
         <div className="relative max-w-7xl mx-auto px-6 py-20">
           <nav
-            className="flex items-center gap-2 text-sm text-slate-400 mb-6"
+            className="flex items-center gap-2 text-sm text-slate-600 mb-6"
             aria-label="Breadcrumb"
           >
-            <Link href="/" className="hover:text-white transition-colors">
+            <Link href="/" className="hover:text-slate-900 transition-colors">
               Home
             </Link>
             <ChevronRight className="w-3 h-3" />
-            <span className="text-slate-300">{category}</span>
+            <span className="text-slate-700">{category}</span>
             <ChevronRight className="w-3 h-3" />
-            <span className="text-white">{doc.title}</span>
+            <span className="text-slate-900">{doc.title}</span>
           </nav>
 
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center flex-shrink-0">
-              <FileText className="w-6 h-6 text-blue-400" />
+              <FileText className="w-6 h-6 text-blue-600" />
             </div>
             <div>
               <h1 className="text-3xl sm:text-4xl font-bold mb-4">
                 {doc.title}
               </h1>
-              <div className="flex flex-wrap gap-4 text-sm text-slate-400">
+              <div className="flex flex-wrap gap-4 text-sm text-slate-600">
                 <span className="flex items-center gap-1.5">
-                  <Calendar className="w-4 h-4 text-blue-400" />
+                  <Calendar className="w-4 h-4 text-blue-600" />
                   Effective: {new Date(doc.effectiveDate).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-blue-400" />
+                  <Clock className="w-4 h-4 text-blue-600" />
                   Updated: {new Date(doc.lastUpdated).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Tag className="w-4 h-4 text-blue-400" />
+                  <Tag className="w-4 h-4 text-blue-600" />
                   Version {doc.version}
                 </span>
               </div>
@@ -340,7 +340,7 @@ export default function LegalDocumentViewer({
             <div className="lg:hidden mb-6">
               <button
                 onClick={() => setTocOpen((v) => !v)}
-                className="w-full flex items-center justify-between px-4 py-3 bg-slate-100 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 text-sm font-medium text-slate-700 dark:text-slate-300"
+                className="w-full flex items-center justify-between px-4 py-3 bg-slate-100 rounded-xl border border-slate-200 text-sm font-medium text-slate-700"
                 aria-expanded={tocOpen}
                 aria-controls="toc-panel"
               >
@@ -358,7 +358,7 @@ export default function LegalDocumentViewer({
               {tocOpen && (
                 <nav
                   id="toc-panel"
-                  className="mt-2 p-4 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800"
+                  className="mt-2 p-4 bg-slate-50 rounded-xl border border-slate-200"
                   aria-label="Table of contents"
                 >
                   <TOCList
@@ -375,7 +375,7 @@ export default function LegalDocumentViewer({
 
               {/* Search */}
               <div className="relative mb-6">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" aria-hidden="true" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-600 pointer-events-none" aria-hidden="true" />
                 <input
                   ref={searchRef}
                   type="search"
@@ -384,12 +384,12 @@ export default function LegalDocumentViewer({
                   onKeyDown={handleSearchKey}
                   placeholder="Search document…"
                   aria-label="Search within document"
-                  className="w-full pl-9 pr-4 py-2.5 text-sm bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                  className="w-full pl-9 pr-4 py-2.5 text-sm bg-slate-100 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 />
                 {search && (
                   <button
                     onClick={() => setSearch("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-900"
                     aria-label="Clear search"
                   >
                     <X className="w-4 h-4" />
@@ -398,7 +398,7 @@ export default function LegalDocumentViewer({
               </div>
 
               {search && (
-                <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 px-1">
+                <p className="text-xs text-slate-500 mb-4 px-1">
                   {matchCount === 0
                     ? "No matches found"
                     : `${matchCount} match${matchCount !== 1 ? "es" : ""} found`}
@@ -411,7 +411,7 @@ export default function LegalDocumentViewer({
                   className="mb-6"
                   aria-label="Table of contents"
                 >
-                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-3 px-1">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-slate-600 mb-3 px-1">
                     Contents
                   </p>
                   <TOCList
@@ -423,10 +423,10 @@ export default function LegalDocumentViewer({
               )}
 
               {/* Actions */}
-              <div className="border-t border-slate-200 dark:border-slate-800 pt-6 space-y-2">
+              <div className="border-t border-slate-200 pt-6 space-y-2">
                 <button
                   onClick={handlePrint}
-                  className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900 rounded-lg transition-colors"
+                  className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
                 >
                   <Printer className="w-4 h-4" />
                   Print this document
@@ -434,7 +434,7 @@ export default function LegalDocumentViewer({
 
                 <button
                   onClick={handleCopyLink}
-                  className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900 rounded-lg transition-colors"
+                  className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
                 >
                   {copied ? (
                     <Check className="w-4 h-4 text-green-500" />
@@ -446,7 +446,7 @@ export default function LegalDocumentViewer({
 
                 <button
                   onClick={handleShare}
-                  className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900 rounded-lg transition-colors"
+                  className="w-full flex items-center gap-2.5 px-3 py-2 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition-colors"
                 >
                   {shared ? (
                     <Check className="w-4 h-4 text-green-500" />
@@ -466,7 +466,7 @@ export default function LegalDocumentViewer({
             {/* Mobile search */}
             <div className="lg:hidden mb-6 print:hidden">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" aria-hidden="true" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-600 pointer-events-none" aria-hidden="true" />
                 <input
                   type="search"
                   value={search}
@@ -474,7 +474,7 @@ export default function LegalDocumentViewer({
                   onKeyDown={handleSearchKey}
                   placeholder="Search document…"
                   aria-label="Search within document"
-                  className="w-full pl-9 pr-4 py-2.5 text-sm bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                  className="w-full pl-9 pr-4 py-2.5 text-sm bg-slate-100 border border-slate-200 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 />
               </div>
               {search && matchCount > 0 && (
@@ -488,7 +488,7 @@ export default function LegalDocumentViewer({
             <div className="lg:hidden flex items-center gap-3 mb-8 print:hidden">
               <button
                 onClick={handlePrint}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-slate-600 bg-slate-100 rounded-lg border border-slate-200 hover:bg-slate-200 transition-colors"
                 aria-label="Print document"
               >
                 <Printer className="w-3.5 h-3.5" />
@@ -496,7 +496,7 @@ export default function LegalDocumentViewer({
               </button>
               <button
                 onClick={handleCopyLink}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-slate-600 bg-slate-100 rounded-lg border border-slate-200 hover:bg-slate-200 transition-colors"
                 aria-label="Copy link"
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
@@ -504,7 +504,7 @@ export default function LegalDocumentViewer({
               </button>
               <button
                 onClick={handleShare}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
+                className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-slate-600 bg-slate-100 rounded-lg border border-slate-200 hover:bg-slate-200 transition-colors"
                 aria-label="Share document"
               >
                 <Share2 className="w-3.5 h-3.5" />
@@ -530,19 +530,19 @@ export default function LegalDocumentViewer({
             </div>
 
             {/* Footer note */}
-            <div className="mt-16 p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 print:hidden">
-              <p className="text-sm text-slate-500 dark:text-slate-400">
+            <div className="mt-16 p-6 bg-slate-50 rounded-2xl border border-slate-200 print:hidden">
+              <p className="text-sm text-slate-500">
                 If you have questions about this document, contact us at{" "}
                 <a
                   href="mailto:legal@kloud101.com"
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-blue-600 hover:underline"
                 >
                   legal@kloud101.com
                 </a>{" "}
                 or visit our{" "}
                 <Link
                   href="/contact"
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-blue-600 hover:underline"
                 >
                   contact page
                 </Link>
@@ -581,8 +581,8 @@ function TOCList({
               item.level === 2 && "pl-4",
               item.level === 3 && "pl-6 text-xs",
               activeId === item.id
-                ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 font-medium"
-                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900"
+                ? "text-blue-600 bg-blue-50 font-medium"
+                : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
             )}
             aria-current={activeId === item.id ? "location" : undefined}
           >

@@ -53,7 +53,7 @@ export default function RelatedProducts() {
             Related Products
           </h2>
 
-          <p className="text-gray-400">
+          <p className="text-slate-600">
             Explore other infrastructure and hosting solutions.
           </p>
 
@@ -65,7 +65,7 @@ export default function RelatedProducts() {
             <Link
               key={product.title}
               href={product.href}
-              className="border border-slate-800 rounded-2xl p-8 bg-slate-950 hover:border-blue-500 transition"
+              className="border border-slate-200 rounded-2xl p-8 bg-blue-50 hover:border-blue-500 transition"
             >
               <product.icon
                 size={42}

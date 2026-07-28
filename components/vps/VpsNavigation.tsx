@@ -9,7 +9,7 @@ export default function VpsNavigation({
 }: VpsNavigationProps) {
   return (
     <div className="max-w-7xl mx-auto mb-20 px-6">
-      <div className="grid md:grid-cols-4 border border-slate-800 rounded-2xl overflow-hidden">
+      <div className="grid md:grid-cols-4 border border-slate-200 rounded-2xl overflow-hidden">
 
         {/* Linux VPS */}
 
@@ -18,7 +18,7 @@ export default function VpsNavigation({
           className={`p-8 transition ${
             active === "linux"
               ? "bg-blue-600 text-white"
-              : "bg-slate-900 hover:bg-slate-800 text-white"
+              : "bg-blue-50 hover:bg-blue-100 text-slate-900"
           }`}
         >
           <h3 className="font-bold text-xl mb-2">
@@ -37,7 +37,7 @@ export default function VpsNavigation({
           className={`p-8 transition ${
             active === "storage"
               ? "bg-blue-600 text-white"
-              : "bg-slate-900 hover:bg-slate-800 text-white"
+              : "bg-blue-50 hover:bg-blue-100 text-slate-900"
           }`}
         >
           <h3 className="font-bold text-xl mb-2">
@@ -56,7 +56,7 @@ export default function VpsNavigation({
           className={`p-8 transition ${
             active === "windows"
               ? "bg-blue-600 text-white"
-              : "bg-slate-900 hover:bg-slate-800 text-white"
+              : "bg-blue-50 hover:bg-blue-100 text-slate-900"
           }`}
         >
           <h3 className="font-bold text-xl mb-2">
@@ -75,7 +75,7 @@ export default function VpsNavigation({
           className={`p-8 transition ${
             active === "managed"
               ? "bg-blue-600 text-white"
-              : "bg-slate-900 hover:bg-slate-800 text-white"
+              : "bg-blue-50 hover:bg-blue-100 text-slate-900"
           }`}
         >
           <h3 className="font-bold text-xl mb-2">

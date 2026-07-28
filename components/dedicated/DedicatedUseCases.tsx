@@ -65,7 +65,7 @@ export default function DedicatedUseCases() {
             dedicated server?
           </h2>
 
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-slate-600 max-w-3xl mx-auto">
             Dedicated servers provide isolated hardware resources
             for demanding applications and enterprise workloads.
           </p>
@@ -77,7 +77,7 @@ export default function DedicatedUseCases() {
           {useCases.map((item) => (
             <div
               key={item.title}
-              className="bg-slate-950 border border-slate-800 rounded-2xl p-8 hover:border-blue-500 transition"
+              className="bg-blue-50 border border-slate-200 rounded-2xl p-8 hover:border-blue-500 transition"
             >
               <item.icon
                 size={42}
@@ -88,7 +88,7 @@ export default function DedicatedUseCases() {
                 {item.title}
               </h3>
 
-              <p className="text-gray-400">
+              <p className="text-slate-600">
                 {item.description}
               </p>
 

@@ -8,11 +8,11 @@ import {
 
 export default function ManagedDedicatedCta() {
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
 
       <div className="max-w-6xl mx-auto px-6">
 
-        <div className="rounded-3xl border border-blue-500/30 bg-gradient-to-r from-blue-950/40 to-slate-950 p-12">
+        <div className="rounded-3xl border border-blue-500/30 bg-gradient-to-r from-blue-50 to-white p-12">
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
@@ -29,7 +29,7 @@ export default function ManagedDedicatedCta() {
                 Expert Management.
               </h2>
 
-              <p className="text-gray-400 text-lg mb-8">
+              <p className="text-slate-600 text-lg mb-8">
                 Get dedicated hardware with cPanel, security management,
                 proactive monitoring, backups and expert technical
                 support included.
@@ -46,7 +46,7 @@ export default function ManagedDedicatedCta() {
 
                 <Link
                   href="/contact"
-                  className="border border-slate-700 hover:border-slate-500 px-8 py-4 rounded-xl font-semibold transition"
+                  className="border border-slate-200 hover:border-slate-300 px-8 py-4 rounded-xl font-semibold transition"
                 >
                   Contact Sales
                 </Link>
@@ -59,7 +59,7 @@ export default function ManagedDedicatedCta() {
 
             <div className="grid sm:grid-cols-2 gap-4">
 
-              <div className="bg-black border border-slate-800 rounded-2xl p-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6">
 
                 <Server
                   size={40}
@@ -70,13 +70,13 @@ export default function ManagedDedicatedCta() {
                   Dedicated Hardware
                 </h3>
 
-                <p className="text-gray-400 text-sm">
+                <p className="text-slate-600 text-sm">
                   Enterprise-grade bare metal infrastructure.
                 </p>
 
               </div>
 
-              <div className="bg-black border border-slate-800 rounded-2xl p-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6">
 
                 <Monitor
                   size={40}
@@ -87,13 +87,13 @@ export default function ManagedDedicatedCta() {
                   24/7 Monitoring
                 </h3>
 
-                <p className="text-gray-400 text-sm">
+                <p className="text-slate-600 text-sm">
                   Continuous monitoring and proactive response.
                 </p>
 
               </div>
 
-              <div className="bg-black border border-slate-800 rounded-2xl p-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6">
 
                 <Shield
                   size={40}
@@ -104,13 +104,13 @@ export default function ManagedDedicatedCta() {
                   Security Managed
                 </h3>
 
-                <p className="text-gray-400 text-sm">
+                <p className="text-slate-600 text-sm">
                   Hardening, patching and protection included.
                 </p>
 
               </div>
 
-              <div className="bg-black border border-slate-800 rounded-2xl p-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6">
 
                 <CheckCircle
                   size={40}
@@ -121,7 +121,7 @@ export default function ManagedDedicatedCta() {
                   Expert Support
                 </h3>
 
-                <p className="text-gray-400 text-sm">
+                <p className="text-slate-600 text-sm">
                   Experienced engineers available when needed.
                 </p>
 

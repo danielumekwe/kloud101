@@ -32,7 +32,7 @@ const stats = [
 
 export default function GlobalInfrastructure() {
   return (
-    <section className="py-32 bg-white dark:bg-slate-950">
+    <section id="infrastructure" className="py-32 bg-white">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -46,19 +46,19 @@ export default function GlobalInfrastructure() {
               Global Infrastructure
             </span>
 
-            <h2 className="text-5xl lg:text-6xl font-bold text-white mt-6 mb-8 leading-tight">
+            <h2 className="text-5xl lg:text-6xl font-bold text-slate-900 mt-6 mb-8 leading-tight">
               Global Infrastructure.
               <br />
               Local Performance.
             </h2>
 
-            <p className="text-xl text-slate-300 leading-relaxed mb-6">
+            <p className="text-xl text-slate-700 leading-relaxed mb-6">
               Deploy your websites, applications and business
               workloads closer to your customers through our
               global cloud infrastructure network.
             </p>
 
-            <p className="text-lg text-slate-400 leading-8 mb-10">
+            <p className="text-lg text-slate-600 leading-8 mb-10">
               Choose from strategically located datacenters
               designed to deliver low latency, maximum uptime
               and reliable performance for businesses around
@@ -76,7 +76,7 @@ export default function GlobalInfrastructure() {
                     {stat.value}
                   </div>
 
-                  <div className="text-slate-400 mt-2">
+                  <div className="text-slate-600 mt-2">
                     {stat.label}
                   </div>
 
@@ -92,7 +92,7 @@ export default function GlobalInfrastructure() {
               {locations.map((location) => (
                 <span
                   key={location}
-                  className="px-4 py-2 border border-blue-500/40 rounded-full text-sm text-slate-300 hover:border-blue-500 transition"
+                  className="px-4 py-2 border border-blue-500/40 rounded-full text-sm text-slate-700 hover:border-blue-500 transition"
                 >
                   {location}
                 </span>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function AboutStory() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -19,7 +19,7 @@ export default function AboutStory() {
               What's Our Story?
             </h2>
 
-            <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
+            <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
 
               <p>
               Founded with a vision to simplify cloud infrastructure, Kloud101 was created to bridge the gap between 

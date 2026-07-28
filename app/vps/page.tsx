@@ -13,13 +13,13 @@ import RelatedProducts from "@/components/vps/RelatedProducts";
 import VpsCta from "@/components/vps/VpsCta";
 export default function VPSPage() {
   return (
-    <main className="min-h-screen bg-white dark:bg-black text-slate-900 dark:text-white">
+    <main className="min-h-screen bg-white text-slate-900">
 
       <Navbar />
 
       {/* Hero Section */}
 
-      <section className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-24">
+      <section className="bg-gradient-to-r from-blue-50 via-white to-blue-50 py-24">
 
         <div className="max-w-7xl mx-auto px-6">
 
@@ -39,11 +39,11 @@ export default function VPSPage() {
                 private servers.
               </h1>
 
-              <div className="max-w-xl bg-slate-900/70 backdrop-blur border border-slate-700 rounded-2xl p-8 mb-8">
+              <div className="max-w-xl bg-white/70 backdrop-blur border border-slate-200 rounded-2xl p-8 mb-8">
 
                 <div className="flex items-end gap-3 mb-6">
 
-                  <span className="text-gray-400 text-xl">
+                  <span className="text-slate-600 text-xl">
                     Starts at
                   </span>
 
@@ -51,7 +51,7 @@ export default function VPSPage() {
                     $3
                   </span>
 
-                  <span className="text-gray-400 text-xl mb-1">
+                  <span className="text-slate-600 text-xl mb-1">
                     /month
                   </span>
 
@@ -68,7 +68,7 @@ export default function VPSPage() {
 
                   <a
                     href="#plans"
-                    className="border border-slate-700 hover:border-slate-500 px-8 py-4 rounded-xl font-semibold transition"
+                    className="border border-slate-200 hover:border-slate-300 px-8 py-4 rounded-xl font-semibold transition"
                   >
                     Compare Plans
                   </a>
@@ -77,7 +77,7 @@ export default function VPSPage() {
 
               </div>
 
-              <p className="text-gray-400 text-lg max-w-2xl leading-relaxed">
+              <p className="text-slate-600 text-lg max-w-2xl leading-relaxed">
                 Deploy Linux or Windows virtual private servers with instant
                 provisioning, NVMe SSD storage, full root access,
                 enterprise-grade networking, and flexible resource scaling.
@@ -100,9 +100,9 @@ export default function VPSPage() {
                   priority
                 />
 
-                <div className="absolute top-12 left-0 bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl px-5 py-4">
+                <div className="absolute top-12 left-0 bg-white/90 backdrop-blur border border-slate-200 rounded-xl px-5 py-4">
 
-                  <div className="text-sm text-gray-400">
+                  <div className="text-sm text-slate-600">
                     Deployment Time
                   </div>
 
@@ -112,9 +112,9 @@ export default function VPSPage() {
 
                 </div>
 
-                <div className="absolute bottom-12 right-0 bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl px-5 py-4">
+                <div className="absolute bottom-12 right-0 bg-white/90 backdrop-blur border border-slate-200 rounded-xl px-5 py-4">
 
-                  <div className="text-sm text-gray-400">
+                  <div className="text-sm text-slate-600">
                     Storage
                   </div>
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-black border-t border-slate-200 dark:border-slate-800 print:hidden">
+    <footer className="bg-white border-t border-slate-200 print:hidden">
 
       <div className="max-w-7xl mx-auto px-6 py-20">
 
@@ -18,16 +18,16 @@ export default function Footer() {
               alt="Kloud101"
               width={110}
               height={76}
-              className="invert dark:invert-0 mb-4"
+              className="invert hue-rotate-180 mb-4"
             />
 
-            <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-8">
+            <p className="text-slate-500 leading-relaxed mb-8">
               Reliable cloud infrastructure for modern businesses.
               From Managed VPS and Dedicated Servers to Business Email,
               Cloud Hosting and Security Solutions.
             </p>
 
-            <div className="space-y-2 text-slate-500 dark:text-slate-400">
+            <div className="space-y-2 text-slate-500">
 
               <p>sales@kloud101.com</p>
 
@@ -43,29 +43,29 @@ export default function Footer() {
 
           <div>
 
-            <h3 className="font-semibold text-lg text-slate-900 dark:text-white mb-5">
+            <h3 className="font-semibold text-lg text-slate-900 mb-5">
               Cloud Services
             </h3>
 
-            <div className="space-y-3 text-slate-500 dark:text-slate-400">
+            <div className="space-y-3 text-slate-500">
 
-              <Link href="/managed-vps" className="block hover:text-white transition-colors">
+              <Link href="/managed-vps" className="block hover:text-slate-900 transition-colors">
                 Managed VPS
               </Link>
 
-              <Link href="/managed-dedicated" className="block hover:text-white transition-colors">
+              <Link href="/managed-dedicated" className="block hover:text-slate-900 transition-colors">
                 Managed Dedicated Servers
               </Link>
 
-              <Link href="/cloud-hosting" className="block hover:text-white transition-colors">
+              <Link href="/cloud-hosting" className="block hover:text-slate-900 transition-colors">
                 Cloud Hosting
               </Link>
 
-              <Link href="/business-email" className="block hover:text-white transition-colors">
+              <Link href="/business-email" className="block hover:text-slate-900 transition-colors">
                 Business Email
               </Link>
 
-              <Link href="/backup-security" className="block hover:text-white transition-colors">
+              <Link href="/backup-security" className="block hover:text-slate-900 transition-colors">
                 Backup & Security
               </Link>
 
@@ -77,29 +77,29 @@ export default function Footer() {
 
           <div>
 
-            <h3 className="font-semibold text-lg text-slate-900 dark:text-white mb-5">
+            <h3 className="font-semibold text-lg text-slate-900 mb-5">
               Solutions
             </h3>
 
-            <div className="space-y-3 text-slate-500 dark:text-slate-400">
+            <div className="space-y-3 text-slate-500">
 
-              <Link href="#" className="block hover:text-white transition-colors">
+              <Link href="#" className="block hover:text-slate-900 transition-colors">
                 Startup Solutions
               </Link>
 
-              <Link href="#" className="block hover:text-white transition-colors">
+              <Link href="#" className="block hover:text-slate-900 transition-colors">
                 SME Solutions
               </Link>
 
-              <Link href="#" className="block hover:text-white transition-colors">
+              <Link href="#" className="block hover:text-slate-900 transition-colors">
                 Agency Solutions
               </Link>
 
-              <Link href="#" className="block hover:text-white transition-colors">
+              <Link href="#" className="block hover:text-slate-900 transition-colors">
                 Enterprise Solutions
               </Link>
 
-              <Link href="#" className="block hover:text-white transition-colors">
+              <Link href="#" className="block hover:text-slate-900 transition-colors">
                 E-Commerce Solutions
               </Link>
 
@@ -111,33 +111,33 @@ export default function Footer() {
 
           <div>
 
-            <h3 className="font-semibold text-lg text-slate-900 dark:text-white mb-5">
+            <h3 className="font-semibold text-lg text-slate-900 mb-5">
               Resources
             </h3>
 
-            <div className="space-y-3 text-slate-500 dark:text-slate-400">
+            <div className="space-y-3 text-slate-500">
 
-              <Link href="/blog" className="block hover:text-white transition-colors">
+              <Link href="/blog" className="block hover:text-slate-900 transition-colors">
                 Blog
               </Link>
 
-              <Link href="/knowledge-base" className="block hover:text-white transition-colors">
+              <Link href="/knowledge-base" className="block hover:text-slate-900 transition-colors">
                 Knowledge Base
               </Link>
 
-              <Link href="/tutorials" className="block hover:text-white transition-colors">
+              <Link href="/tutorials" className="block hover:text-slate-900 transition-colors">
                 Tutorials
               </Link>
 
-              <Link href="/status" className="block hover:text-white transition-colors">
+              <Link href="/status" className="block hover:text-slate-900 transition-colors">
                 Status Page
               </Link>
 
-              <Link href="/contact" className="block hover:text-white transition-colors">
+              <Link href="/contact" className="block hover:text-slate-900 transition-colors">
                 Contact Us
               </Link>
 
-              <Link href="https://my.kloud101.com/register" className="block hover:text-white transition-colors">
+              <Link href="https://my.kloud101.com/register" className="block hover:text-slate-900 transition-colors">
                 Create Account
               </Link>
 
@@ -149,29 +149,29 @@ export default function Footer() {
 
           <div>
 
-            <h3 className="font-semibold text-lg text-slate-900 dark:text-white mb-5">
+            <h3 className="font-semibold text-lg text-slate-900 mb-5">
               Company
             </h3>
 
-            <div className="space-y-3 text-slate-500 dark:text-slate-400">
+            <div className="space-y-3 text-slate-500">
 
-              <Link href="/about" className="block hover:text-white transition-colors">
+              <Link href="/about" className="block hover:text-slate-900 transition-colors">
                 About Us
               </Link>
 
-              <Link href="/partners" className="block hover:text-white transition-colors">
+              <Link href="/partners" className="block hover:text-slate-900 transition-colors">
                 Partners
               </Link>
 
-              <Link href="/careers" className="block hover:text-white transition-colors">
+              <Link href="/careers" className="block hover:text-slate-900 transition-colors">
                 Careers
               </Link>
 
-              <Link href="/affiliate-program" className="block hover:text-white transition-colors">
+              <Link href="/affiliate-program" className="block hover:text-slate-900 transition-colors">
                 Affiliate Program
               </Link>
 
-              <Link href="/contact" className="block hover:text-white transition-colors">
+              <Link href="/contact" className="block hover:text-slate-900 transition-colors">
                 Contact
               </Link>
 
@@ -183,7 +183,7 @@ export default function Footer() {
 
         {/* Legal Links Row */}
 
-        <div className="mt-16 pt-10 border-t border-slate-200 dark:border-slate-800">
+        <div className="mt-16 pt-10 border-t border-slate-200">
 
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 
@@ -191,37 +191,37 @@ export default function Footer() {
               © {new Date().getFullYear()} Kloud101. All rights reserved.
             </p>
 
-            <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-slate-500 dark:text-slate-500">
+            <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-slate-500">
 
-              <Link href="/privacy-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+              <Link href="/privacy-policy" className="hover:text-slate-900 transition-colors">
                 Privacy Policy
               </Link>
 
-              <Link href="/terms-of-service" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+              <Link href="/terms-of-service" className="hover:text-slate-900 transition-colors">
                 Terms of Service
               </Link>
 
-              <Link href="/cookie-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+              <Link href="/cookie-policy" className="hover:text-slate-900 transition-colors">
                 Cookie Policy
               </Link>
 
-              <Link href="/refund-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+              <Link href="/refund-policy" className="hover:text-slate-900 transition-colors">
                 Refund Policy
               </Link>
 
-              <Link href="/service-level-agreement" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+              <Link href="/service-level-agreement" className="hover:text-slate-900 transition-colors">
                 SLA
               </Link>
 
-              <Link href="/acceptable-use-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+              <Link href="/acceptable-use-policy" className="hover:text-slate-900 transition-colors">
                 Acceptable Use
               </Link>
 
-              <Link href="/abuse-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+              <Link href="/abuse-policy" className="hover:text-slate-900 transition-colors">
                 Abuse Policy
               </Link>
 
-              <Link href="/dmca-policy" className="hover:text-slate-900 dark:hover:text-white transition-colors">
+              <Link href="/dmca-policy" className="hover:text-slate-900 transition-colors">
                 DMCA
               </Link>
 

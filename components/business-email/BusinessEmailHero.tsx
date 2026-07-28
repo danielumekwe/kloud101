@@ -8,7 +8,7 @@ export default function BusinessEmailHero() {
   const { formatPrice } = useCurrency();
 
   return (
-    <section className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-24">
+    <section className="bg-gradient-to-r from-blue-50 via-white to-blue-50 py-24">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -25,17 +25,17 @@ export default function BusinessEmailHero() {
               For Modern Businesses
             </h1>
 
-            <p className="text-gray-400 text-lg leading-relaxed mb-8 max-w-2xl">
+            <p className="text-slate-600 text-lg leading-relaxed mb-8 max-w-2xl">
               Build trust and credibility with professional email
               addresses using your own domain name.
               Secure, reliable and accessible from anywhere.
             </p>
 
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 max-w-xl mb-8">
+            <div className="bg-blue-50 border border-slate-200 rounded-2xl p-8 max-w-xl mb-8">
 
               <div className="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-3 mb-6">
 
-                <span className="text-gray-400">
+                <span className="text-slate-600">
                   Starting at
                 </span>
 
@@ -43,7 +43,7 @@ export default function BusinessEmailHero() {
                   {formatPrice(1.99)}
                 </span>
 
-                <span className="text-gray-400 mb-2">
+                <span className="text-slate-600 mb-2">
                   /month
                 </span>
 
@@ -60,7 +60,7 @@ export default function BusinessEmailHero() {
 
                 <Link
                   href="#plans"
-                  className="border border-slate-700 hover:border-slate-500 px-8 py-4 rounded-xl font-semibold transition"
+                  className="border border-slate-200 hover:border-slate-300 px-8 py-4 rounded-xl font-semibold transition"
                 >
                   Compare Plans
                 </Link>

@@ -52,7 +52,7 @@ export default function VpsPlans() {
             Linux VPS Plans
           </h2>
 
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-slate-600 max-w-2xl mx-auto">
             Start small and scale your infrastructure as your business grows.
           </p>
 
@@ -65,8 +65,8 @@ export default function VpsPlans() {
               key={plan.slice}
               className={`rounded-2xl border p-8 transition hover:scale-105 ${
                 plan.featured
-                  ? "border-blue-500 bg-blue-950/20"
-                  : "border-slate-800 bg-slate-950"
+                  ? "border-blue-500 bg-blue-50"
+                  : "border-slate-200 bg-blue-50"
               }`}
             >
               {plan.featured && (
@@ -81,10 +81,10 @@ export default function VpsPlans() {
 
               <div className="flex flex-wrap items-end gap-2 text-5xl font-bold text-blue-500 mb-6">
                 <span>{formatPrice(plan.price)}</span>
-                <span className="text-lg text-gray-400">/mo</span>
+                <span className="text-lg text-slate-600">/mo</span>
               </div>
 
-              <ul className="space-y-3 text-gray-400 mb-8">
+              <ul className="space-y-3 text-slate-600 mb-8">
                 <li>{plan.cpu}</li>
                 <li>{plan.ram}</li>
                 <li>{plan.storage}</li>

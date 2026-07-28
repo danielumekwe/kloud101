@@ -41,7 +41,7 @@ export default function DedicatedPricing() {
             Dedicated Server Plans
           </h2>
 
-          <p className="text-gray-400">
+          <p className="text-slate-600">
             Powerful bare metal servers for enterprise workloads.
           </p>
 
@@ -49,9 +49,9 @@ export default function DedicatedPricing() {
 
         <div className="overflow-x-auto">
 
-          <table className="w-full border border-slate-800 rounded-2xl overflow-hidden">
+          <table className="w-full border border-slate-200 rounded-2xl overflow-hidden">
 
-            <thead className="bg-slate-900">
+            <thead className="bg-blue-50">
 
               <tr>
                 <th className="p-5 text-left">CPU</th>
@@ -69,7 +69,7 @@ export default function DedicatedPricing() {
               {servers.map((server, index) => (
                 <tr
                   key={index}
-                  className="border-t border-slate-800 hover:bg-slate-950"
+                  className="border-t border-slate-200 hover:bg-blue-50"
                 >
                   <td className="p-5">{server.cpu}</td>
                   <td className="p-5">{server.ram}</td>
@@ -79,7 +79,7 @@ export default function DedicatedPricing() {
                   <td className="p-5 font-bold text-blue-500">
                     <div className="flex flex-wrap items-center gap-2">
                       <span>{formatPrice(server.price)}</span>
-                      <span className="text-sm text-gray-400">/mo</span>
+                      <span className="text-sm text-slate-600">/mo</span>
                     </div>
                   </td>
 

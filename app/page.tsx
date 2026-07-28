@@ -12,19 +12,19 @@ import PowerfulFeatures from "@/components/home/PowerfulFeatures";
 import FeaturedSolutions from "@/components/home/FeaturedSolutions";
 import WhyKloud101 from "@/components/home/WhyKloud101";
 import GlobalInfrastructure from "@/components/home/GlobalInfrastructure";
-import BusinessGrowthJourney from "@/components/home/BusinessGrowthJourney";
+import SupportResources from "@/components/home/SupportResources";
 import TrustMetrics from "@/components/home/TrustMetrics";
 import HomeCTA from "@/components/home/HomeCTA";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-black text-slate-900 dark:text-white">
+    <main className="min-h-screen bg-white text-slate-900">
       <Navbar />
       <HeroSlider />
       <FeaturedSolutions />
       <WhyKloud101 />
       <GlobalInfrastructure />
-      <BusinessGrowthJourney />
+      <SupportResources />
       <TrustMetrics />
       <HomeCTA />
       

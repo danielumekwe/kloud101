@@ -105,7 +105,7 @@ function ProductCard({ product }: { product: NavProduct }) {
           {product.description}
         </p>
       </div>
-      <ArrowRight className="h-4 w-4 shrink-0 self-start text-slate-300 opacity-0 transition-opacity group-hover:opacity-100 mt-0.5" />
+      <ArrowRight className="h-4 w-4 shrink-0 self-start text-slate-700 opacity-0 transition-opacity group-hover:opacity-100 mt-0.5" />
     </Link>
   );
 }
@@ -156,15 +156,15 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-black lg:hidden">
+    <div className="fixed inset-0 z-50 flex flex-col bg-white lg:hidden">
       {/* Top bar */}
-      <div className="flex items-center justify-between border-b border-slate-800 px-6 py-5">
+      <div className="flex items-center justify-between border-b border-slate-200 px-6 py-5">
         <Link href="/" onClick={onClose}>
-          <Image src="/logo-wordmark.png" alt="Kloud101" width={152} height={32} priority />
+          <Image src="/logo-wordmark.png" alt="Kloud101" width={152} height={32} priority className="invert hue-rotate-180" />
         </Link>
         <button
           onClick={onClose}
-          className="rounded-lg p-2 text-slate-400 hover:bg-slate-900 hover:text-white transition"
+          className="rounded-lg p-2 text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition"
           aria-label="Close menu"
         >
           <X className="h-5 w-5" />
@@ -176,7 +176,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         <Link
           href="/"
           onClick={onClose}
-          className="block rounded-lg px-3 py-3 text-base font-medium text-slate-300 hover:bg-slate-900 hover:text-white transition"
+          className="block rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-slate-900 transition"
         >
           Home
         </Link>
@@ -185,7 +185,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         <div>
           <button
             onClick={() => toggleSection("cloud")}
-            className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-slate-300 hover:bg-slate-900 hover:text-white transition"
+            className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-slate-900 transition"
           >
             Cloud Services
             <ChevronDown
@@ -195,13 +195,13 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
             />
           </button>
           {openSection === "cloud" && (
-            <div className="mt-1 ml-3 space-y-1 border-l border-slate-800 pl-3">
+            <div className="mt-1 ml-3 space-y-1 border-l border-slate-200 pl-3">
               {cloudProducts.map((p) => (
                 <Link
                   key={p.href}
                   href={p.href}
                   onClick={onClose}
-                  className="block rounded-lg px-3 py-2.5 text-base text-slate-400 hover:text-white transition"
+                  className="block rounded-lg px-3 py-2.5 text-base text-slate-600 hover:text-slate-900 transition"
                 >
                   {p.label}
                 </Link>
@@ -214,7 +214,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         <div>
           <button
             onClick={() => toggleSection("servers")}
-            className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-slate-300 hover:bg-slate-900 hover:text-white transition"
+            className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-slate-900 transition"
           >
             Servers
             <ChevronDown
@@ -224,13 +224,13 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
             />
           </button>
           {openSection === "servers" && (
-            <div className="mt-1 ml-3 space-y-1 border-l border-slate-800 pl-3">
+            <div className="mt-1 ml-3 space-y-1 border-l border-slate-200 pl-3">
               {serverProducts.map((p) => (
                 <Link
                   key={p.href}
                   href={p.href}
                   onClick={onClose}
-                  className="block rounded-lg px-3 py-2.5 text-base text-slate-400 hover:text-white transition"
+                  className="block rounded-lg px-3 py-2.5 text-base text-slate-600 hover:text-slate-900 transition"
                 >
                   {p.label}
                 </Link>
@@ -242,7 +242,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         <Link
           href="/about"
           onClick={onClose}
-          className="block rounded-lg px-3 py-3 text-base font-medium text-slate-300 hover:bg-slate-900 hover:text-white transition"
+          className="block rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-slate-900 transition"
         >
           About
         </Link>
@@ -250,14 +250,14 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         <Link
           href="/contact"
           onClick={onClose}
-          className="block rounded-lg px-3 py-3 text-base font-medium text-slate-300 hover:bg-slate-900 hover:text-white transition"
+          className="block rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-slate-900 transition"
         >
           Contact
         </Link>
       </div>
 
       {/* Auth */}
-      <div className="border-t border-slate-800 px-6 py-5 space-y-3">
+      <div className="border-t border-slate-200 px-6 py-5 space-y-3">
         <div className="mb-4">
   <p className="text-sm text-slate-500 mb-2">
     Currency
@@ -268,7 +268,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
         <Link
           href="https://my.kloud101.com/login"
           onClick={onClose}
-          className="block w-full rounded-lg border border-slate-700 px-4 py-3 text-center text-base font-medium text-slate-300 hover:border-slate-500 hover:text-white transition"
+          className="block w-full rounded-lg border border-slate-200 px-4 py-3 text-center text-base font-medium text-slate-700 hover:border-slate-300 hover:text-slate-900 transition"
         >
           Login
         </Link>
@@ -321,8 +321,8 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`sticky top-0 z-40 flex items-center justify-between px-6 py-0 lg:px-10 bg-white dark:bg-black text-slate-900 dark:text-white transition-shadow duration-300 ${
-          scrolled ? "shadow-lg shadow-black/10 dark:shadow-black/40" : ""
+        className={`sticky top-0 z-40 flex items-center justify-between px-6 py-0 lg:px-10 bg-white text-slate-900 transition-shadow duration-300 ${
+          scrolled ? "shadow-lg shadow-black/10" : ""
         }`}
         style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}
       >
@@ -334,7 +334,7 @@ export default function Navbar() {
             width={152}
             height={32}
             priority
-            className="invert dark:invert-0"
+            className="invert hue-rotate-180"
           />
         </Link>
 
@@ -342,7 +342,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-1 lg:flex">
           <Link
             href="/"
-            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition"
+            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition"
           >
             Home
           </Link>
@@ -356,14 +356,14 @@ export default function Navbar() {
             <button
               className={`flex items-center gap-1.5 rounded-lg px-4 py-2 text-base font-medium transition ${
                 activeMenu === "cloud"
-                  ? "bg-black/5 dark:bg-white/8 text-slate-900 dark:text-white"
-                  : "text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white"
+                  ? "bg-blue-50 text-slate-900"
+                  : "text-slate-600 hover:bg-blue-50 hover:text-slate-900"
               }`}
             >
               Cloud Services
               <ChevronDown
                 className={`h-4 w-4 transition-transform duration-200 ${
-                  activeMenu === "cloud" ? "rotate-180 text-blue-400" : "text-slate-500"
+                  activeMenu === "cloud" ? "rotate-180 text-blue-600" : "text-slate-500"
                 }`}
               />
             </button>
@@ -408,14 +408,14 @@ export default function Navbar() {
             <button
               className={`flex items-center gap-1.5 rounded-lg px-4 py-2 text-base font-medium transition ${
                 activeMenu === "servers"
-                  ? "bg-black/5 dark:bg-white/8 text-slate-900 dark:text-white"
-                  : "text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white"
+                  ? "bg-blue-50 text-slate-900"
+                  : "text-slate-600 hover:bg-blue-50 hover:text-slate-900"
               }`}
             >
               Servers
               <ChevronDown
                 className={`h-4 w-4 transition-transform duration-200 ${
-                  activeMenu === "servers" ? "rotate-180 text-blue-400" : "text-slate-500"
+                  activeMenu === "servers" ? "rotate-180 text-blue-600" : "text-slate-500"
                 }`}
               />
             </button>
@@ -453,14 +453,14 @@ export default function Navbar() {
 
           <Link
             href="/about"
-            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition"
+            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition"
           >
             About
           </Link>
 
           <Link
             href="/contact"
-            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-300 hover:bg-black/5 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition"
+            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition"
           >
             Contact
           </Link>
@@ -471,7 +471,7 @@ export default function Navbar() {
           <CurrencySwitcher />
           <Link
             href="https://my.kloud101.com/login"
-            className="rounded-lg border border-slate-200 dark:border-white/10 px-4 py-2 text-base font-medium text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-white/20 hover:text-slate-900 dark:hover:text-white transition"
+            className="rounded-lg border border-slate-200 px-4 py-2 text-base font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition"
           >
             Login
           </Link>
@@ -486,7 +486,7 @@ export default function Navbar() {
         {/* Mobile hamburger */}
         <button
           onClick={() => setMobileOpen(true)}
-          className="rounded-lg p-2 text-slate-400 hover:bg-white/5 hover:text-white transition lg:hidden"
+          className="rounded-lg p-2 text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition lg:hidden"
           aria-label="Open menu"
         >
           <Menu className="h-5 w-5" />

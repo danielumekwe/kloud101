@@ -46,7 +46,7 @@ export default function OperatingSystems() {
             Supported Operating Systems
           </h2>
 
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-slate-600 max-w-2xl mx-auto">
             Deploy your preferred operating system with instant provisioning.
           </p>
 
@@ -57,7 +57,7 @@ export default function OperatingSystems() {
           {systems.map((system) => (
             <div
               key={system.name}
-              className="bg-slate-950 border border-slate-800 rounded-2xl p-8 flex flex-col items-center justify-center hover:border-blue-500 transition"
+              className="bg-blue-50 border border-slate-200 rounded-2xl p-8 flex flex-col items-center justify-center hover:border-blue-500 transition"
             >
               <system.icon
                 size={52}

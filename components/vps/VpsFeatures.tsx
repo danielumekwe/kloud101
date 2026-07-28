@@ -58,7 +58,7 @@ export default function VpsFeatures() {
             Why Choose Kloud101 VPS
           </h2>
 
-          <p className="text-gray-400">
+          <p className="text-slate-600">
             Enterprise-grade infrastructure designed for performance.
           </p>
 
@@ -69,7 +69,7 @@ export default function VpsFeatures() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="border border-slate-800 rounded-2xl p-8 bg-slate-950"
+              className="border border-slate-200 rounded-2xl p-8 bg-blue-50"
             >
               <feature.icon
                 className="text-blue-500 mb-6"
@@ -80,7 +80,7 @@ export default function VpsFeatures() {
                 {feature.title}
               </h3>
 
-              <p className="text-gray-400">
+              <p className="text-slate-600">
                 {feature.description}
               </p>
             </div>

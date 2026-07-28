@@ -42,7 +42,7 @@ export default function DedicatedOperatingSystems() {
             Supported Operating Systems
           </h2>
 
-          <p className="text-gray-400">
+          <p className="text-slate-600">
             Install your preferred operating system.
           </p>
 
@@ -53,7 +53,7 @@ export default function DedicatedOperatingSystems() {
           {systems.map((system) => (
             <div
               key={system.name}
-              className="border border-slate-800 rounded-2xl p-8 bg-slate-950 text-center"
+              className="border border-slate-200 rounded-2xl p-8 bg-blue-50 text-center"
             >
               <system.icon
                 size={48}

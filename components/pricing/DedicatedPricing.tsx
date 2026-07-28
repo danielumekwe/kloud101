@@ -34,7 +34,7 @@ export default function DedicatedPricing() {
   ]
 
   return (
-    <section className="py-24 px-8 bg-gradient-to-b from-black to-slate-950">
+    <section className="py-24 px-8 bg-gradient-to-b from-white to-blue-50">
       <div className="max-w-7xl mx-auto">
 
         <div className="text-center mb-16">
@@ -42,7 +42,7 @@ export default function DedicatedPricing() {
             Dedicated Servers
           </h2>
 
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-slate-600 max-w-2xl mx-auto">
             High-performance dedicated infrastructure for enterprise workloads,
             hosting providers, agencies, and growing businesses.
           </p>
@@ -55,8 +55,8 @@ export default function DedicatedPricing() {
               key={server.name}
               className={`rounded-2xl border p-8 transition hover:scale-105 ${
                 server.featured
-                  ? "border-blue-500 bg-blue-950/20"
-                  : "border-gray-800"
+                  ? "border-blue-500 bg-blue-50"
+                  : "border-slate-200"
               }`}
             >
               {server.featured && (
@@ -73,10 +73,10 @@ export default function DedicatedPricing() {
 
               <div className="flex flex-wrap items-end gap-2 text-4xl font-bold mb-6">
                 <span>{formatPrice(server.price)}</span>
-                <span className="text-lg text-gray-400">/mo</span>
+                <span className="text-lg text-slate-600">/mo</span>
               </div>
 
-              <ul className="space-y-3 text-gray-400 mb-8">
+              <ul className="space-y-3 text-slate-600 mb-8">
                 <li>{server.cpu}</li>
                 <li>{server.ram}</li>
                 <li>{server.storage}</li>

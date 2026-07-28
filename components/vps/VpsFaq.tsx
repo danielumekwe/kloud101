@@ -45,7 +45,7 @@ export default function VpsFaq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
 
       <div className="max-w-4xl mx-auto px-6">
 
@@ -55,7 +55,7 @@ export default function VpsFaq() {
             Frequently Asked Questions
           </h2>
 
-          <p className="text-gray-400">
+          <p className="text-slate-600">
             Answers to common questions about our VPS hosting services.
           </p>
 
@@ -66,7 +66,7 @@ export default function VpsFaq() {
           {faqs.map((faq, index) => (
             <div
               key={faq.question}
-              className="border border-slate-800 rounded-2xl overflow-hidden"
+              className="border border-slate-200 rounded-2xl overflow-hidden"
             >
               <button
                 onClick={() =>
@@ -86,7 +86,7 @@ export default function VpsFaq() {
               </button>
 
               {open === index && (
-                <div className="px-6 pb-6 text-gray-400">
+                <div className="px-6 pb-6 text-slate-600">
                   {faq.answer}
                 </div>
               )}

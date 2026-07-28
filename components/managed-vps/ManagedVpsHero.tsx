@@ -7,7 +7,7 @@ export default function ManagedVpsHero() {
   const { formatPrice } = useCurrency();
 
   return (
-    <section className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-24">
+    <section className="bg-gradient-to-r from-blue-50 via-white to-blue-50 py-24">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -24,11 +24,11 @@ export default function ManagedVpsHero() {
               With cPanel Included
             </h1>
 
-            <div className="max-w-xl bg-slate-900 border border-slate-700 rounded-2xl p-8 mb-8">
+            <div className="max-w-xl bg-blue-50 border border-slate-200 rounded-2xl p-8 mb-8">
 
               <div className="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-3">
 
-                <span className="text-gray-400">
+                <span className="text-slate-600">
                   Starts at
                 </span>
 
@@ -36,7 +36,7 @@ export default function ManagedVpsHero() {
                   {formatPrice(12)}
                 </span>
 
-                <span className="text-gray-400 mb-1">
+                <span className="text-slate-600 mb-1">
                   /month
                 </span>
 
@@ -44,7 +44,7 @@ export default function ManagedVpsHero() {
 
             </div>
 
-            <p className="text-gray-400 text-lg">
+            <p className="text-slate-600 text-lg">
               Get the power of VPS hosting with expert server management,
               cPanel, monitoring, security updates, backups and support included.
             </p>

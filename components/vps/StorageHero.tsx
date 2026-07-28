@@ -7,7 +7,7 @@ export default function StorageHero() {
   const { formatPrice } = useCurrency();
 
   return (
-    <section className="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-24">
+    <section className="bg-gradient-to-r from-blue-50 via-white to-blue-50 py-24">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -25,11 +25,11 @@ export default function StorageHero() {
               SSD capacity.
             </h1>
 
-            <div className="max-w-xl bg-slate-900 border border-slate-700 rounded-2xl p-8 mb-8">
+            <div className="max-w-xl bg-blue-50 border border-slate-200 rounded-2xl p-8 mb-8">
 
               <div className="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-3">
 
-                <span className="text-gray-400">
+                <span className="text-slate-600">
                   Starts at
                 </span>
 
@@ -37,7 +37,7 @@ export default function StorageHero() {
                   {formatPrice(3)}
                 </span>
 
-                <span className="text-gray-400 mb-1">
+                <span className="text-slate-600 mb-1">
                   /TB
                 </span>
 
@@ -52,7 +52,7 @@ export default function StorageHero() {
                   Order Storage VPS
                 </a>
 
-                <button className="border border-slate-700 px-8 py-4 rounded-xl">
+                <button className="border border-slate-200 px-8 py-4 rounded-xl">
                   Compare Plans
                 </button>
 
@@ -60,7 +60,7 @@ export default function StorageHero() {
 
             </div>
 
-            <p className="text-gray-400 text-lg">
+            <p className="text-slate-600 text-lg">
               Perfect for backups, archives, media libraries,
               large datasets and file hosting applications.
             </p>

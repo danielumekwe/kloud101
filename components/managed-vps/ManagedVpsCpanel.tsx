@@ -37,7 +37,7 @@ const features = [
 
 export default function ManagedVpsCpanel() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-white">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -56,7 +56,7 @@ export default function ManagedVpsCpanel() {
               WHM Management
             </h2>
 
-            <p className="text-gray-400 text-lg leading-relaxed mb-10">
+            <p className="text-slate-600 text-lg leading-relaxed mb-10">
               Every Managed VPS includes cPanel & WHM,
               giving you complete control over websites,
               email accounts, databases, backups and
@@ -92,7 +92,7 @@ export default function ManagedVpsCpanel() {
               alt="cPanel Dashboard"
               width={700}
               height={500}
-              className="rounded-2xl border border-slate-800"
+              className="rounded-2xl border border-slate-200"
             />
 
           </div>

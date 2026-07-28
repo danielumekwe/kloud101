@@ -8,11 +8,11 @@ import {
 
 export default function BusinessEmailCta() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-white">
 
       <div className="max-w-6xl mx-auto px-6">
 
-        <div className="rounded-3xl border border-blue-500/30 bg-gradient-to-r from-blue-950/40 to-slate-950 p-12">
+        <div className="rounded-3xl border border-blue-500/30 bg-gradient-to-r from-blue-50 to-white p-12">
 
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
@@ -27,7 +27,7 @@ export default function BusinessEmailCta() {
                 Your Business Email?
               </h2>
 
-              <p className="text-gray-400 text-lg mb-8">
+              <p className="text-slate-600 text-lg mb-8">
                 Build trust, improve communication and give your business
                 a professional image with branded email addresses.
               </p>
@@ -43,7 +43,7 @@ export default function BusinessEmailCta() {
 
                 <Link
                   href="/contact"
-                  className="border border-slate-700 hover:border-slate-500 px-8 py-4 rounded-xl font-semibold transition"
+                  className="border border-slate-200 hover:border-slate-300 px-8 py-4 rounded-xl font-semibold transition"
                 >
                   Contact Sales
                 </Link>
@@ -54,42 +54,42 @@ export default function BusinessEmailCta() {
 
             <div className="grid sm:grid-cols-2 gap-4">
 
-              <div className="bg-black border border-slate-800 rounded-2xl p-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6">
                 <Mail size={40} className="text-blue-500 mb-4" />
                 <h3 className="font-semibold mb-2">
                   Professional Email
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-slate-600 text-sm">
                   Use your own business domain.
                 </p>
               </div>
 
-              <div className="bg-black border border-slate-800 rounded-2xl p-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6">
                 <Shield size={40} className="text-blue-500 mb-4" />
                 <h3 className="font-semibold mb-2">
                   Secure Communication
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-slate-600 text-sm">
                   Advanced protection against threats.
                 </p>
               </div>
 
-              <div className="bg-black border border-slate-800 rounded-2xl p-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6">
                 <Smartphone size={40} className="text-blue-500 mb-4" />
                 <h3 className="font-semibold mb-2">
                   Mobile Access
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-slate-600 text-sm">
                   Access email from anywhere.
                 </p>
               </div>
 
-              <div className="bg-black border border-slate-800 rounded-2xl p-6">
+              <div className="bg-white border border-slate-200 rounded-2xl p-6">
                 <Users size={40} className="text-blue-500 mb-4" />
                 <h3 className="font-semibold mb-2">
                   Team Collaboration
                 </h3>
-                <p className="text-gray-400 text-sm">
+                <p className="text-slate-600 text-sm">
                   Grow and collaborate efficiently.
                 </p>
               </div>

@@ -33,7 +33,7 @@ export default function BusinessEmailPricing() {
   return (
     <section
       id="plans"
-      className="py-24 bg-black"
+      className="py-24 bg-white"
     >
       <div className="max-w-7xl mx-auto px-6">
 
@@ -47,7 +47,7 @@ export default function BusinessEmailPricing() {
             Choose The Right Email Plan
           </h2>
 
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-slate-600 max-w-3xl mx-auto">
             Professional email hosting for startups,
             businesses and enterprises.
           </p>
@@ -61,8 +61,8 @@ export default function BusinessEmailPricing() {
               key={plan.name}
               className={`rounded-3xl border p-8 ${
                 plan.featured
-                  ? "border-blue-500 bg-slate-950"
-                  : "border-slate-800 bg-slate-950"
+                  ? "border-blue-500 bg-blue-50"
+                  : "border-slate-200 bg-blue-50"
               }`}
             >
               {plan.featured && (
@@ -81,13 +81,13 @@ export default function BusinessEmailPricing() {
                   {formatPrice(plan.price)}
                 </span>
 
-                <span className="text-gray-400 mb-1">
+                <span className="text-slate-600 mb-1">
                   /month
                 </span>
 
               </div>
 
-              <div className="space-y-4 text-gray-300 mb-8">
+              <div className="space-y-4 text-slate-600 mb-8">
 
                 <div>{plan.storage}</div>
 

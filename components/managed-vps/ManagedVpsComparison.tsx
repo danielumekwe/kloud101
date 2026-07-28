@@ -45,7 +45,7 @@ export default function ManagedVpsComparison() {
   ];
 
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-white">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -59,40 +59,40 @@ export default function ManagedVpsComparison() {
             Linux VPS vs Managed VPS
           </h2>
 
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-slate-600 max-w-3xl mx-auto">
             See why businesses choose Managed VPS hosting for
             convenience, security and peace of mind.
           </p>
 
         </div>
 
-        <div className="overflow-hidden rounded-3xl border border-slate-800">
+        <div className="overflow-hidden rounded-3xl border border-slate-200">
 
-          <div className="grid grid-cols-3 bg-slate-950">
+          <div className="grid grid-cols-3 bg-blue-50">
 
             <div className="p-6 font-bold text-xl">
               Features
             </div>
 
-            <div className="p-6 text-center border-l border-slate-800">
+            <div className="p-6 text-center border-l border-slate-200">
 
               <h3 className="text-xl font-bold">
                 Linux VPS
               </h3>
 
-              <p className="text-gray-400 text-sm mt-2">
+              <p className="text-slate-600 text-sm mt-2">
                 Self Managed
               </p>
 
             </div>
 
-            <div className="p-6 text-center border-l border-slate-800 bg-blue-950/30">
+            <div className="p-6 text-center border-l border-slate-200 bg-blue-50/30">
 
-              <h3 className="text-xl font-bold text-blue-400">
+              <h3 className="text-xl font-bold text-blue-600">
                 Managed VPS
               </h3>
 
-              <p className="text-gray-400 text-sm mt-2">
+              <p className="text-slate-600 text-sm mt-2">
                 Fully Managed
               </p>
 
@@ -103,14 +103,14 @@ export default function ManagedVpsComparison() {
           {rows.map((row) => (
             <div
               key={row.feature}
-              className="grid grid-cols-3 border-t border-slate-800"
+              className="grid grid-cols-3 border-t border-slate-200"
             >
 
               <div className="p-5">
                 {row.feature}
               </div>
 
-              <div className="flex justify-center items-center border-l border-slate-800">
+              <div className="flex justify-center items-center border-l border-slate-200">
 
                 {row.linux ? (
                   <Check className="text-green-500" />
@@ -120,7 +120,7 @@ export default function ManagedVpsComparison() {
 
               </div>
 
-              <div className="flex justify-center items-center border-l border-slate-800 bg-blue-950/10">
+              <div className="flex justify-center items-center border-l border-slate-200 bg-blue-50/10">
 
                 {row.managed ? (
                   <Check className="text-green-500" />

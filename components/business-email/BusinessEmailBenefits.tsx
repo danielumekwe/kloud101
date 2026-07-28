@@ -48,7 +48,7 @@ const benefits = [
 
 export default function BusinessEmailBenefits() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-white">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -63,7 +63,7 @@ export default function BusinessEmailBenefits() {
             Professional Email
           </h2>
 
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-slate-600 max-w-3xl mx-auto">
             Stand out from competitors and build stronger relationships
             with customers using a professional business email solution.
           </p>
@@ -75,7 +75,7 @@ export default function BusinessEmailBenefits() {
           {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="bg-slate-950 border border-slate-800 rounded-2xl p-8"
+              className="bg-blue-50 border border-slate-200 rounded-2xl p-8"
             >
               <benefit.icon
                 size={42}
@@ -86,7 +86,7 @@ export default function BusinessEmailBenefits() {
                 {benefit.title}
               </h3>
 
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {benefit.description}
               </p>
 

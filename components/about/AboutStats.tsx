@@ -19,7 +19,7 @@ const stats = [
 
 export default function AboutStats() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center mb-16">
@@ -32,7 +32,7 @@ export default function AboutStats() {
             Trusted Infrastructure
           </h2>
 
-          <p className="text-gray-400 mt-6 max-w-3xl mx-auto">
+          <p className="text-slate-600 mt-6 max-w-3xl mx-auto">
             We continuously invest in our infrastructure,
             support systems and cloud technologies to
             deliver dependable services worldwide.
@@ -45,13 +45,13 @@ export default function AboutStats() {
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="bg-slate-950 border border-slate-800 rounded-2xl p-10 text-center"
+              className="bg-blue-50 border border-slate-200 rounded-2xl p-10 text-center"
             >
               <div className="text-5xl font-bold text-blue-500 mb-4">
                 {stat.value}
               </div>
 
-              <div className="text-gray-400">
+              <div className="text-slate-600">
                 {stat.label}
               </div>
             </div>

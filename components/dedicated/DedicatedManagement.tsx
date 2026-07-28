@@ -18,7 +18,7 @@ export default function DedicatedManagement() {
   ];
 
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -28,7 +28,7 @@ export default function DedicatedManagement() {
             Management Options
           </h2>
 
-          <p className="text-gray-400">
+          <p className="text-slate-600">
             Choose the level of server management that fits your needs.
           </p>
 
@@ -39,13 +39,13 @@ export default function DedicatedManagement() {
           {plans.map((plan) => (
             <div
               key={plan.title}
-              className="border border-slate-800 rounded-2xl p-8 bg-black"
+              className="border border-slate-200 rounded-2xl p-8 bg-white"
             >
               <h3 className="text-2xl font-bold mb-4">
                 {plan.title}
               </h3>
 
-              <p className="text-gray-400">
+              <p className="text-slate-600">
                 {plan.description}
               </p>
             </div>

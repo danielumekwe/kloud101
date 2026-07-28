@@ -95,7 +95,7 @@ export default function CookieBanner() {
         aria-label="Cookie preferences"
         className="fixed bottom-4 left-4 right-4 z-[100] max-w-2xl mx-auto print:hidden"
       >
-        <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl overflow-hidden">
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl overflow-hidden">
 
           {/* Main banner */}
           {panel === "banner" && (
@@ -105,16 +105,16 @@ export default function CookieBanner() {
                   <Cookie className="w-5 h-5 text-blue-500" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h2 className="font-semibold text-slate-900 dark:text-white mb-1">
+                  <h2 className="font-semibold text-slate-900 mb-1">
                     We use cookies
                   </h2>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                  <p className="text-sm text-slate-500 leading-relaxed">
                     We use cookies to improve your experience, analyse traffic,
                     and personalise content. You can choose which categories to
                     allow.{" "}
                     <Link
                       href="/cookie-policy"
-                      className="text-blue-600 dark:text-blue-400 hover:underline"
+                      className="text-blue-600 hover:underline"
                     >
                       Learn more
                     </Link>
@@ -133,13 +133,13 @@ export default function CookieBanner() {
                 </button>
                 <button
                   onClick={rejectNonEssential}
-                  className="flex-1 px-4 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="flex-1 px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 >
                   Reject Non-Essential
                 </button>
                 <button
                   onClick={() => setPanel("customize")}
-                  className="flex items-center justify-center gap-1.5 px-4 py-2.5 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 text-sm font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="flex items-center justify-center gap-1.5 px-4 py-2.5 border border-slate-200 hover:bg-slate-50 text-slate-600 text-sm font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 >
                   <Settings className="w-4 h-4" />
                   Customize
@@ -152,12 +152,12 @@ export default function CookieBanner() {
           {panel === "customize" && (
             <div className="p-6">
               <div className="flex items-center justify-between mb-5">
-                <h2 className="font-semibold text-slate-900 dark:text-white">
+                <h2 className="font-semibold text-slate-900">
                   Cookie Preferences
                 </h2>
                 <button
                   onClick={() => setPanel("banner")}
-                  className="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="p-1.5 text-slate-500 hover:text-slate-900 rounded-lg hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                   aria-label="Back to banner"
                 >
                   <X className="w-4 h-4" />
@@ -203,7 +203,7 @@ export default function CookieBanner() {
                 <button
                   onClick={acceptAll}
                   disabled={saving}
-                  className="flex-1 px-4 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="flex-1 px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                 >
                   Accept All
                 </button>
@@ -231,20 +231,20 @@ const CookieCategory = forwardRef<
     icon?: React.ReactNode
   }
 >(({ name, description, enabled, locked, onChange, icon }, ref) => (
-  <div className="flex items-start gap-4 p-4 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700">
+  <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
     <div className="flex-1 min-w-0">
       <div className="flex items-center gap-2 mb-1">
         {icon}
-        <span className="text-sm font-medium text-slate-900 dark:text-white">
+        <span className="text-sm font-medium text-slate-900">
           {name}
         </span>
         {locked && (
-          <span className="text-xs px-1.5 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">
+          <span className="text-xs px-1.5 py-0.5 bg-green-100 text-green-700 rounded-full">
             Always on
           </span>
         )}
       </div>
-      <p className="text-xs text-slate-500 dark:text-slate-400">
+      <p className="text-xs text-slate-500">
         {description}
       </p>
     </div>
@@ -261,7 +261,7 @@ const CookieCategory = forwardRef<
         "relative w-11 h-6 rounded-full flex-shrink-0 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
         enabled
           ? "bg-blue-600"
-          : "bg-slate-300 dark:bg-slate-600",
+          : "bg-slate-300",
         locked && "opacity-60 cursor-not-allowed"
       )}
     >

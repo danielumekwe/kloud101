@@ -38,7 +38,7 @@ const features = [
 
 export default function ManagedDedicatedCpanel() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-white">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -57,7 +57,7 @@ export default function ManagedDedicatedCpanel() {
               Management Made Easy
             </h2>
 
-            <p className="text-gray-400 text-lg leading-relaxed mb-8">
+            <p className="text-slate-600 text-lg leading-relaxed mb-8">
               Every Managed Dedicated Server includes
               cPanel & WHM, providing a powerful interface
               for managing websites, hosting accounts,
@@ -117,7 +117,7 @@ export default function ManagedDedicatedCpanel() {
               alt="cPanel WHM"
               width={700}
               height={500}
-              className="rounded-3xl border border-slate-800"
+              className="rounded-3xl border border-slate-200"
             />
 
           </div>

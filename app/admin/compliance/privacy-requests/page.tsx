@@ -26,7 +26,7 @@ type Filter = { status: string; type: string }
 
 const STATUS_COLORS: Record<string, string> = {
   pending: "bg-yellow-500/10 border-yellow-500/20 text-yellow-400",
-  processing: "bg-blue-500/10 border-blue-500/20 text-blue-400",
+  processing: "bg-blue-500/10 border-blue-500/20 text-blue-600",
   completed: "bg-green-500/10 border-green-500/20 text-green-400",
   rejected: "bg-red-500/10 border-red-500/20 text-red-400",
 }
@@ -55,7 +55,7 @@ function TypeBadge({ type }: { type: string }) {
     data_correction: "Data Correction",
   }
   return (
-    <span className="text-xs px-2 py-0.5 bg-slate-800 text-slate-300 rounded-full border border-slate-700">
+    <span className="text-xs px-2 py-0.5 bg-blue-100 text-slate-700 rounded-full border border-slate-200">
       {labels[type] ?? type}
     </span>
   )
@@ -113,15 +113,15 @@ export default function PrivacyRequestsPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-xl font-bold text-white">Privacy Requests</h1>
-          <p className="text-sm text-slate-400 mt-1">
+          <h1 className="text-xl font-bold text-slate-900">Privacy Requests</h1>
+          <p className="text-sm text-slate-600 mt-1">
             All user-submitted privacy-related requests.
           </p>
         </div>
         <button
           onClick={() => load(page, filter)}
           disabled={loading}
-          className="flex items-center gap-2 px-4 py-2 text-sm bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl border border-slate-700 transition-colors disabled:opacity-50"
+          className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-100 hover:bg-blue-200 text-slate-700 rounded-xl border border-slate-200 transition-colors disabled:opacity-50"
         >
           <RefreshCw className={cn("w-4 h-4", loading && "animate-spin")} />
           Refresh
@@ -133,7 +133,7 @@ export default function PrivacyRequestsPage() {
         <select
           value={filter.status}
           onChange={(e) => { setPage(1); setFilter((f) => ({ ...f, status: e.target.value })) }}
-          className="px-3 py-2 text-sm bg-slate-900 border border-slate-800 text-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-3 py-2 text-sm bg-blue-50 border border-slate-200 text-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
           aria-label="Filter by status"
         >
           <option value="">All statuses</option>
@@ -146,7 +146,7 @@ export default function PrivacyRequestsPage() {
         <select
           value={filter.type}
           onChange={(e) => { setPage(1); setFilter((f) => ({ ...f, type: e.target.value })) }}
-          className="px-3 py-2 text-sm bg-slate-900 border border-slate-800 text-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-3 py-2 text-sm bg-blue-50 border border-slate-200 text-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
           aria-label="Filter by type"
         >
           <option value="">All types</option>
@@ -158,7 +158,7 @@ export default function PrivacyRequestsPage() {
         {(filter.status || filter.type) && (
           <button
             onClick={() => { setPage(1); setFilter({ status: "", type: "" }) }}
-            className="flex items-center gap-1.5 px-3 py-2 text-sm text-slate-400 hover:text-white border border-slate-800 rounded-xl hover:bg-slate-800 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-2 text-sm text-slate-600 hover:text-slate-900 border border-slate-200 rounded-xl hover:bg-blue-100 transition-colors"
           >
             <X className="w-3.5 h-3.5" /> Clear filters
           </button>
@@ -186,11 +186,11 @@ export default function PrivacyRequestsPage() {
           <p className="text-slate-500">No requests found.</p>
         </div>
       ) : (
-        <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+        <div className="bg-blue-50 border border-slate-200 rounded-xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm min-w-[700px]">
               <thead>
-                <tr className="border-b border-slate-800">
+                <tr className="border-b border-slate-200">
                   {["User", "Type", "Status", "Submitted", "Actions"].map((h) => (
                     <th key={h} className="text-left text-xs font-semibold text-slate-500 px-4 py-3">
                       {h}
@@ -200,11 +200,11 @@ export default function PrivacyRequestsPage() {
               </thead>
               <tbody>
                 {requests.map((req) => (
-                  <tr key={req.id} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30 transition-colors">
-                    <td className="px-4 py-3 text-white">{req.email}</td>
+                  <tr key={req.id} className="border-b border-slate-200 last:border-0 hover:bg-blue-100/30 transition-colors">
+                    <td className="px-4 py-3 text-slate-900">{req.email}</td>
                     <td className="px-4 py-3"><TypeBadge type={req.type} /></td>
                     <td className="px-4 py-3"><StatusBadge status={req.status} /></td>
-                    <td className="px-4 py-3 text-slate-400 whitespace-nowrap text-xs">
+                    <td className="px-4 py-3 text-slate-600 whitespace-nowrap text-xs">
                       {new Date(req.createdAt).toLocaleString()}
                     </td>
                     <td className="px-4 py-3">
@@ -213,13 +213,13 @@ export default function PrivacyRequestsPage() {
                           <button
                             onClick={() => handleUpdateStatus(req.id, "processing")}
                             disabled={updating === req.id}
-                            className="px-2.5 py-1 text-xs bg-blue-600/15 border border-blue-500/20 text-blue-400 hover:bg-blue-600/25 rounded-lg transition-colors disabled:opacity-50"
+                            className="px-2.5 py-1 text-xs bg-blue-600/15 border border-blue-500/20 text-blue-600 hover:bg-blue-600/25 rounded-lg transition-colors disabled:opacity-50"
                           >
                             {updating === req.id ? <Loader2 className="w-3 h-3 animate-spin" /> : "Process"}
                           </button>
                           <button
                             onClick={() => { setSelectedRequest(req); setNotes("") }}
-                            className="px-2.5 py-1 text-xs bg-slate-800 border border-slate-700 text-slate-300 hover:bg-slate-700 rounded-lg transition-colors"
+                            className="px-2.5 py-1 text-xs bg-blue-100 border border-slate-200 text-slate-700 hover:bg-blue-200 rounded-lg transition-colors"
                           >
                             Review
                           </button>
@@ -265,14 +265,14 @@ export default function PrivacyRequestsPage() {
             <button
               onClick={() => setPage((p) => Math.max(1, p - 1))}
               disabled={page === 1 || loading}
-              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-slate-800 border border-slate-700 text-slate-300 rounded-lg hover:bg-slate-700 disabled:opacity-40 transition-colors"
+              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-blue-100 border border-slate-200 text-slate-700 rounded-lg hover:bg-blue-200 disabled:opacity-40 transition-colors"
             >
               <ChevronLeft className="w-4 h-4" /> Prev
             </button>
             <button
               onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
               disabled={page === totalPages || loading}
-              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-slate-800 border border-slate-700 text-slate-300 rounded-lg hover:bg-slate-700 disabled:opacity-40 transition-colors"
+              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-blue-100 border border-slate-200 text-slate-700 rounded-lg hover:bg-blue-200 disabled:opacity-40 transition-colors"
             >
               Next <ChevronRight className="w-4 h-4" />
             </button>
@@ -284,17 +284,17 @@ export default function PrivacyRequestsPage() {
       {selectedRequest && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Review request">
           <div className="absolute inset-0 bg-black/60" onClick={() => setSelectedRequest(null)} aria-hidden="true" />
-          <div className="relative bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl p-6 max-w-md w-full">
+          <div className="relative bg-blue-50 border border-slate-200 rounded-2xl shadow-2xl p-6 max-w-md w-full">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-semibold text-white">Review Request</h3>
-              <button onClick={() => setSelectedRequest(null)} className="text-slate-400 hover:text-white">
+              <h3 className="font-semibold text-slate-900">Review Request</h3>
+              <button onClick={() => setSelectedRequest(null)} className="text-slate-600 hover:text-slate-900">
                 <X className="w-5 h-5" />
               </button>
             </div>
             <div className="space-y-2 mb-4 text-sm">
               <div className="flex justify-between">
                 <span className="text-slate-500">User:</span>
-                <span className="text-white">{selectedRequest.email}</span>
+                <span className="text-slate-900">{selectedRequest.email}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">Type:</span>
@@ -302,11 +302,11 @@ export default function PrivacyRequestsPage() {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">Submitted:</span>
-                <span className="text-slate-300 text-xs">{new Date(selectedRequest.createdAt).toLocaleString()}</span>
+                <span className="text-slate-700 text-xs">{new Date(selectedRequest.createdAt).toLocaleString()}</span>
               </div>
             </div>
             <div className="mb-4">
-              <label htmlFor="review-notes" className="block text-sm font-medium text-slate-400 mb-1.5">
+              <label htmlFor="review-notes" className="block text-sm font-medium text-slate-600 mb-1.5">
                 Notes (optional)
               </label>
               <textarea
@@ -314,7 +314,7 @@ export default function PrivacyRequestsPage() {
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 rows={3}
-                className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                className="w-full px-3 py-2 bg-blue-100 border border-slate-200 rounded-lg text-sm text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                 placeholder="Internal notes…"
               />
             </div>
@@ -330,7 +330,7 @@ export default function PrivacyRequestsPage() {
               <button
                 onClick={() => handleUpdateStatus(selectedRequest.id, "rejected")}
                 disabled={updating === selectedRequest.id}
-                className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-xl disabled:opacity-60 transition-colors"
+                className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-red-600 hover:bg-red-700 text-slate-900 text-sm font-medium rounded-xl disabled:opacity-60 transition-colors"
               >
                 <XCircle className="w-4 h-4" />
                 Reject

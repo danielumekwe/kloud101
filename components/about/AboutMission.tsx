@@ -27,7 +27,7 @@ const items = [
 
 export default function AboutMission() {
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center mb-16">
@@ -47,7 +47,7 @@ export default function AboutMission() {
           {items.map((item) => (
             <div
               key={item.title}
-              className="bg-black border border-slate-800 rounded-2xl p-8"
+              className="bg-white border border-slate-200 rounded-2xl p-8"
             >
               <item.icon
                 size={40}
@@ -58,7 +58,7 @@ export default function AboutMission() {
                 {item.title}
               </h3>
 
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {item.description}
               </p>
             </div>

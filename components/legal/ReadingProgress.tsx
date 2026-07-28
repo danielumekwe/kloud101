@@ -20,7 +20,7 @@ export default function ReadingProgress() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[60] h-1 bg-slate-200 dark:bg-slate-800"
+      className="fixed top-0 left-0 right-0 z-[60] h-1 bg-slate-200"
       role="progressbar"
       aria-valuemin={0}
       aria-valuemax={100}

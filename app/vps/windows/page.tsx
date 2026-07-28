@@ -12,7 +12,7 @@ import VpsCta from "@/components/vps/VpsCta";
 
 export default function WindowsVpsPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-white text-slate-900">
 
       <Navbar />
 

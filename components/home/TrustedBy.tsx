@@ -29,10 +29,10 @@ const logos = [
 
 export default function TrustedBy() {
   return (
-    <section className="py-24 border-y border-gray-800">
+    <section className="py-24 border-y border-slate-200">
       <div className="max-w-7xl mx-auto px-6">
 
-        <h2 className="text-center text-sm uppercase tracking-[0.3em] text-gray-500 mb-14">
+        <h2 className="text-center text-sm uppercase tracking-[0.3em] text-slate-600 mb-14">
           Powered By Industry Leading Technologies
         </h2>
 

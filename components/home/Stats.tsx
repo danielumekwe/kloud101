@@ -4,22 +4,22 @@ export default function Stats() {
       <div className="max-w-6xl mx-auto py-16 grid md:grid-cols-4 gap-8 text-center">
         <div>
           <h3 className="text-4xl font-bold">99.99%</h3>
-          <p className="text-gray-500">Uptime</p>
+          <p className="text-slate-600">Uptime</p>
         </div>
 
         <div>
           <h3 className="text-4xl font-bold">10Gbps</h3>
-          <p className="text-gray-500">Network</p>
+          <p className="text-slate-600">Network</p>
         </div>
 
         <div>
           <h3 className="text-4xl font-bold">24/7</h3>
-          <p className="text-gray-500">Support</p>
+          <p className="text-slate-600">Support</p>
         </div>
 
         <div>
           <h3 className="text-4xl font-bold">Instant</h3>
-          <p className="text-gray-500">Provisioning</p>
+          <p className="text-slate-600">Provisioning</p>
         </div>
       </div>
     </section>

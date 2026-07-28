@@ -48,15 +48,15 @@ const features = [
 
 export default function PowerfulFeatures() {
   return (
-    <section className="py-24 bg-slate-50 dark:bg-slate-950">
+    <section className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-5xl font-bold text-slate-900 mb-4">
             Powerful Features
           </h2>
 
-          <p className="text-slate-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-slate-600 max-w-3xl mx-auto">
             Everything you need to launch, secure and scale your infrastructure.
           </p>
         </div>
@@ -69,7 +69,7 @@ export default function PowerfulFeatures() {
             return (
               <div
                 key={feature.title}
-                className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 hover:border-blue-500 transition-all"
+                className="bg-white border border-slate-200 rounded-2xl p-8 hover:border-blue-500 transition-all"
               >
                 <div className="mb-6">
                   <Icon
@@ -79,11 +79,11 @@ export default function PowerfulFeatures() {
                   />
                 </div>
 
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">
                   {feature.title}
                 </h3>
 
-                <p className="text-slate-600 dark:text-gray-400 leading-relaxed">
+                <p className="text-slate-600 leading-relaxed">
                   {feature.description}
                 </p>
               </div>

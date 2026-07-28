@@ -54,8 +54,8 @@ export default function ManagedDedicatedPricing() {
               key={plan.name}
               className={`rounded-3xl border p-8 ${
                 plan.featured
-                  ? "border-blue-500 bg-slate-950"
-                  : "border-slate-800"
+                  ? "border-blue-500 bg-blue-50"
+                  : "border-slate-200"
               }`}
             >
               {plan.featured && (
@@ -70,10 +70,10 @@ export default function ManagedDedicatedPricing() {
 
               <div className="flex flex-wrap items-end gap-2 text-5xl font-bold text-blue-500 mb-6">
                 <span>{formatPrice(plan.price)}</span>
-                <span className="text-lg text-gray-400">/mo</span>
+                <span className="text-lg text-slate-600">/mo</span>
               </div>
 
-              <div className="space-y-4 text-gray-300">
+              <div className="space-y-4 text-slate-600">
 
                 <div>{plan.cpu}</div>
                 <div>{plan.ram}</div>

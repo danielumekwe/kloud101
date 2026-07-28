@@ -23,7 +23,7 @@ import {
 
 const STATUS_COLORS: Record<string, string> = {
   pending: "bg-yellow-500/10 border-yellow-500/20 text-yellow-400",
-  processing: "bg-blue-500/10 border-blue-500/20 text-blue-400",
+  processing: "bg-blue-500/10 border-blue-500/20 text-blue-600",
   completed: "bg-green-500/10 border-green-500/20 text-green-400",
   rejected: "bg-red-500/10 border-red-500/20 text-red-400",
 }
@@ -93,15 +93,15 @@ export default function DataExportRequestsPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-xl font-bold text-white">Data Export Requests</h1>
-          <p className="text-sm text-slate-400 mt-1">
+          <h1 className="text-xl font-bold text-slate-900">Data Export Requests</h1>
+          <p className="text-sm text-slate-600 mt-1">
             GDPR / NDPR data portability requests from users.
           </p>
         </div>
         <button
           onClick={() => load(page)}
           disabled={loading}
-          className="flex items-center gap-2 px-4 py-2 text-sm bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl border border-slate-700 transition-colors disabled:opacity-50"
+          className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-100 hover:bg-blue-200 text-slate-700 rounded-xl border border-slate-200 transition-colors disabled:opacity-50"
         >
           <RefreshCw className={cn("w-4 h-4", loading && "animate-spin")} />
           Refresh
@@ -111,12 +111,12 @@ export default function DataExportRequestsPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
         {[
-          { label: "Total", value: total, color: "text-white" },
+          { label: "Total", value: total, color: "text-slate-900" },
           { label: "Pending", value: pending, color: "text-yellow-400" },
-          { label: "Processing", value: processing, color: "text-blue-400" },
+          { label: "Processing", value: processing, color: "text-blue-600" },
           { label: "Completed", value: completed, color: "text-green-400" },
         ].map(({ label, value, color }) => (
-          <div key={label} className="bg-slate-900 border border-slate-800 rounded-xl p-4">
+          <div key={label} className="bg-blue-50 border border-slate-200 rounded-xl p-4">
             <p className="text-xs text-slate-500 mb-1">{label}</p>
             <p className={cn("text-2xl font-bold", color)}>{value}</p>
           </div>
@@ -140,11 +140,11 @@ export default function DataExportRequestsPage() {
           <p className="text-slate-500">No data export requests.</p>
         </div>
       ) : (
-        <div className="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden">
+        <div className="bg-blue-50 border border-slate-200 rounded-xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm min-w-[600px]">
               <thead>
-                <tr className="border-b border-slate-800">
+                <tr className="border-b border-slate-200">
                   {["User", "Status", "Submitted", "Completed", "Actions"].map((h) => (
                     <th key={h} className="text-left text-xs font-semibold text-slate-500 px-4 py-3">{h}</th>
                   ))}
@@ -152,13 +152,13 @@ export default function DataExportRequestsPage() {
               </thead>
               <tbody>
                 {requests.map((req) => (
-                  <tr key={req.id} className="border-b border-slate-800/50 last:border-0 hover:bg-slate-800/30 transition-colors">
-                    <td className="px-4 py-3 text-white">{req.email}</td>
+                  <tr key={req.id} className="border-b border-slate-200 last:border-0 hover:bg-blue-100/30 transition-colors">
+                    <td className="px-4 py-3 text-slate-900">{req.email}</td>
                     <td className="px-4 py-3"><StatusBadge status={req.status} /></td>
-                    <td className="px-4 py-3 text-slate-400 text-xs whitespace-nowrap">
+                    <td className="px-4 py-3 text-slate-600 text-xs whitespace-nowrap">
                       {new Date(req.createdAt).toLocaleString()}
                     </td>
-                    <td className="px-4 py-3 text-slate-400 text-xs">
+                    <td className="px-4 py-3 text-slate-600 text-xs">
                       {req.completedAt ? new Date(req.completedAt).toLocaleDateString() : "—"}
                     </td>
                     <td className="px-4 py-3">
@@ -166,7 +166,7 @@ export default function DataExportRequestsPage() {
                         <button
                           onClick={() => handleUpdate(req.id, "processing")}
                           disabled={updating === req.id}
-                          className="px-2.5 py-1 text-xs bg-blue-600/15 border border-blue-500/20 text-blue-400 hover:bg-blue-600/25 rounded-lg transition-colors disabled:opacity-50"
+                          className="px-2.5 py-1 text-xs bg-blue-600/15 border border-blue-500/20 text-blue-600 hover:bg-blue-600/25 rounded-lg transition-colors disabled:opacity-50"
                         >
                           {updating === req.id ? <Loader2 className="w-3 h-3 animate-spin" /> : "Start processing"}
                         </button>
@@ -194,11 +194,11 @@ export default function DataExportRequestsPage() {
           <p className="text-xs text-slate-500">Page {page} of {totalPages}</p>
           <div className="flex gap-2">
             <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1 || loading}
-              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-slate-800 border border-slate-700 text-slate-300 rounded-lg hover:bg-slate-700 disabled:opacity-40 transition-colors">
+              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-blue-100 border border-slate-200 text-slate-700 rounded-lg hover:bg-blue-200 disabled:opacity-40 transition-colors">
               <ChevronLeft className="w-4 h-4" /> Prev
             </button>
             <button onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages || loading}
-              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-slate-800 border border-slate-700 text-slate-300 rounded-lg hover:bg-slate-700 disabled:opacity-40 transition-colors">
+              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-blue-100 border border-slate-200 text-slate-700 rounded-lg hover:bg-blue-200 disabled:opacity-40 transition-colors">
               Next <ChevronRight className="w-4 h-4" />
             </button>
           </div>

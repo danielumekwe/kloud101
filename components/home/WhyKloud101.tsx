@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function WhyKloud101() {
   return (
-    <section className="relative py-28 bg-gradient-to-r from-blue-950 via-slate-950 to-blue-950 overflow-hidden">
+    <section className="relative py-28 bg-gradient-to-r from-blue-50 via-white to-blue-50 overflow-hidden">
 
       {/* Background Glow */}
 
@@ -31,7 +31,7 @@ export default function WhyKloud101() {
 
           <div>
 
-            <span className="text-blue-400 uppercase tracking-[0.25em] font-semibold">
+            <span className="text-blue-600 uppercase tracking-[0.25em] font-semibold">
               Why Kloud101
             </span>
 
@@ -47,14 +47,14 @@ export default function WhyKloud101() {
 
             <div className="border-l-4 border-blue-500 pl-8 space-y-8">
 
-              <p className="text-slate-300 text-lg leading-relaxed">
+              <p className="text-slate-700 text-lg leading-relaxed">
                 At Kloud101, we believe technology should empower
                 businesses, not complicate them. That's why we've built
                 a cloud platform focused on reliability, security and
                 simplicity.
               </p>
 
-              <p className="text-slate-300 text-lg leading-relaxed">
+              <p className="text-slate-700 text-lg leading-relaxed">
                 From managed VPS hosting and dedicated servers to
                 business email and backup solutions, our services are
                 designed to remove the complexity of managing
@@ -62,7 +62,7 @@ export default function WhyKloud101() {
                 flexibility your business deserves.
               </p>
 
-              <p className="text-slate-300 text-lg leading-relaxed">
+              <p className="text-slate-700 text-lg leading-relaxed">
                 Whether you're launching a startup, running an agency,
                 managing an eCommerce platform or scaling an enterprise,
                 Kloud101 provides the tools, support and infrastructure
@@ -82,7 +82,7 @@ export default function WhyKloud101() {
 
               <Link
                 href="/contact"
-                className="px-8 py-4 border border-slate-600 hover:border-blue-500 rounded-xl font-semibold transition"
+                className="px-8 py-4 border border-slate-300 hover:border-blue-500 rounded-xl font-semibold transition"
               >
                 Contact Sales
               </Link>

@@ -32,7 +32,7 @@ const services = [
 
 export default function HomeCTA() {
   return (
-    <section className="relative py-32 overflow-hidden bg-gradient-to-r from-blue-950 via-slate-950 to-blue-950">
+    <section className="relative py-32 overflow-hidden bg-gradient-to-r from-blue-50 via-white to-blue-50">
 
       {/* Glow */}
 
@@ -42,7 +42,7 @@ export default function HomeCTA() {
 
         <div className="text-center">
 
-          <span className="text-blue-400 uppercase tracking-[0.3em] text-sm font-semibold">
+          <span className="text-blue-600 uppercase tracking-[0.3em] text-sm font-semibold">
             Get Started Today
           </span>
 
@@ -52,7 +52,7 @@ export default function HomeCTA() {
             Your Business?
           </h2>
 
-          <p className="text-slate-300 text-xl max-w-3xl mx-auto mb-16">
+          <p className="text-slate-700 text-xl max-w-3xl mx-auto mb-16">
             Everything you need to launch, manage and scale online —
             backed by reliable infrastructure, expert support and
             enterprise-grade technology.
@@ -68,14 +68,14 @@ export default function HomeCTA() {
               return (
                 <div
                   key={service.title}
-                  className="flex items-center gap-3 px-5 py-3 bg-black/40 border border-slate-800 rounded-full"
+                  className="flex items-center gap-3 px-5 py-3 bg-white/40 border border-slate-200 rounded-full"
                 >
                   <Icon
                     size={18}
                     className="text-blue-500"
                   />
 
-                  <span className="text-slate-300">
+                  <span className="text-slate-700">
                     {service.title}
                   </span>
                 </div>
@@ -97,7 +97,7 @@ export default function HomeCTA() {
 
             <Link
               href="/contact"
-              className="px-10 py-5 border border-slate-600 hover:border-blue-500 rounded-xl font-semibold text-lg transition"
+              className="px-10 py-5 border border-slate-300 hover:border-blue-500 rounded-xl font-semibold text-lg transition"
             >
               Contact Sales
             </Link>

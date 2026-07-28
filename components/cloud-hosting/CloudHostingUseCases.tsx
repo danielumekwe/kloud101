@@ -48,7 +48,7 @@ const useCases = [
 
 export default function CloudHostingUseCases() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-white">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -62,7 +62,7 @@ export default function CloudHostingUseCases() {
             Built For Every Type Of Business
           </h2>
 
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-slate-600 max-w-3xl mx-auto">
             Whether you're launching a website, online store or SaaS platform,
             our cloud hosting infrastructure is designed to grow with you.
           </p>
@@ -74,7 +74,7 @@ export default function CloudHostingUseCases() {
           {useCases.map((item) => (
             <div
               key={item.title}
-              className="bg-slate-950 border border-slate-800 rounded-2xl p-8"
+              className="bg-blue-50 border border-slate-200 rounded-2xl p-8"
             >
               <item.icon
                 size={42}
@@ -85,7 +85,7 @@ export default function CloudHostingUseCases() {
                 {item.title}
               </h3>
 
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {item.description}
               </p>
 

@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 
 export default function DedicatedBenefits() {
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-blue-50">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -20,7 +20,7 @@ export default function DedicatedBenefits() {
             predictable performance.
           </h2>
 
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-3xl mx-auto">
             Perfect for high-traffic websites, databases,
             virtualization, SaaS platforms and enterprise workloads.
           </p>
@@ -31,7 +31,7 @@ export default function DedicatedBenefits() {
 
           {/* Main Card */}
 
-          <div className="lg:col-span-1 border border-blue-500 rounded-2xl p-8 bg-black">
+          <div className="lg:col-span-1 border border-blue-500 rounded-2xl p-8 bg-white">
 
             <span className="text-blue-500 text-sm uppercase font-semibold">
               Included With Every Server
@@ -103,13 +103,13 @@ export default function DedicatedBenefits() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="border border-slate-800 rounded-2xl p-6 bg-black"
+                className="border border-slate-200 rounded-2xl p-6 bg-white"
               >
                 <h4 className="text-xl font-semibold mb-3">
                   {item.title}
                 </h4>
 
-                <p className="text-gray-400">
+                <p className="text-slate-600">
                   {item.text}
                 </p>
               </div>

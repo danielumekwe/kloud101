@@ -48,7 +48,7 @@ const benefits = [
 
 export default function BackupSecurityBenefits() {
   return (
-    <section className="py-24 bg-black">
+    <section className="py-24 bg-white">
 
       <div className="max-w-7xl mx-auto px-6">
 
@@ -62,7 +62,7 @@ export default function BackupSecurityBenefits() {
             Why Backup & Security Matters
           </h2>
 
-          <p className="text-gray-400 max-w-3xl mx-auto">
+          <p className="text-slate-600 max-w-3xl mx-auto">
             Protect your business from data loss, cyber threats and
             unexpected downtime with enterprise-grade backup solutions.
           </p>
@@ -74,7 +74,7 @@ export default function BackupSecurityBenefits() {
           {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="bg-slate-950 border border-slate-800 rounded-2xl p-8"
+              className="bg-blue-50 border border-slate-200 rounded-2xl p-8"
             >
               <benefit.icon
                 size={42}
@@ -85,7 +85,7 @@ export default function BackupSecurityBenefits() {
                 {benefit.title}
               </h3>
 
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {benefit.description}
               </p>
 

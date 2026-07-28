@@ -37,7 +37,7 @@ export default function VpsPricing() {
           Cloud VPS Plans
         </h2>
 
-        <p className="text-center text-gray-400 mb-16">
+        <p className="text-center text-slate-600 mb-16">
           Powerful virtual servers with instant deployment.
         </p>
 
@@ -46,7 +46,7 @@ export default function VpsPricing() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className="border border-gray-800 rounded-2xl p-8 hover:border-blue-500 transition"
+              className="border border-slate-200 rounded-2xl p-8 hover:border-blue-500 transition"
             >
               <h3 className="text-2xl font-bold mb-4">
                 {plan.name}
@@ -54,10 +54,10 @@ export default function VpsPricing() {
 
               <div className="flex flex-wrap items-end gap-2 text-4xl font-bold mb-6">
                 <span>{formatPrice(plan.price)}</span>
-                <span className="text-lg text-gray-400">/mo</span>
+                <span className="text-lg text-slate-600">/mo</span>
               </div>
 
-              <ul className="space-y-3 text-gray-400 mb-8">
+              <ul className="space-y-3 text-slate-600 mb-8">
                 <li>{plan.cpu}</li>
                 <li>{plan.ram}</li>
                 <li>{plan.storage}</li>
