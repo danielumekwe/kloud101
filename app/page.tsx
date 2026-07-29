@@ -6,7 +6,6 @@ import Footer from "@/components/layout/Footer"
 import VpsPricing from "@/components/pricing/VpsPricing"
 import Features from "@/components/home/Features"
 import DedicatedPricing from "@/components/pricing/DedicatedPricing"
-import HeroSlider from "@/components/home/HeroSlider";
 import ServiceCards from "@/components/home/ServiceCards";
 import PowerfulFeatures from "@/components/home/PowerfulFeatures";
 import FeaturedSolutions from "@/components/home/FeaturedSolutions";
@@ -20,7 +19,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
       <Navbar />
-      <HeroSlider />
+      <Hero />
       <FeaturedSolutions />
       <WhyKloud101 />
       <GlobalInfrastructure />

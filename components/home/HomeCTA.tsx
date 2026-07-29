@@ -46,7 +46,7 @@ export default function HomeCTA() {
             Get Started Today
           </span>
 
-          <h2 className="text-5xl lg:text-7xl font-bold mt-6 mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold mt-6 mb-8">
             Ready To Power
             <br />
             Your Business?

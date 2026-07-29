@@ -35,7 +35,7 @@ export default function WhyKloud101() {
               Why Kloud101
             </span>
 
-            <h2 className="text-5xl lg:text-6xl font-bold mt-6 mb-4 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-bold mt-6 mb-4 leading-tight">
               Built For Businesses.
               <br />
               Powered By Reliable Infrastructure.

@@ -37,7 +37,7 @@ export default function TrustMetrics() {
             Trusted Infrastructure
           </span>
 
-          <h2 className="text-5xl lg:text-6xl font-bold mt-6 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold mt-6 mb-6">
             Infrastructure You Can
             Depend On
           </h2>

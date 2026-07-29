@@ -20,7 +20,7 @@ export default function SupportResources() {
             Get The Most From Kloud101
           </span>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mt-5 mb-5 leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mt-5 mb-5 leading-tight">
             Useful Resources After You Choose A Plan
           </h2>
 

@@ -46,7 +46,7 @@ export default function GlobalInfrastructure() {
               Global Infrastructure
             </span>
 
-            <h2 className="text-5xl lg:text-6xl font-bold text-slate-900 mt-6 mb-8 leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mt-6 mb-8 leading-tight">
               Global Infrastructure.
               <br />
               Local Performance.

@@ -25,7 +25,7 @@ export default function FeaturedSolutions() {
             Featured Solutions
           </span>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mt-4 mb-6 leading-tight">
+          <h2 className="text-4xl lg:text-5xl font-bold text-slate-900 mt-4 mb-6 leading-tight">
              VPS Hosting
             <br className="hidden sm:block" />
             For Modern Businesses
