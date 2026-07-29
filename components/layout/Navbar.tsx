@@ -160,7 +160,7 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
       {/* Top bar */}
       <div className="flex items-center justify-between border-b border-slate-200 px-6 py-5">
         <Link href="/" onClick={onClose}>
-          <Image src="/logo-wordmark.png" alt="Kloud101" width={152} height={32} priority className="invert hue-rotate-180" />
+          <Image src="/kloud101logo.png" alt="Kloud101" width={128} height={40} priority />
         </Link>
         <button
           onClick={onClose}
@@ -337,12 +337,11 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex shrink-0 items-center py-3">
           <Image
-            src="/logo-wordmark.png"
+            src="/kloud101logo.png"
             alt="Kloud101"
-            width={152}
-            height={32}
+            width={128}
+            height={40}
             priority
-            className="invert hue-rotate-180"
           />
         </Link>
 

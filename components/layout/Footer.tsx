@@ -14,11 +14,11 @@ export default function Footer() {
           <div className="lg:col-span-2">
 
             <Image
-              src="/logo.png"
+              src="/kloud101logo.png"
               alt="Kloud101"
-              width={110}
-              height={76}
-              className="invert hue-rotate-180 mb-4"
+              width={144}
+              height={45}
+              className="mb-4"
             />
 
             <p className="text-slate-500 leading-relaxed mb-8">

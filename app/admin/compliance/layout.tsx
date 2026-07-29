@@ -109,7 +109,7 @@ export default function ComplianceLayout({
         {/* Logo */}
         <div className="flex items-center justify-between h-16 px-5 border-b border-slate-200 flex-shrink-0">
           <Link href="/" className="flex items-center gap-3">
-            <Image src="/logo.png" alt="Kloud101" width={80} height={55} />
+            <Image src="/kloud101logo.png" alt="Kloud101" width={102} height={32} />
           </Link>
           <button
             className="lg:hidden p-1 text-slate-600 hover:text-slate-900"
