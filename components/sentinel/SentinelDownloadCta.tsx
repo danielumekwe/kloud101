@@ -30,7 +30,8 @@ export default function SentinelDownloadCta() {
               <div className="flex flex-wrap gap-4 mb-6">
 
                 <Link
-                  href="https://my.kloud101.com/register"
+                  href="/kloud101-sentinel.zip"
+                  download
                   className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition"
                 >
                   Download Free Version
