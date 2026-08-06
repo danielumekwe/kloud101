@@ -9,6 +9,7 @@ import DedicatedPricing from "@/components/pricing/DedicatedPricing"
 import ServiceCards from "@/components/home/ServiceCards";
 import PowerfulFeatures from "@/components/home/PowerfulFeatures";
 import FeaturedSolutions from "@/components/home/FeaturedSolutions";
+import SentinelSecurity from "@/components/home/SentinelSecurity";
 import WhyKloud101 from "@/components/home/WhyKloud101";
 import GlobalInfrastructure from "@/components/home/GlobalInfrastructure";
 import SupportResources from "@/components/home/SupportResources";
@@ -21,6 +22,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <FeaturedSolutions />
+      <SentinelSecurity />
       <WhyKloud101 />
       <GlobalInfrastructure />
       <SupportResources />

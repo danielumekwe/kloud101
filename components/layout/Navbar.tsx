@@ -8,6 +8,7 @@ import {
   Server,
   Settings,
   Shield,
+  ShieldCheck,
   Mail,
   Cloud,
   ChevronDown,
@@ -58,6 +59,13 @@ const cloudProducts: NavProduct[] = [
     icon: <Shield className="h-5 w-5" />,
     label: "Backup & Security",
     description: "Automated backups, DDoS protection, SSL and disaster recovery.",
+  },
+  {
+    href: "/sentinel",
+    icon: <ShieldCheck className="h-5 w-5" />,
+    label: "KloudSentinel",
+    description: "AI-powered malware detection for WordPress, servers and cloud.",
+    badge: "New",
   },
 ];
 
