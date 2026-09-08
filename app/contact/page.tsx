@@ -3,59 +3,30 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { useState, useRef, useEffect, FormEvent } from "react";
+import { useState, useRef, useEffect, useCallback, FormEvent } from "react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 interface FormData {
-  fullName: string;
-  companyName: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
-  country: string;
-  service: string;
-  projectDetails: string;
-  budget: string;
-  timeline: string;
-  requirements: string;
+  subject: string;
+  department: string;
+  message: string;
 }
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 
-const SERVICES = [
-  "Hosting",
-  "Business Email",
-  "Cloud Servers",
-  "Managed VPS",
-  "Dedicated Servers",
-  "Backup Solutions",
-  "Cyber Security",
-  "Migration Services",
-];
-
-const BUDGETS = [
-  "Under $500/month",
-  "$500 – $2,000/month",
-  "$2,000 – $5,000/month",
-  "$5,000 – $10,000/month",
-  "$10,000+/month",
-  "Custom / Enterprise",
-];
-
-const TIMELINES = [
-  "Immediately",
-  "Within 2 weeks",
-  "1 – 3 months",
-  "3 – 6 months",
-  "6+ months",
-  "Just exploring",
-];
-
-const COUNTRIES = [
-  "Nigeria", "United Kingdom", "United States", "Canada", "Germany",
-  "South Africa", "Ghana", "Kenya", "India", "Australia", "Other",
+const DEPARTMENTS = [
+  "Sales Team",
+  "Technical Support",
+  "Billing Department",
+  "WhatsApp Support",
+  "Business Development",
 ];
 
 // ─── Metadata (exported separately for App Router) ───────────────────────────
@@ -126,45 +97,6 @@ function FloatingCard({ icon, label, value, delay = "0s" }: FloatingCardProps) {
         <p className="text-sm text-slate-900 font-semibold leading-tight">{value}</p>
       </div>
     </div>
-  );
-}
-
-interface ContactCardProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  contact: string;
-  href: string;
-  cta: string;
-  color: string;
-}
-
-function ContactCard({ icon, title, description, contact, href, cta, color }: ContactCardProps) {
-  return (
-    <a
-      href={href}
-      className="group relative flex flex-col gap-4 p-6 rounded-2xl border border-slate-200 bg-blue-50/60 backdrop-blur-sm hover:bg-blue-50/80 hover:border-blue-300 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-      aria-label={`${title}: ${contact}`}
-    >
-      <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${color} transition-transform duration-300 group-hover:scale-110`}>
-        {icon}
-      </div>
-      <div className="flex-1">
-        <h3 className="text-slate-900 font-semibold text-base mb-1">{title}</h3>
-        <p className="text-slate-600 text-sm leading-relaxed mb-3">{description}</p>
-        <p className="text-blue-600 text-sm font-medium break-all">{contact}</p>
-      </div>
-      <span className="inline-flex items-center gap-1.5 text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors duration-200">
-        {cta}
-        <svg className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </span>
-
-      {/* Hover glow */}
-      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-        style={{ boxShadow: "inset 0 1px 0 rgba(15,23,42,0.06)" }} />
-    </a>
   );
 }
 
@@ -292,6 +224,146 @@ function FloatingTextarea({ id, label, value, onChange, rows = 4, required }: Fl
   );
 }
 
+// ─── Image Captcha ────────────────────────────────────────────────────────────
+
+const CAPTCHA_CHARS = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // no O/0, I/1
+
+function generateCaptchaCode(length = 5) {
+  let code = "";
+  for (let i = 0; i < length; i++) {
+    code += CAPTCHA_CHARS[Math.floor(Math.random() * CAPTCHA_CHARS.length)];
+  }
+  return code;
+}
+
+interface CaptchaFieldProps {
+  onVerifiedChange: (verified: boolean) => void;
+}
+
+function CaptchaField({ onVerifiedChange }: CaptchaFieldProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [code, setCode] = useState("");
+  const [input, setInput] = useState("");
+  const [touched, setTouched] = useState(false);
+
+  const drawCaptcha = useCallback((value: string) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const { width, height } = canvas;
+    ctx.clearRect(0, 0, width, height);
+
+    // Background
+    ctx.fillStyle = "#eff6ff";
+    ctx.fillRect(0, 0, width, height);
+
+    // Noise lines
+    for (let i = 0; i < 5; i++) {
+      ctx.strokeStyle = `rgba(59,130,246,${0.15 + Math.random() * 0.2})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(Math.random() * width, Math.random() * height);
+      ctx.lineTo(Math.random() * width, Math.random() * height);
+      ctx.stroke();
+    }
+
+    // Noise dots
+    for (let i = 0; i < 40; i++) {
+      ctx.fillStyle = `rgba(30,64,175,${0.1 + Math.random() * 0.25})`;
+      ctx.beginPath();
+      ctx.arc(Math.random() * width, Math.random() * height, 1, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Distorted characters
+    const charWidth = width / value.length;
+    [...value].forEach((char, i) => {
+      const x = charWidth * i + charWidth / 2;
+      const y = height / 2 + (Math.random() * 8 - 4);
+      const angle = (Math.random() * 30 - 15) * (Math.PI / 180);
+
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(angle);
+      ctx.font = `bold ${Math.floor(height * 0.55)}px monospace`;
+      ctx.fillStyle = ["#1d4ed8", "#4338ca", "#0e7490", "#1e293b"][i % 4];
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(char, 0, 0);
+      ctx.restore();
+    });
+  }, []);
+
+  const refresh = useCallback(() => {
+    const next = generateCaptchaCode();
+    setCode(next);
+    setInput("");
+    setTouched(false);
+    onVerifiedChange(false);
+    requestAnimationFrame(() => drawCaptcha(next));
+  }, [drawCaptcha, onVerifiedChange]);
+
+  useEffect(() => {
+    refresh();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const verified = touched && input.trim().length > 0 && input.trim().toUpperCase() === code;
+    onVerifiedChange(verified);
+  }, [input, code, touched, onVerifiedChange]);
+
+  const isInvalid = touched && input.trim().length > 0 && input.trim().toUpperCase() !== code;
+
+  return (
+    <div>
+      <p className="text-[10px] text-blue-600 font-medium tracking-wide uppercase mb-2">
+        Image Verification <span className="text-blue-500">*</span>
+      </p>
+      <div className="flex flex-wrap items-center gap-3 mb-3">
+        <canvas
+          ref={canvasRef}
+          width={160}
+          height={56}
+          role="img"
+          aria-label="Captcha image showing a distorted code to verify you are not a bot"
+          className="rounded-lg border border-slate-200"
+        />
+        <button
+          type="button"
+          onClick={refresh}
+          aria-label="Refresh captcha image"
+          className="w-9 h-9 flex items-center justify-center rounded-lg border border-slate-200 bg-blue-50 hover:bg-blue-100 text-slate-600 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </button>
+      </div>
+      <input
+        id="captcha"
+        name="captcha"
+        type="text"
+        value={input}
+        onChange={(e) => { setInput(e.target.value); setTouched(true); }}
+        onBlur={() => setTouched(true)}
+        required
+        autoComplete="off"
+        aria-label="Enter the characters shown in the image"
+        placeholder="Enter the code shown above"
+        className={`w-full px-4 py-3 rounded-xl bg-blue-50 border text-slate-900 text-sm focus:outline-none transition-all duration-200 ${
+          isInvalid ? "border-red-400 focus:border-red-500" : "border-slate-200 focus:border-blue-500/70"
+        }`}
+      />
+      {isInvalid && (
+        <p className="mt-1.5 text-xs text-red-500">Code doesn&apos;t match. Try again or refresh the image.</p>
+      )}
+    </div>
+  );
+}
+
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
 const IconMail = () => (
@@ -304,18 +376,6 @@ const IconHeadset = () => (
   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M3 18v-6a9 9 0 0118 0v6" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" />
-  </svg>
-);
-
-const IconCreditCard = () => (
-  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-  </svg>
-);
-
-const IconWhatsApp = () => (
-  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
   </svg>
 );
 
@@ -365,6 +425,12 @@ const IconMapPin = () => (
   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
     <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>
+);
+
+const IconPhone = () => (
+  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
   </svg>
 );
 
@@ -452,17 +518,15 @@ export default function ContactPage() {
   const formRef = useRef<HTMLFormElement>(null);
   const [formStatus, setFormStatus] = useState<FormStatus>("idle");
   const [formData, setFormData] = useState<FormData>({
-    fullName: "",
-    companyName: "",
+    firstName: "",
+    lastName: "",
     email: "",
     phone: "",
-    country: "",
-    service: "",
-    projectDetails: "",
-    budget: "",
-    timeline: "",
-    requirements: "",
+    subject: "",
+    department: "",
+    message: "",
   });
+  const [captchaVerified, setCaptchaVerified] = useState(false);
 
   const updateField = (field: keyof FormData) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
@@ -470,17 +534,18 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!captchaVerified) {
+      setFormStatus("error");
+      return;
+    }
     setFormStatus("loading");
 
     try {
       // ── Replace this with your actual form submission logic ──
       await new Promise((res) => setTimeout(res, 1800));
       setFormStatus("success");
-      setFormData({
-        fullName: "", companyName: "", email: "", phone: "",
-        country: "", service: "", projectDetails: "",
-        budget: "", timeline: "", requirements: "",
-      });
+      setFormData({ firstName: "", lastName: "", email: "", phone: "", subject: "", department: "", message: "" });
+      setCaptchaVerified(false);
     } catch {
       setFormStatus("error");
     }
@@ -638,79 +703,20 @@ export default function ContactPage() {
           </section>
 
           {/* ═══════════════════════════════════════════════════════════════
-              CONTACT METHODS
-          ══════════════════════════════════════════════════════════════════ */}
-          <section className="py-20 px-4" aria-label="Contact methods">
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-14" data-reveal>
-                <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3">Get In Touch</p>
-                <h2 className="text-3xl font-bold text-slate-900">Choose Your Channel</h2>
-                <p className="text-slate-600 mt-3 max-w-xl mx-auto">
-                  Every team at Kloud101 is standing by. Pick the best route for your query.
-                </p>
-              </div>
-
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4" data-reveal>
-                <ContactCard
-                  icon={<IconBriefcase />}
-                  title="Sales Team"
-                  description="Talk to us about new accounts, enterprise deals, and custom pricing."
-                  contact="sales@kloud101.com"
-                  href="mailto:sales@kloud101.com"
-                  cta="Email Sales"
-                  color="bg-blue-500/20 border border-blue-500/30 text-blue-600"
-                />
-                <ContactCard
-                  icon={<IconHeadset />}
-                  title="Technical Support"
-                  description="Get expert help with server issues, configuration, or incidents."
-                  contact="support@kloud101.com"
-                  href="mailto:support@kloud101.com"
-                  cta="Open Ticket"
-                  color="bg-indigo-500/20 border border-indigo-500/30 text-indigo-400"
-                />
-                <ContactCard
-                  icon={<IconCreditCard />}
-                  title="Billing Department"
-                  description="Invoice queries, payment issues, and subscription management."
-                  contact="billing@kloud101.com"
-                  href="mailto:billing@kloud101.com"
-                  cta="Contact Billing"
-                  color="bg-violet-500/20 border border-violet-500/30 text-violet-400"
-                />
-                <ContactCard
-                  icon={<IconWhatsApp />}
-                  title="WhatsApp Support"
-                  description="Chat with a real agent instantly via WhatsApp for fast responses."
-                  contact="Chat on WhatsApp"
-                  href="https://wa.me/your-number"
-                  cta="Start Chat"
-                  color="bg-green-500/20 border border-green-500/30 text-green-400"
-                />
-                <ContactCard
-                  icon={<IconArrowUp />}
-                  title="Business Development"
-                  description="Partnership opportunities, reseller programs, and co-marketing."
-                  contact="partners@kloud101.com"
-                  href="mailto:partners@kloud101.com"
-                  cta="Partner With Us"
-                  color="bg-cyan-500/20 border border-cyan-500/30 text-cyan-400"
-                />
-              </div>
-            </div>
-          </section>
-
-          {/* ═══════════════════════════════════════════════════════════════
               CONTACT FORM
           ══════════════════════════════════════════════════════════════════ */}
           <section id="contact-form" className="py-20 px-4" aria-label="Contact form">
             <div className="max-w-4xl mx-auto">
               {/* Section header */}
               <div className="text-center mb-14" data-reveal>
-                <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3">Send A Message</p>
-                <h2 className="text-3xl font-bold text-slate-900">Tell Us About Your Project</h2>
+                <p className="text-xs font-semibold text-blue-600 uppercase tracking-widest mb-3">Message Form</p>
+                <h2 className="text-3xl font-bold text-slate-900">Send Us A Message</h2>
                 <p className="text-slate-600 mt-3 max-w-xl mx-auto">
-                  Complete the form below and a cloud specialist will respond within one business day.
+                  Choose the department that should receive your request. Existing customers should use the{" "}
+                  <a href="https://my.kloud101.com/login" className="text-blue-600 font-medium hover:underline">
+                    portal
+                  </a>{" "}
+                  when the message involves an active service.
                 </p>
               </div>
 
@@ -747,22 +753,23 @@ export default function ContactPage() {
                     noValidate
                     aria-label="Contact form"
                   >
-                    {/* Row 1: Name + Company */}
+                    {/* Row 1: First + Last name */}
                     <div className="grid sm:grid-cols-2 gap-4 mb-4">
                       <FloatingInput
-                        id="fullName"
-                        label="Full Name"
-                        value={formData.fullName}
-                        onChange={updateField("fullName")}
+                        id="firstName"
+                        label="First Name"
+                        value={formData.firstName}
+                        onChange={updateField("firstName")}
                         required
-                        autoComplete="name"
+                        autoComplete="given-name"
                       />
                       <FloatingInput
-                        id="companyName"
-                        label="Company Name"
-                        value={formData.companyName}
-                        onChange={updateField("companyName")}
-                        autoComplete="organization"
+                        id="lastName"
+                        label="Last Name"
+                        value={formData.lastName}
+                        onChange={updateField("lastName")}
+                        required
+                        autoComplete="family-name"
                       />
                     </div>
 
@@ -787,64 +794,40 @@ export default function ContactPage() {
                       />
                     </div>
 
-                    {/* Row 3: Country + Service */}
+                    {/* Row 3: Subject + Department */}
                     <div className="grid sm:grid-cols-2 gap-4 mb-4">
-                      <FloatingSelect
-                        id="country"
-                        label="Country"
-                        value={formData.country}
-                        onChange={updateField("country")}
-                        options={COUNTRIES}
+                      <FloatingInput
+                        id="subject"
+                        label="Subject"
+                        value={formData.subject}
+                        onChange={updateField("subject")}
+                        required
                       />
                       <FloatingSelect
-                        id="service"
-                        label="Service Interested In"
-                        value={formData.service}
-                        onChange={updateField("service")}
-                        options={SERVICES}
+                        id="department"
+                        label="Department"
+                        value={formData.department}
+                        onChange={updateField("department")}
+                        options={DEPARTMENTS}
                         required
                       />
                     </div>
 
-                    {/* Project details */}
-                    <div className="mb-4">
+                    {/* Message */}
+                    <div className="mb-6">
                       <FloatingTextarea
-                        id="projectDetails"
-                        label="Project Details"
-                        value={formData.projectDetails}
-                        onChange={updateField("projectDetails")}
-                        rows={4}
+                        id="message"
+                        label="Message"
+                        value={formData.message}
+                        onChange={updateField("message")}
+                        rows={5}
                         required
                       />
                     </div>
 
-                    {/* Row 4: Budget + Timeline */}
-                    <div className="grid sm:grid-cols-2 gap-4 mb-4">
-                      <FloatingSelect
-                        id="budget"
-                        label="Budget Range"
-                        value={formData.budget}
-                        onChange={updateField("budget")}
-                        options={BUDGETS}
-                      />
-                      <FloatingSelect
-                        id="timeline"
-                        label="Timeline"
-                        value={formData.timeline}
-                        onChange={updateField("timeline")}
-                        options={TIMELINES}
-                      />
-                    </div>
-
-                    {/* Requirements */}
+                    {/* Captcha */}
                     <div className="mb-8">
-                      <FloatingTextarea
-                        id="requirements"
-                        label="Additional Requirements"
-                        value={formData.requirements}
-                        onChange={updateField("requirements")}
-                        rows={3}
-                      />
+                      <CaptchaField onVerifiedChange={setCaptchaVerified} />
                     </div>
 
                     {/* Error state */}
@@ -853,7 +836,9 @@ export default function ContactPage() {
                         <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        Something went wrong. Please try again or email us directly.
+                        {captchaVerified
+                          ? "Something went wrong. Please try again or email us directly."
+                          : "Please complete the image verification before sending your message."}
                       </div>
                     )}
 
@@ -907,7 +892,8 @@ export default function ContactPage() {
                     region: "West Africa Hub",
                     coverage: "Sub-Saharan Africa",
                     hours: "08:00 – 22:00 WAT",
-                    services: ["Shared Hosting", "Cloud VPS", "Business Email", "CDN"],
+                    phone: "0808 969 9705",
+                    address: "16 Oduola Ogunrinde Ave, Ikotun, Lagos 100266, Lagos",
                     color: "from-green-500/20 to-transparent",
                     border: "border-green-500/25",
                   },
@@ -917,7 +903,8 @@ export default function ContactPage() {
                     region: "EMEA HQ",
                     coverage: "Europe, Middle East, Africa",
                     hours: "09:00 – 18:00 GMT",
-                    services: ["Dedicated Servers", "Managed VPS", "Enterprise Cloud", "DRaaS"],
+                    phone: "Coming soon",
+                    address: "Coming soon",
                     color: "from-blue-500/20 to-transparent",
                     border: "border-blue-500/25",
                   },
@@ -927,11 +914,12 @@ export default function ContactPage() {
                     region: "Americas Hub",
                     coverage: "North & South America",
                     hours: "09:00 – 18:00 EST",
-                    services: ["Cloud Servers", "Cyber Security", "Migration Services", "Backup"],
+                    phone: "Coming soon",
+                    address: "Coming soon",
                     color: "from-indigo-500/20 to-transparent",
                     border: "border-indigo-500/25",
                   },
-                ].map(({ flag, country, region, coverage, hours, services, color, border }) => (
+                ].map(({ flag, country, region, coverage, hours, phone, address, color, border }) => (
                   <div
                     key={country}
                     className={`relative rounded-2xl border ${border} bg-blue-50/60 overflow-hidden p-6 hover:bg-blue-50/70 transition-all duration-300 group`}
@@ -953,21 +941,35 @@ export default function ContactPage() {
                           <IconClock />
                           <span>Hours: <strong className="text-slate-700">{hours}</strong></span>
                         </div>
-                      </div>
-
-                      <div>
-                        <p className="text-[11px] uppercase tracking-widest text-slate-500 mb-2 font-semibold">Services Available</p>
-                        <div className="flex flex-wrap gap-1.5">
-                          {services.map((s) => (
-                            <span key={s} className="px-2.5 py-1 rounded-full text-[11px] font-medium bg-blue-50 border border-slate-200 text-slate-700">
-                              {s}
-                            </span>
-                          ))}
+                        <div className="flex items-center gap-2 text-sm text-slate-600">
+                          <IconPhone />
+                          <span>Phone: <strong className="text-slate-700">{phone}</strong></span>
+                        </div>
+                        <div className="flex items-start gap-2 text-sm text-slate-600">
+                          <span className="mt-0.5"><IconMapPin /></span>
+                          <span>Address: <strong className="text-slate-700">{address}</strong></span>
                         </div>
                       </div>
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Embedded map */}
+              <div
+                className="mt-10 rounded-2xl overflow-hidden border border-slate-200 shadow-sm"
+                data-reveal
+              >
+                <iframe
+                  title="Kloud101 Technology location on Google Maps"
+                  src="https://www.google.com/maps?q=KLOUD101+TECHNOLOGY&output=embed"
+                  width="100%"
+                  height="380"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
             </div>
           </section>
