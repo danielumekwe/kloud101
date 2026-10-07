@@ -10,7 +10,7 @@ import AboutCta from "@/components/about/AboutCta";
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main className="min-h-screen">
 
       <Navbar />
 

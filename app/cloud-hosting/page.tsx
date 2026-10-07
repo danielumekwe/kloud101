@@ -10,7 +10,7 @@ import CloudHostingCta from "@/components/cloud-hosting/CloudHostingCta";
 
 export default function CloudHostingPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main className="min-h-screen">
 
       <Navbar />
 

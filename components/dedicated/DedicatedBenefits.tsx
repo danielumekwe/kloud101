@@ -1,126 +1,73 @@
-// components/dedicated/DedicatedBenefits.tsx
+import { Check, Globe, HardDrive, Network, Settings, Shield, Terminal } from "lucide-react";
+import Eyebrow from "@/components/site/Eyebrow";
+import CtaLink from "@/components/site/CtaLink";
+import RackVisual from "@/components/site/RackVisual";
+import SectionHeading from "@/components/site/SectionHeading";
+import FeatureGrid from "@/components/site/FeatureGrid";
 
-import { Check } from "lucide-react";
+const included = [
+  "100% dedicated CPU resources.",
+  "Dedicated RAM and storage.",
+  "Full root or administrator access.",
+  "No noisy neighbors or shared resources.",
+];
+
+const operatingSystems = ["Ubuntu", "Debian", "Rocky Linux", "AlmaLinux", "Windows Server"];
+
+const extras = [
+  { title: "Remote Management", text: "IPMI, KVM and remote reboot access.", icon: Terminal },
+  { title: "NVMe Storage", text: "Ultra-fast storage for demanding workloads.", icon: HardDrive },
+  { title: "Private Networking", text: "Connect multiple servers securely.", icon: Network },
+  { title: "DDoS Protection", text: "Enterprise-grade attack mitigation.", icon: Shield },
+  { title: "Multiple Datacenters", text: "Deploy closer to your customers.", icon: Globe },
+  { title: "Managed Services", text: "Optional management and monitoring.", icon: Settings },
+];
 
 export default function DedicatedBenefits() {
   return (
-    <section className="py-24 bg-blue-50">
-
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="text-center mb-16">
-
-          <span className="text-blue-500 uppercase tracking-wider font-semibold">
-            Enterprise Infrastructure
-          </span>
-
-          <h2 className="text-5xl font-bold mt-4 mb-6 max-w-5xl mx-auto">
-            Dedicated hardware with
-            complete control and
-            predictable performance.
-          </h2>
-
-          <p className="text-slate-600 text-lg max-w-3xl mx-auto">
-            Perfect for high-traffic websites, databases,
-            virtualization, SaaS platforms and enterprise workloads.
-          </p>
-
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-6">
-
-          {/* Main Card */}
-
-          <div className="lg:col-span-1 border border-blue-500 rounded-2xl p-8 bg-white">
-
-            <span className="text-blue-500 text-sm uppercase font-semibold">
-              Included With Every Server
-            </span>
-
-            <h3 className="text-3xl font-bold mt-4 mb-8">
-              Your own physical hardware.
-            </h3>
-
-            <div className="space-y-5 mb-10">
-
-              <div className="flex gap-3">
-                <Check className="text-green-500 mt-1" size={20} />
-                <span>100% dedicated CPU resources.</span>
-              </div>
-
-              <div className="flex gap-3">
-                <Check className="text-green-500 mt-1" size={20} />
-                <span>Dedicated RAM and storage.</span>
-              </div>
-
-              <div className="flex gap-3">
-                <Check className="text-green-500 mt-1" size={20} />
-                <span>Full root or administrator access.</span>
-              </div>
-
-              <div className="flex gap-3">
-                <Check className="text-green-500 mt-1" size={20} />
-                <span>No noisy neighbors or shared resources.</span>
-              </div>
-
+    <>
+      <section className="section bg-card border-y">
+        <div className="wrap detail-layout">
+          <div>
+            <Eyebrow>INCLUDED WITH EVERY SERVER</Eyebrow>
+            <h2>Your own physical hardware.</h2>
+            <p>
+              Perfect for high-traffic websites, databases, virtualization, SaaS platforms and enterprise
+              workloads.
+            </p>
+            <ul className="feature-list">
+              {included.map((item) => (
+                <li key={item}>
+                  <Check />
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="os-band-label">Supported operating systems</p>
+            <div className="os-band">
+              {operatingSystems.map((os) => (
+                <span key={os}>{os}</span>
+              ))}
             </div>
-
-            <button className="bg-blue-600 px-6 py-3 rounded-xl">
-              Configure Server
-            </button>
-
+            <div className="actions mt-7">
+              <CtaLink href="#plans">Configure Server</CtaLink>
+            </div>
           </div>
-
-          {/* Side Blocks */}
-
-          <div className="lg:col-span-2 grid md:grid-cols-2 gap-6">
-
-            {[
-              {
-                title: "Remote Management",
-                text: "IPMI, KVM and remote reboot access.",
-              },
-              {
-                title: "NVMe Storage",
-                text: "Ultra-fast storage for demanding workloads.",
-              },
-              {
-                title: "Private Networking",
-                text: "Connect multiple servers securely.",
-              },
-              {
-                title: "DDoS Protection",
-                text: "Enterprise-grade attack mitigation.",
-              },
-              {
-                title: "Multiple Datacenters",
-                text: "Deploy closer to your customers.",
-              },
-              {
-                title: "Managed Services",
-                text: "Optional management and monitoring.",
-              },
-            ].map((item) => (
-              <div
-                key={item.title}
-                className="border border-slate-200 rounded-2xl p-6 bg-white"
-              >
-                <h4 className="text-xl font-semibold mb-3">
-                  {item.title}
-                </h4>
-
-                <p className="text-slate-600">
-                  {item.text}
-                </p>
-              </div>
-            ))}
-
+          <div className="dedicated-art">
+            <RackVisual />
           </div>
-
         </div>
+      </section>
 
-      </div>
-
-    </section>
+      <section className="section">
+        <div className="wrap">
+          <SectionHeading
+            eyebrow="ENTERPRISE INFRASTRUCTURE"
+            title="Dedicated hardware with complete control and predictable performance."
+          />
+          <FeatureGrid items={extras} columns={3} />
+        </div>
+      </section>
+    </>
   );
 }

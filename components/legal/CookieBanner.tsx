@@ -95,26 +95,26 @@ export default function CookieBanner() {
         aria-label="Cookie preferences"
         className="fixed bottom-4 left-4 right-4 z-[100] max-w-2xl mx-auto print:hidden"
       >
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-2xl overflow-hidden">
+        <div className="bg-card rounded-md border border-border shadow-2xl overflow-hidden">
 
           {/* Main banner */}
           {panel === "banner" && (
             <div className="p-6">
               <div className="flex items-start gap-4 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                  <Cookie className="w-5 h-5 text-blue-500" />
+                <div className="w-10 h-10 rounded bg-accent border border-primary flex items-center justify-center flex-shrink-0">
+                  <Cookie className="w-5 h-5 text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h2 className="font-semibold text-slate-900 mb-1">
+                  <h2 className="font-semibold text-foreground mb-1">
                     We use cookies
                   </h2>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     We use cookies to improve your experience, analyse traffic,
                     and personalise content. You can choose which categories to
                     allow.{" "}
                     <Link
                       href="/cookie-policy"
-                      className="text-blue-600 hover:underline"
+                      className="text-primary hover:underline"
                     >
                       Learn more
                     </Link>
@@ -127,19 +127,19 @@ export default function CookieBanner() {
                   ref={firstFocusRef}
                   onClick={acceptAll}
                   disabled={saving}
-                  className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white text-sm font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="flex-1 px-4 py-2.5 bg-primary hover:bg-primary/90 disabled:opacity-60 text-white text-sm font-medium rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   Accept All
                 </button>
                 <button
                   onClick={rejectNonEssential}
-                  className="flex-1 px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="flex-1 px-4 py-2.5 bg-muted hover:bg-accent text-muted-foreground text-sm font-medium rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   Reject Non-Essential
                 </button>
                 <button
                   onClick={() => setPanel("customize")}
-                  className="flex items-center justify-center gap-1.5 px-4 py-2.5 border border-slate-200 hover:bg-slate-50 text-slate-600 text-sm font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="flex items-center justify-center gap-1.5 px-4 py-2.5 border border-border hover:bg-muted text-muted-foreground text-sm font-medium rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   <Settings className="w-4 h-4" />
                   Customize
@@ -152,12 +152,12 @@ export default function CookieBanner() {
           {panel === "customize" && (
             <div className="p-6">
               <div className="flex items-center justify-between mb-5">
-                <h2 className="font-semibold text-slate-900">
+                <h2 className="font-semibold text-foreground">
                   Cookie Preferences
                 </h2>
                 <button
                   onClick={() => setPanel("banner")}
-                  className="p-1.5 text-slate-500 hover:text-slate-900 rounded-lg hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="p-1.5 text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                   aria-label="Back to banner"
                 >
                   <X className="w-4 h-4" />
@@ -196,14 +196,14 @@ export default function CookieBanner() {
                 <button
                   onClick={saveCustom}
                   disabled={saving}
-                  className="flex-1 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white text-sm font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="flex-1 px-4 py-2.5 bg-primary hover:bg-primary/90 disabled:opacity-60 text-white text-sm font-medium rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   Save Preferences
                 </button>
                 <button
                   onClick={acceptAll}
                   disabled={saving}
-                  className="flex-1 px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium rounded-xl transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="flex-1 px-4 py-2.5 bg-muted hover:bg-accent text-muted-foreground text-sm font-medium rounded transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
                   Accept All
                 </button>
@@ -231,11 +231,11 @@ const CookieCategory = forwardRef<
     icon?: React.ReactNode
   }
 >(({ name, description, enabled, locked, onChange, icon }, ref) => (
-  <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
+  <div className="flex items-start gap-4 p-4 bg-muted rounded border border-border">
     <div className="flex-1 min-w-0">
       <div className="flex items-center gap-2 mb-1">
         {icon}
-        <span className="text-sm font-medium text-slate-900">
+        <span className="text-sm font-medium text-foreground">
           {name}
         </span>
         {locked && (
@@ -244,7 +244,7 @@ const CookieCategory = forwardRef<
           </span>
         )}
       </div>
-      <p className="text-xs text-slate-500">
+      <p className="text-xs text-muted-foreground">
         {description}
       </p>
     </div>
@@ -258,16 +258,16 @@ const CookieCategory = forwardRef<
       disabled={locked}
       onClick={() => onChange?.(!enabled)}
       className={cn(
-        "relative w-11 h-6 rounded-full flex-shrink-0 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+        "relative w-11 h-6 rounded-full flex-shrink-0 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
         enabled
-          ? "bg-blue-600"
-          : "bg-slate-300",
+          ? "bg-primary"
+          : "bg-border",
         locked && "opacity-60 cursor-not-allowed"
       )}
     >
       <span
         className={cn(
-          "absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-sm transition-transform",
+          "absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-card shadow-sm transition-transform",
           enabled && "translate-x-5"
         )}
       />

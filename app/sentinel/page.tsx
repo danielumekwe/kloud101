@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function SentinelPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main className="min-h-screen">
 
       <Navbar />
 

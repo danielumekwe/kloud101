@@ -1,17 +1,7 @@
-"use client";
+import PricingSection, { type Plan } from "@/components/site/PricingSection";
 
-import Link from "next/link";
-import { useCurrency } from "@/context/CurrencyContext";
-
-const plans = [
-  {
-    name: "Starter",
-    price: 9.99,
-    cpu: "2 vCPU",
-    ram: "4GB RAM",
-    storage: "50GB NVMe SSD",
-    websites: "1 Website",
-  },
+const plans: Plan[] = [
+  { name: "Starter", price: 9.99, cpu: "2 vCPU", ram: "4GB RAM", storage: "50GB NVMe SSD", websites: "1 Website" },
   {
     name: "Business",
     price: 19.99,
@@ -29,101 +19,30 @@ const plans = [
     storage: "250GB NVMe SSD",
     websites: "Unlimited Websites",
   },
-];
+].map(({ cpu, ram, storage, websites, featured, ...plan }) => ({
+  ...plan,
+  period: "/month",
+  icon: "globe",
+  specs: [
+    { icon: "cpu", label: cpu },
+    { icon: "ram", label: ram },
+    { icon: "storage", label: storage },
+    { icon: "globe", label: websites },
+  ],
+  extras: ["Daily Backups", "Free SSL Certificates", "99.9% Uptime SLA", "24/7 Support"],
+  badge: featured ? "MOST POPULAR" : undefined,
+  featured,
+  href: "https://my.kloud101.com/register",
+  cta: "Get Started",
+}));
 
 export default function CloudHostingPricing() {
-  const { formatPrice } = useCurrency();
-
   return (
-    <section
-      id="plans"
-      className="py-24 bg-white"
-    >
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="text-center mb-16">
-
-          <span className="text-blue-500 uppercase tracking-wider font-semibold">
-            Cloud Hosting Plans
-          </span>
-
-          <h2 className="text-5xl font-bold mt-4 mb-4">
-            Choose The Perfect Cloud Plan
-          </h2>
-
-          <p className="text-slate-600 max-w-3xl mx-auto">
-            High-performance cloud hosting built for speed,
-            scalability and reliability.
-          </p>
-
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-8">
-
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`rounded-3xl border p-8 ${
-                plan.featured
-                  ? "border-blue-500 bg-blue-50"
-                  : "border-slate-200 bg-blue-50"
-              }`}
-            >
-              {plan.featured && (
-                <div className="inline-block bg-blue-600 px-4 py-2 rounded-full text-sm mb-6">
-                  Most Popular
-                </div>
-              )}
-
-              <h3 className="text-3xl font-bold mb-4">
-                {plan.name}
-              </h3>
-
-              <div className="flex flex-wrap items-end gap-2 mb-8">
-
-                <span className="text-5xl font-bold text-blue-500">
-                  {formatPrice(plan.price)}
-                </span>
-
-                <span className="text-slate-600 mb-1">
-                  /month
-                </span>
-
-              </div>
-
-              <div className="space-y-4 text-slate-600 mb-8">
-
-                <div>{plan.cpu}</div>
-
-                <div>{plan.ram}</div>
-
-                <div>{plan.storage}</div>
-
-                <div>{plan.websites}</div>
-
-                <div>Daily Backups</div>
-
-                <div>Free SSL Certificates</div>
-
-                <div>99.9% Uptime SLA</div>
-
-                <div>24/7 Support</div>
-
-              </div>
-
-              <Link
-                href="https://my.kloud101.com/register"
-                className="block text-center bg-blue-600 hover:bg-blue-700 py-4 rounded-xl font-semibold transition"
-              >
-                Get Started
-              </Link>
-
-            </div>
-          ))}
-
-        </div>
-
-      </div>
-    </section>
+    <PricingSection
+      eyebrow="CLOUD HOSTING PLANS"
+      title="Choose The Perfect Cloud Plan"
+      text="High-performance cloud hosting built for speed, scalability and reliability."
+      plans={plans}
+    />
   );
 }

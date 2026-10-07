@@ -58,15 +58,15 @@ export default function LegalDocumentsPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-xl font-bold text-slate-900">Legal Documents</h1>
-          <p className="text-sm text-slate-600 mt-1">
+          <h1 className="text-xl font-bold text-foreground">Legal Documents</h1>
+          <p className="text-sm text-muted-foreground mt-1">
             Manage and review all published legal documents.
           </p>
         </div>
         <button
           onClick={load}
           disabled={loading}
-          className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-100 hover:bg-blue-200 text-slate-700 rounded-xl border border-slate-200 transition-colors disabled:opacity-50"
+          className="flex items-center gap-2 px-4 py-2 text-sm bg-accent hover:bg-accent text-muted-foreground rounded border border-border transition-colors disabled:opacity-50"
         >
           <RefreshCw className={cn("w-4 h-4", loading && "animate-spin")} />
           Refresh
@@ -81,16 +81,16 @@ export default function LegalDocumentsPage() {
           { label: "Pending", value: DOCUMENT_SLUGS.length - docs.length },
           { label: "Last updated", value: docs.length > 0 ? new Date(Math.max(...docs.map((d) => new Date(d.lastUpdated).getTime()))).toLocaleDateString() : "—" },
         ].map(({ label, value }) => (
-          <div key={label} className="bg-blue-50 border border-slate-200 rounded-xl p-4">
-            <p className="text-xs text-slate-500 mb-1">{label}</p>
-            <p className="text-xl font-bold text-slate-900">{value}</p>
+          <div key={label} className="bg-muted border border-border rounded p-4">
+            <p className="text-xs text-muted-foreground mb-1">{label}</p>
+            <p className="text-xl font-bold text-foreground">{value}</p>
           </div>
         ))}
       </div>
 
       {/* Error */}
       {error && (
-        <div className="flex items-center gap-2.5 p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-sm text-red-400 mb-6">
+        <div className="flex items-center gap-2.5 p-4 bg-red-500/10 border border-red-500/20 rounded text-sm text-red-400 mb-6">
           <AlertCircle className="w-4 h-4 flex-shrink-0" />
           {error}
         </div>
@@ -99,7 +99,7 @@ export default function LegalDocumentsPage() {
       {/* Documents grid */}
       {loading && docs.length === 0 ? (
         <div className="flex justify-center py-16">
-          <Loader2 className="w-8 h-8 animate-spin text-slate-500" />
+          <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
         </div>
       ) : (
         <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -108,16 +108,16 @@ export default function LegalDocumentsPage() {
             return (
               <div
                 key={slug}
-                className="bg-blue-50 border border-slate-200 rounded-xl p-5 flex flex-col"
+                className="bg-muted border border-border rounded p-5 flex flex-col"
               >
                 <div className="flex items-start justify-between gap-3 mb-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
-                      <FileText className="w-4 h-4 text-blue-600" />
+                    <div className="w-9 h-9 rounded-lg bg-accent border border-primary flex items-center justify-center flex-shrink-0">
+                      <FileText className="w-4 h-4 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-slate-900">{label}</p>
-                      <p className="text-xs text-slate-500">/{slug}</p>
+                      <p className="text-sm font-medium text-foreground">{label}</p>
+                      <p className="text-xs text-muted-foreground">/{slug}</p>
                     </div>
                   </div>
 
@@ -135,7 +135,7 @@ export default function LegalDocumentsPage() {
                 </div>
 
                 {doc ? (
-                  <div className="space-y-1.5 text-xs text-slate-500 flex-1">
+                  <div className="space-y-1.5 text-xs text-muted-foreground flex-1">
                     <div className="flex items-center gap-1.5">
                       <Tag className="w-3 h-3" />
                       Version {doc.version}
@@ -150,16 +150,16 @@ export default function LegalDocumentsPage() {
                     </div>
                   </div>
                 ) : (
-                  <p className="text-xs text-slate-600 flex-1">
+                  <p className="text-xs text-muted-foreground flex-1">
                     This document has not been published to the API yet.
                   </p>
                 )}
 
-                <div className="mt-4 pt-4 border-t border-slate-200 flex items-center gap-3">
+                <div className="mt-4 pt-4 border-t border-border flex items-center gap-3">
                   <Link
                     href={`/${slug}`}
                     target="_blank"
-                    className="flex items-center gap-1 text-xs text-blue-600 hover:text-slate-600 hover:underline"
+                    className="flex items-center gap-1 text-xs text-primary hover:text-muted-foreground hover:underline"
                   >
                     <ExternalLink className="w-3 h-3" />
                     View live

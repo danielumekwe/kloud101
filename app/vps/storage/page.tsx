@@ -1,8 +1,8 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import ProductTabs from "@/components/site/ProductTabs";
 
 import StorageHero from "@/components/vps/StorageHero";
-import VpsNavigation from "@/components/vps/VpsNavigation";
 import StoragePricing from "@/components/vps/StoragePricing";
 
 import VpsBenefits from "@/components/vps/VpsBenefits";
@@ -11,24 +11,15 @@ import VpsCta from "@/components/vps/VpsCta";
 
 export default function StorageVpsPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-
+    <main className="min-h-screen">
       <Navbar />
-
       <StorageHero />
-
-      <VpsNavigation active="storage" />
-
+      <ProductTabs active="/vps/storage" />
       <StoragePricing />
-
       <VpsBenefits />
-
       <VpsFaq />
-
       <VpsCta />
-
       <Footer />
-
     </main>
   );
 }

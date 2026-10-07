@@ -1,10 +1,11 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import ProductTabs from "@/components/site/ProductTabs";
 
 import WindowsHero from "@/components/vps/WindowsHero";
+import WindowsFeatures from "@/components/vps/WindowsFeatures";
 import WindowsPricing from "@/components/vps/WindowsPricing";
 
-import VpsNavigation from "@/components/vps/VpsNavigation";
 import VpsBenefits from "@/components/vps/VpsBenefits";
 import VpsUseCases from "@/components/vps/VpsUseCases";
 import VpsFaq from "@/components/vps/VpsFaq";
@@ -12,26 +13,17 @@ import VpsCta from "@/components/vps/VpsCta";
 
 export default function WindowsVpsPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-
+    <main className="min-h-screen">
       <Navbar />
-
       <WindowsHero />
-
-      <VpsNavigation active="windows" />
-
-      <WindowsPricing />
-
+      <ProductTabs active="/vps/windows" />
+      <WindowsFeatures />
       <VpsBenefits />
-
+      <WindowsPricing />
       <VpsUseCases />
-
       <VpsFaq />
-
       <VpsCta />
-
       <Footer />
-
     </main>
   );
 }

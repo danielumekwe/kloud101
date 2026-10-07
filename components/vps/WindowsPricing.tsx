@@ -1,96 +1,33 @@
-"use client";
+import PricingSection, { type Plan } from "@/components/site/PricingSection";
 
-import { useCurrency } from "@/context/CurrencyContext";
+const orderUrl = "https://my.kloud101.com/vps/order/windows-vps";
+
+const plans: Plan[] = [
+  { name: "Starter", price: 11.5, cpu: "2 vCPU", ram: "4 GB RAM", storage: "60 GB SSD" },
+  { name: "Business", price: 21.5, cpu: "4 vCPU", ram: "8 GB RAM", storage: "120 GB SSD", featured: true },
+  { name: "Professional", price: 41.5, cpu: "8 vCPU", ram: "16 GB RAM", storage: "240 GB SSD" },
+  { name: "Enterprise", price: 81.5, cpu: "16 vCPU", ram: "32 GB RAM", storage: "480 GB SSD" },
+].map(({ cpu, ram, storage, featured, ...plan }) => ({
+  ...plan,
+  icon: "terminal",
+  specs: [
+    { icon: "cpu", label: cpu },
+    { icon: "ram", label: ram },
+    { icon: "storage", label: storage },
+  ],
+  included: "Administrator access",
+  badge: featured ? "POPULAR CHOICE" : undefined,
+  featured,
+  href: orderUrl,
+  cta: "Deploy",
+}));
 
 export default function WindowsPricing() {
-  const { formatPrice } = useCurrency();
-
-  const plans = [
-    {
-      name: "Starter",
-      price: 11.5,
-      cpu: "2 vCPU",
-      ram: "4 GB RAM",
-      storage: "60 GB SSD",
-    },
-    {
-      name: "Business",
-      price: 21.5,
-      cpu: "4 vCPU",
-      ram: "8 GB RAM",
-      storage: "120 GB SSD",
-    },
-    {
-      name: "Professional",
-      price: 41.5,
-      cpu: "8 vCPU",
-      ram: "16 GB RAM",
-      storage: "240 GB SSD",
-    },
-    {
-      name: "Enterprise",
-      price: 81.5,
-      cpu: "16 vCPU",
-      ram: "32 GB RAM",
-      storage: "480 GB SSD",
-    },
-  ];
-
   return (
-    <section className="py-24">
-
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="text-center mb-16">
-
-          <h2 className="text-5xl font-bold">
-            Windows VPS Plans
-          </h2>
-
-          <p className="text-slate-600 mt-4">
-            Deploy Windows Server environments with instant provisioning.
-          </p>
-
-        </div>
-
-        <div className="grid lg:grid-cols-4 gap-8">
-
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className="bg-blue-50 border border-slate-200 rounded-2xl p-8"
-            >
-              <h3 className="text-2xl font-bold mb-4">
-                {plan.name}
-              </h3>
-
-              <div className="flex flex-wrap items-end gap-2 text-5xl font-bold text-blue-500 mb-6">
-                <span>{formatPrice(plan.price)}</span>
-                <span className="text-lg text-slate-600">
-                  /mo
-                </span>
-              </div>
-
-              <div className="space-y-3 text-slate-600">
-                <p>{plan.cpu}</p>
-                <p>{plan.ram}</p>
-                <p>{plan.storage}</p>
-              </div>
-
-              <a
-                href="https://my.kloud101.com/vps/order/windows-vps"
-                className="w-full block text-center bg-blue-600 py-3 rounded-xl mt-8"
-              >
-                Deploy
-              </a>
-
-            </div>
-          ))}
-
-        </div>
-
-      </div>
-
-    </section>
+    <PricingSection
+      title="Windows VPS plans"
+      text="Deploy Windows Server environments with instant provisioning."
+      plans={plans}
+    />
   );
 }

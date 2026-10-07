@@ -1,93 +1,54 @@
-import {
-  Server,
-  Shield,
-  Globe,
-  Settings,
-  LayoutDashboard,
-} from "lucide-react";
+import Image from "next/image";
+import { SiWebmin } from "react-icons/si";
+import SectionHeading from "@/components/site/SectionHeading";
 
 const panels = [
   {
     title: "cPanel",
-    description:
-      "Industry-leading hosting control panel for managing websites, email and databases.",
-    icon: LayoutDashboard,
+    description: "Industry-leading hosting control panel for managing websites, email and databases.",
+    logo: <Image src="/logos/cpanel.png" alt="" width={555} height={200} className="is-wordmark h-[40px]!" />,
   },
   {
     title: "DirectAdmin",
-    description:
-      "Lightweight and affordable control panel with powerful hosting features.",
-    icon: Settings,
+    description: "Lightweight and affordable control panel with powerful hosting features.",
+    logo: <Image src="/logos/panels/directadmin.svg" alt="" width={36} height={36} />,
   },
   {
     title: "Plesk",
-    description:
-      "Perfect for Windows and Linux server management with a modern interface.",
-    icon: Globe,
+    description: "Perfect for Windows and Linux server management with a modern interface.",
+    logo: <Image src="/logos/panels/plesk.svg" alt="" width={24} height={10} className="is-wordmark" />,
   },
   {
     title: "CyberPanel",
-    description:
-      "High-performance OpenLiteSpeed panel with WordPress optimization.",
-    icon: Shield,
+    description: "High-performance OpenLiteSpeed panel with WordPress optimization.",
+    logo: <Image src="/logos/panels/cyberpanel.svg" alt="" width={36} height={36} />,
   },
   {
     title: "Webmin",
-    description:
-      "Advanced Linux server administration through a web-based interface.",
-    icon: Server,
+    description: "Advanced Linux server administration through a web-based interface.",
+    logo: <SiWebmin color="#7DA0D0" aria-hidden="true" />,
   },
 ];
 
 export default function ControlPanels() {
   return (
-    <section className="py-24 bg-blue-50">
-
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="text-center mb-16">
-
-          <h2 className="text-5xl font-bold mb-4">
-            Control Panel Options
-          </h2>
-
-          <p className="text-slate-600 max-w-3xl mx-auto">
-            Manage websites, databases, email accounts and server resources
-            using your preferred control panel.
-          </p>
-
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
+    <section className="section">
+      <div className="wrap">
+        <SectionHeading
+          eyebrow="CONTROL PANELS"
+          title="Control Panel Options"
+          text="Manage websites, databases, email accounts and server resources using your preferred control panel."
+        />
+        <div className="technical-grid three">
           {panels.map((panel) => (
-            <div
-              key={panel.title}
-              className="bg-white border border-slate-200 rounded-2xl p-8 hover:border-blue-500 transition"
-            >
-              <panel.icon
-                size={42}
-                className="text-blue-500 mb-6"
-              />
-
-              <h3 className="text-2xl font-semibold mb-4">
-                {panel.title}
-              </h3>
-
-              <p className="text-slate-600 mb-6">
-                {panel.description}
-              </p>
-
-              <button className="text-blue-500 font-medium">
-                Learn More →
-              </button>
+            <div key={panel.title}>
+              <span className="panel-logo">{panel.logo}</span>
+              <h3>{panel.title}</h3>
+              <p>{panel.description}</p>
             </div>
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
 }

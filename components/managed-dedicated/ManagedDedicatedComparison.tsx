@@ -1,155 +1,33 @@
-import { Check, X } from "lucide-react";
+import SectionHeading from "@/components/site/SectionHeading";
+import ComparisonTable from "@/components/site/ComparisonTable";
+
+const rows = [
+  { feature: "cPanel & WHM Included", values: [false, true] },
+  { feature: "24/7 Server Monitoring", values: [false, true] },
+  { feature: "Security Hardening", values: [false, true] },
+  { feature: "Operating System Updates", values: [false, true] },
+  { feature: "Automated Backups", values: [false, true] },
+  { feature: "Performance Optimization", values: [false, true] },
+  { feature: "Database Management", values: [false, true] },
+  { feature: "Expert Technical Support", values: [false, true] },
+  { feature: "Root Access", values: [true, true] },
+  { feature: "Dedicated Hardware", values: [true, true] },
+];
 
 export default function ManagedDedicatedComparison() {
-  const rows = [
-    {
-      feature: "cPanel & WHM Included",
-      dedicated: false,
-      managed: true,
-    },
-    {
-      feature: "24/7 Server Monitoring",
-      dedicated: false,
-      managed: true,
-    },
-    {
-      feature: "Security Hardening",
-      dedicated: false,
-      managed: true,
-    },
-    {
-      feature: "Operating System Updates",
-      dedicated: false,
-      managed: true,
-    },
-    {
-      feature: "Automated Backups",
-      dedicated: false,
-      managed: true,
-    },
-    {
-      feature: "Performance Optimization",
-      dedicated: false,
-      managed: true,
-    },
-    {
-      feature: "Database Management",
-      dedicated: false,
-      managed: true,
-    },
-    {
-      feature: "Expert Technical Support",
-      dedicated: false,
-      managed: true,
-    },
-    {
-      feature: "Root Access",
-      dedicated: true,
-      managed: true,
-    },
-    {
-      feature: "Dedicated Hardware",
-      dedicated: true,
-      managed: true,
-    },
-  ];
-
   return (
-    <section className="py-24 bg-blue-50">
-
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="text-center mb-16">
-
-          <span className="text-blue-500 uppercase tracking-wider font-semibold">
-            Compare Solutions
-          </span>
-
-          <h2 className="text-5xl font-bold mt-4 mb-4">
-            Dedicated vs Managed Dedicated
-          </h2>
-
-          <p className="text-slate-600 max-w-3xl mx-auto">
-            See why businesses choose Managed Dedicated Servers
-            to eliminate server administration and focus on growth.
-          </p>
-
-        </div>
-
-        <div className="overflow-hidden rounded-3xl border border-slate-200">
-
-          {/* Header */}
-
-          <div className="grid grid-cols-3 bg-white">
-
-            <div className="p-6 font-bold text-xl">
-              Features
-            </div>
-
-            <div className="p-6 text-center border-l border-slate-200">
-
-              <h3 className="text-xl font-bold">
-                Dedicated Server
-              </h3>
-
-              <p className="text-slate-600 text-sm mt-2">
-                Self Managed
-              </p>
-
-            </div>
-
-            <div className="p-6 text-center border-l border-slate-200 bg-blue-50/30">
-
-              <h3 className="text-xl font-bold text-blue-600">
-                Managed Dedicated
-              </h3>
-
-              <p className="text-slate-600 text-sm mt-2">
-                Fully Managed
-              </p>
-
-            </div>
-
-          </div>
-
-          {/* Rows */}
-
-          {rows.map((row) => (
-            <div
-              key={row.feature}
-              className="grid grid-cols-3 border-t border-slate-200"
-            >
-              <div className="p-5">
-                {row.feature}
-              </div>
-
-              <div className="flex items-center justify-center border-l border-slate-200">
-
-                {row.dedicated ? (
-                  <Check className="text-green-500" />
-                ) : (
-                  <X className="text-red-500" />
-                )}
-
-              </div>
-
-              <div className="flex items-center justify-center border-l border-slate-200 bg-blue-50/10">
-
-                {row.managed ? (
-                  <Check className="text-green-500" />
-                ) : (
-                  <X className="text-red-500" />
-                )}
-
-              </div>
-
-            </div>
-          ))}
-
-        </div>
-
+    <section className="section bg-card border-y">
+      <div className="wrap">
+        <SectionHeading
+          eyebrow="COMPARE SOLUTIONS"
+          title="Dedicated vs Managed Dedicated"
+          text="See why businesses choose Managed Dedicated Servers to eliminate server administration and focus on growth."
+        />
+        <ComparisonTable
+          columns={["Dedicated Server (Self Managed)", "Managed Dedicated (Fully Managed)"]}
+          rows={rows}
+        />
       </div>
-
     </section>
   );
 }

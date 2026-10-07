@@ -1,7 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import FaqSection from "@/components/site/FaqSection";
 
 const faqs = [
   {
@@ -21,8 +18,7 @@ const faqs = [
   },
   {
     question: "Do I get root access?",
-    answer:
-      "Yes. You retain full root access to your dedicated server while benefiting from our management services.",
+    answer: "Yes. You retain full root access to your dedicated server while benefiting from our management services.",
   },
   {
     question: "Can you migrate my websites?",
@@ -31,8 +27,7 @@ const faqs = [
   },
   {
     question: "Do you provide backups?",
-    answer:
-      "Yes. Automated backup options are available to protect your business-critical data and applications.",
+    answer: "Yes. Automated backup options are available to protect your business-critical data and applications.",
   },
   {
     question: "What operating systems are supported?",
@@ -47,66 +42,12 @@ const faqs = [
 ];
 
 export default function ManagedDedicatedFaq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
   return (
-    <section className="py-24 bg-white" id="faq">
-
-      <div className="max-w-4xl mx-auto px-6">
-
-        <div className="text-center mb-16">
-
-          <span className="text-blue-500 uppercase tracking-wider font-semibold">
-            Frequently Asked Questions
-          </span>
-
-          <h2 className="text-5xl font-bold mt-4 mb-4">
-            Managed Dedicated FAQ
-          </h2>
-
-          <p className="text-slate-600">
-            Answers to common questions about our Managed Dedicated Server solutions.
-          </p>
-
-        </div>
-
-        <div className="space-y-4">
-
-          {faqs.map((faq, index) => (
-            <div
-              key={faq.question}
-              className="border border-slate-200 rounded-2xl overflow-hidden bg-blue-50"
-            >
-              <button
-                onClick={() =>
-                  setOpenIndex(openIndex === index ? null : index)
-                }
-                className="w-full flex items-center justify-between p-6 text-left"
-              >
-                <span className="font-semibold text-lg">
-                  {faq.question}
-                </span>
-
-                <ChevronDown
-                  className={`transition-transform ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              {openIndex === index && (
-                <div className="px-6 pb-6 text-slate-600 leading-relaxed">
-                  {faq.answer}
-                </div>
-              )}
-
-            </div>
-          ))}
-
-        </div>
-
-      </div>
-
-    </section>
+    <FaqSection
+      eyebrow="FREQUENTLY ASKED QUESTIONS"
+      title="Managed Dedicated FAQ"
+      text="Answers to common questions about our Managed Dedicated Server solutions."
+      items={faqs}
+    />
   );
 }

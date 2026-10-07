@@ -1,7 +1,9 @@
+import { Star } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import Link from "next/link";
-import { Star } from "lucide-react";
+import PageHero from "@/components/site/PageHero";
+import ClosingCta from "@/components/site/ClosingCta";
+import CtaLink from "@/components/site/CtaLink";
 
 const reviews = [
   {
@@ -44,78 +46,43 @@ const reviews = [
 
 export default function ReviewsPage() {
   return (
-    <main className="min-h-screen bg-blue-50 text-slate-900">
-
+    <main className="min-h-screen">
       <Navbar />
 
-      {/* Hero */}
-      <section className="py-24 bg-gradient-to-r from-blue-50 via-white to-blue-50">
-        <div className="max-w-5xl mx-auto px-6 text-center">
+      <PageHero
+        breadcrumb="Reviews"
+        eyebrow="CUSTOMER REVIEWS"
+        title="What Our Customers Say"
+        description="A few words from the businesses running on Kloud101 infrastructure."
+        icon={Star}
+      />
 
-          <span className="text-blue-600 uppercase tracking-[0.25em] text-sm font-semibold">
-            Customer Reviews
-          </span>
-
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mt-6 mb-6 leading-tight">
-            What Our Customers Say
-          </h1>
-
-          <p className="text-slate-700 text-lg leading-relaxed max-w-2xl mx-auto">
-            A few words from the businesses running on Kloud101 infrastructure.
-          </p>
-
-        </div>
-      </section>
-
-      {/* Reviews Grid */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {reviews.map((review) => (
-              <div
-                key={review.name}
-                className="rounded-2xl border border-slate-200 bg-white p-8 flex flex-col"
-              >
-                <div className="flex gap-1 mb-5 text-blue-600">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} size={16} fill="currentColor" strokeWidth={0} />
-                  ))}
-                </div>
-
-                <p className="text-slate-700 leading-relaxed mb-6 flex-1">
-                  &ldquo;{review.quote}&rdquo;
-                </p>
-
-                <div className="border-t border-slate-200 pt-4">
-                  <p className="font-semibold">{review.name}</p>
-                  <p className="text-slate-500 text-sm">{review.role}</p>
-                </div>
+      <section className="section">
+        <div className="wrap review-grid">
+          {reviews.map((review) => (
+            <figure key={review.name} className="review-card">
+              <div className="review-stars" aria-label="5 out of 5 stars">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} fill="currentColor" strokeWidth={0} />
+                ))}
               </div>
-            ))}
-          </div>
-
+              <blockquote>&ldquo;{review.quote}&rdquo;</blockquote>
+              <figcaption>
+                <strong>{review.name}</strong>
+                <span>{review.role}</span>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 border-t border-slate-200">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready To Get Started?</h2>
-          <p className="text-slate-600 mb-8">
-            Join businesses running on managed infrastructure they can rely on.
-          </p>
-          <Link
-            href="/vps"
-            className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl font-semibold transition"
-          >
-            View Plans
-          </Link>
-        </div>
-      </section>
+      <ClosingCta
+        title="Ready To Get Started?"
+        text="Join businesses running on managed infrastructure they can rely on."
+        actions={<CtaLink href="/vps">View Plans</CtaLink>}
+      />
 
       <Footer />
-
     </main>
   );
 }

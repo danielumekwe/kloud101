@@ -1,7 +1,9 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import Link from "next/link";
-import { Activity, Download } from "lucide-react";
+import { Activity, Download, Gauge } from "lucide-react";
+import PageHero from "@/components/site/PageHero";
+import ClosingCta from "@/components/site/ClosingCta";
+import CtaLink from "@/components/site/CtaLink";
 
 const locations = [
   {
@@ -25,57 +27,45 @@ const fileSizes = ["10M", "50M", "100M", "250M", "500M", "1G", "2G", "5G", "10G"
 
 export default function SpeedTestPage() {
   return (
-    <main className="min-h-screen bg-blue-50 text-slate-900">
+    <main className="min-h-screen">
 
       <Navbar />
 
-      {/* Hero */}
-      <section className="py-24 bg-gradient-to-r from-blue-50 via-white to-blue-50">
-        <div className="max-w-5xl mx-auto px-6 text-center">
-
-          <span className="text-blue-600 uppercase tracking-[0.25em] text-sm font-semibold">
-            Network Performance
-          </span>
-
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mt-6 mb-6 leading-tight">
-            Test Your Network Connection
-          </h1>
-
-          <p className="text-slate-700 text-lg leading-relaxed max-w-2xl mx-auto">
-            Run a quick browser check, download a fixed-size test file, or
-            use iperf3 for a repeatable benchmark from your terminal.
-          </p>
-
-        </div>
-      </section>
+      <PageHero
+        breadcrumb="Speed Test"
+        eyebrow="NETWORK PERFORMANCE"
+        title="Test Your Network Connection"
+        description="Run a quick browser check, download a fixed-size test file, or use iperf3 for a repeatable benchmark from your terminal."
+        icon={Gauge}
+      />
 
       {/* Tools */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="section">
+        <div className="wrap">
 
           <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] gap-6 items-start">
 
             {/* Browser Speed Test */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-8">
+            <div className="rounded-md border border-border bg-card p-8">
               <div className="flex items-center gap-3 mb-1">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600">
+                <div className="w-10 h-10 rounded bg-accent flex items-center justify-center text-primary">
                   <Activity size={18} />
                 </div>
                 <h2 className="font-bold text-lg">Browser Speed Test</h2>
               </div>
-              <p className="text-slate-500 text-sm mb-6 pl-[52px]">
+              <p className="text-muted-foreground text-sm mb-6 pl-[52px]">
                 Run a quick test from your current connection.
               </p>
 
-              <div className="rounded-xl bg-blue-50 border border-slate-200 p-6">
+              <div className="rounded bg-muted border border-border p-6">
                 <button
                   type="button"
                   disabled
-                  className="w-full py-3.5 rounded-xl font-semibold text-sm bg-blue-100 text-slate-500 cursor-not-allowed mb-2"
+                  className="w-full py-3.5 rounded font-semibold text-sm bg-accent text-muted-foreground cursor-not-allowed mb-2"
                 >
                   Start Test
                 </button>
-                <p className="text-center text-xs text-slate-500 mb-6">
+                <p className="text-center text-xs text-muted-foreground mb-6">
                   Coming soon — live testing launches once our own
                   test endpoints are online.
                 </p>
@@ -84,10 +74,10 @@ export default function SpeedTestPage() {
                   {["Ping", "Jitter", "Download", "Upload"].map((label) => (
                     <div
                       key={label}
-                      className="rounded-lg bg-white border border-slate-200 py-4 text-center"
+                      className="rounded-lg bg-card border border-border py-4 text-center"
                     >
-                      <p className="text-2xl font-bold text-slate-600">—</p>
-                      <p className="text-xs text-slate-500 mt-1">{label}</p>
+                      <p className="text-2xl font-bold text-muted-foreground">—</p>
+                      <p className="text-xs text-muted-foreground mt-1">{label}</p>
                     </div>
                   ))}
                 </div>
@@ -98,12 +88,12 @@ export default function SpeedTestPage() {
             <div>
               <div className="mb-6">
                 <div className="flex items-center gap-3 mb-1">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600">
+                  <div className="w-10 h-10 rounded bg-accent flex items-center justify-center text-primary">
                     <Download size={18} />
                   </div>
                   <h2 className="font-bold text-lg">Download Test Files</h2>
                 </div>
-                <p className="text-slate-500 text-sm pl-[52px]">
+                <p className="text-muted-foreground text-sm pl-[52px]">
                   Use fixed-size files or iperf3 for repeatable network checks.
                 </p>
               </div>
@@ -112,10 +102,10 @@ export default function SpeedTestPage() {
                 {locations.map((loc) => (
                   <div
                     key={loc.city}
-                    className="rounded-2xl border border-slate-200 bg-white p-8"
+                    className="rounded-md border border-border bg-card p-8"
                   >
                     <h3 className="font-semibold text-lg mb-1">{loc.city}</h3>
-                    <p className="font-mono text-xs text-slate-500 mb-5">
+                    <p className="font-mono text-xs text-muted-foreground mb-5">
                       {loc.host}
                     </p>
 
@@ -124,7 +114,7 @@ export default function SpeedTestPage() {
                         <a
                           key={size}
                           href={`http://${loc.host}/${size}.img`}
-                          className="px-3 py-1.5 rounded-lg text-xs font-mono border border-slate-200 bg-blue-50 text-slate-700 hover:border-blue-500 hover:text-slate-900 transition-colors duration-200"
+                          className="px-3 py-1.5 rounded-lg text-xs font-mono border border-border bg-muted text-muted-foreground hover:border-primary hover:text-foreground transition-colors duration-200"
                         >
                           {size}
                         </a>
@@ -132,10 +122,10 @@ export default function SpeedTestPage() {
                     </div>
 
                     <div className="space-y-2 font-mono text-sm">
-                      <div className="rounded-lg bg-blue-50 border border-slate-200 px-4 py-3 text-slate-700 overflow-x-auto">
+                      <div className="rounded-lg bg-muted border border-border px-4 py-3 text-muted-foreground overflow-x-auto">
                         ping {loc.host}
                       </div>
-                      <div className="rounded-lg bg-blue-50 border border-slate-200 px-4 py-3 text-slate-700 overflow-x-auto">
+                      <div className="rounded-lg bg-muted border border-border px-4 py-3 text-muted-foreground overflow-x-auto">
                         {loc.iperf}
                       </div>
                     </div>
@@ -149,21 +139,11 @@ export default function SpeedTestPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 border-t border-slate-200">
-        <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">Not Sure Which Region To Pick?</h2>
-          <p className="text-slate-600 mb-8">
-            Our team can help you choose the location closest to your users.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-xl font-semibold transition"
-          >
-            Talk To Sales
-          </Link>
-        </div>
-      </section>
+      <ClosingCta
+        title="Not Sure Which Region To Pick?"
+        text="Our team can help you choose the location closest to your users."
+        actions={<CtaLink href="/contact">Talk To Sales</CtaLink>}
+      />
 
       <Footer />
 

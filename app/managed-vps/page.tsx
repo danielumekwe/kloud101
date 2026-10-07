@@ -1,6 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import VpsNavigation from "@/components/vps/VpsNavigation";
+import ProductTabs from "@/components/site/ProductTabs";
 
 import ManagedVpsHero from "@/components/managed-vps/ManagedVpsHero";
 import ManagedVpsPricing from "@/components/managed-vps/ManagedVpsPricing";
@@ -12,35 +12,17 @@ import ManagedVpsCta from "@/components/managed-vps/ManagedVpsCta";
 
 export default function ManagedVpsPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-
+    <main className="min-h-screen">
       <Navbar />
-
-      {/* Hero */}
       <ManagedVpsHero />
-        {/* Navigation */}
-      <VpsNavigation active="managed" />
-
-      {/* Pricing */}
+      <ProductTabs active="/managed-vps" />
       <ManagedVpsPricing />
-
-      {/* Managed Features */}
       <ManagedVpsFeatures />
-
-      {/* cPanel & WHM Benefits */}
       <ManagedVpsCpanel />
-
-      {/* Linux VPS vs Managed VPS */}
       <ManagedVpsComparison />
-
-      {/* FAQ */}
       <ManagedVpsFaq />
-
-      {/* Call To Action */}
       <ManagedVpsCta />
-
       <Footer />
-
     </main>
   );
 }

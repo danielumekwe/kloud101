@@ -1,302 +1,105 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import CurrencySwitcher from "@/components/CurrencySwitcher";
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
+  ArrowRight,
+  ArrowUpRight,
+  ChevronDown,
+  Cloud,
+  Cpu,
+  HardDrive,
+  Mail,
+  Menu,
+  Monitor,
   Server,
   Settings,
   Shield,
   ShieldCheck,
-  Mail,
-  Cloud,
-  ChevronDown,
-  Menu,
+  Terminal,
   X,
-  Cpu,
-  HardDrive,
-  ArrowRight,
+  type LucideIcon,
 } from "lucide-react";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-type ActiveMenu = "cloud" | "servers" | null;
-
-interface NavProduct {
-  href: string;
-  icon: React.ReactNode;
-  label: string;
-  description: string;
-  badge?: string;
-  colSpan?: boolean;
-}
+import Brand from "@/components/layout/Brand";
+import CurrencySwitcher from "@/components/CurrencySwitcher";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
-const cloudProducts: NavProduct[] = [
-  {
-    href: "/managed-vps",
-    icon: <Server className="h-5 w-5" />,
-    label: "Managed VPS",
-    description: "Fully managed VPS with cPanel included. Root access, SSD NVMe storage.",
-    badge: "Popular",
-  },
-  {
-    href: "/cloud-hosting",
-    icon: <Cloud className="h-5 w-5" />,
-    label: "Cloud Hosting",
-    description: "Scalable cloud hosting with auto-scaling and 99.99% uptime SLA.",
-  },
-  {
-    href: "/business-email",
-    icon: <Mail className="h-5 w-5" />,
-    label: "Business Email",
-    description: "Professional email hosting with spam filtering and 50GB mailboxes.",
-  },
-  {
-    href: "/backup-security",
-    icon: <Shield className="h-5 w-5" />,
-    label: "Backup & Security",
-    description: "Automated backups, DDoS protection, SSL and disaster recovery.",
-  },
-  {
-    href: "/sentinel",
-    icon: <ShieldCheck className="h-5 w-5" />,
-    label: "KloudSentinel",
-    description: "AI-powered malware detection for WordPress, servers and cloud.",
-    badge: "New",
-  },
+type ActiveMenu = "products" | "services" | "company" | null;
+
+interface NavProduct {
+  href: string;
+  icon: LucideIcon;
+  label: string;
+  description: string;
+}
+
+const products: NavProduct[] = [
+  { href: "/vps", icon: Terminal, label: "Linux VPS", description: "Fast KVM virtual servers with full root access." },
+  { href: "/vps/windows", icon: Monitor, label: "Windows VPS", description: "Windows Server with Remote Desktop access." },
+  { href: "/vps/storage", icon: HardDrive, label: "Storage VPS", description: "Massive storage for backups and file hosting." },
+  { href: "/managed-vps", icon: Settings, label: "Managed VPS", description: "Fully managed VPS with cPanel included." },
+  { href: "/dedicated", icon: Server, label: "Dedicated Servers", description: "Bare metal servers with full root control." },
+  { href: "/managed-dedicated", icon: Cpu, label: "Managed Dedicated", description: "Dedicated servers with 24/7 managed support." },
 ];
 
-const serverProducts: NavProduct[] = [
-  {
-    href: "/dedicated",
-    icon: <HardDrive className="h-5 w-5" />,
-    label: "Dedicated Servers",
-    description: "Bare metal servers with full root control, IPMI access and RAID.",
-  },
-  {
-    href: "/managed-dedicated",
-    icon: <Cpu className="h-5 w-5" />,
-    label: "Managed Dedicated",
-    description: "Enterprise dedicated servers with 24/7 managed support and cPanel.",
-    badge: "New",
-  },
+const services: NavProduct[] = [
+  { href: "/cloud-hosting", icon: Cloud, label: "Cloud Hosting", description: "Scalable cloud hosting with 99.99% uptime SLA." },
+  { href: "/business-email", icon: Mail, label: "Business Email", description: "Professional email on your own domain." },
+  { href: "/backup-security", icon: Shield, label: "Backup & Security", description: "Automated backups, DDoS protection and SSL." },
+  { href: "/sentinel", icon: ShieldCheck, label: "KloudSentinel", description: "AI-powered malware detection for your sites." },
 ];
 
-// ─── Sub-components ────────────────────────────────────────────────────────────
+const company = [
+  { href: "/about", label: "About Kloud101" },
+  { href: "/reviews", label: "Customer reviews" },
+  { href: "/contact", label: "Contact & support" },
+];
 
-function ProductCard({ product }: { product: NavProduct }) {
+const mobileGroups = [
+  { label: "Products", items: products },
+  { label: "Services", items: services },
+  { label: "Company", items: company },
+];
+
+// ─── Sub-components ───────────────────────────────────────────────────────────
+
+function ProductsDropdown({ items, onNavigate }: { items: NavProduct[]; onNavigate: () => void }) {
   return (
-    <Link
-      href={product.href}
-      className={`group relative flex gap-4 rounded-xl border border-slate-100 bg-white p-4 transition-all duration-150 hover:border-blue-200 hover:bg-blue-50/40 hover:shadow-sm ${
-        product.colSpan ? "col-span-2" : ""
-      }`}
-    >
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition-colors group-hover:bg-blue-100 group-hover:text-blue-600">
-        {product.icon}
-      </div>
-      <div className="min-w-0 flex-1">
-        <div className="flex items-center gap-2">
-          <span className="text-base font-semibold text-slate-900 group-hover:text-blue-700">
-            {product.label}
+    <div className="products-dropdown">
+      {items.map(({ href, icon: Icon, label, description }) => (
+        <Link key={href} href={href} onClick={onNavigate}>
+          <Icon />
+          <span>
+            <strong>{label}</strong>
+            <small>{description}</small>
           </span>
-          {product.badge && (
-            <span className="rounded-full bg-blue-600 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-white">
-              {product.badge}
-            </span>
-          )}
-        </div>
-        <p className="mt-1 text-sm leading-relaxed text-slate-500">
-          {product.description}
-        </p>
-      </div>
-      <ArrowRight className="h-4 w-4 shrink-0 self-start text-slate-700 opacity-0 transition-opacity group-hover:opacity-100 mt-0.5" />
-    </Link>
+          <ArrowUpRight />
+        </Link>
+      ))}
+    </div>
   );
 }
 
-function DropdownMenu({
-  title,
-  subtitle,
-  products,
-  footer,
+function MenuButton({
+  label,
+  open,
+  onClick,
 }: {
-  title: string;
-  subtitle: string;
-  products: NavProduct[];
-  footer?: React.ReactNode;
+  label: string;
+  open: boolean;
+  onClick: () => void;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/60 ring-1 ring-black/5">
-      {/* Header */}
-      <div className="border-b border-slate-100 px-6 py-4">
-        <p className="text-xs font-semibold uppercase tracking-widest text-blue-600">
-          {title}
-        </p>
-        <p className="mt-0.5 text-sm text-slate-500">{subtitle}</p>
-      </div>
-
-      {/* Products grid */}
-      <div className="grid grid-cols-2 gap-2 p-4">
-        {products.map((product) => (
-          <ProductCard key={product.href} product={product} />
-        ))}
-      </div>
-
-      {/* Footer */}
-      {footer && (
-        <div className="border-t border-slate-100 px-6 py-3">{footer}</div>
-      )}
-    </div>
-  );
-}
-
-// ─── Mobile Menu ──────────────────────────────────────────────────────────────
-
-function MobileMenu({ onClose }: { onClose: () => void }) {
-  const [openSection, setOpenSection] = useState<"cloud" | "servers" | null>(null);
-
-  const toggleSection = (section: "cloud" | "servers") => {
-    setOpenSection((prev) => (prev === section ? null : section));
-  };
-
-  return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-white lg:hidden">
-      {/* Top bar */}
-      <div className="flex items-center justify-between border-b border-slate-200 px-6 py-5">
-        <Link href="/" onClick={onClose}>
-          <Image src="/kloud101logo.png" alt="Kloud101" width={128} height={40} priority />
-        </Link>
-        <button
-          onClick={onClose}
-          className="rounded-lg p-2 text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition"
-          aria-label="Close menu"
-        >
-          <X className="h-5 w-5" />
-        </button>
-      </div>
-
-      {/* Links */}
-      <div className="flex-1 overflow-y-auto px-6 py-6 space-y-1">
-        <Link
-          href="/"
-          onClick={onClose}
-          className="block rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-slate-900 transition"
-        >
-          Home
-        </Link>
-
-        <Link
-          href="/vps"
-          onClick={onClose}
-          className="block rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-slate-900 transition"
-        >
-          VPS
-        </Link>
-
-        {/* Cloud Services accordion */}
-        <div>
-          <button
-            onClick={() => toggleSection("cloud")}
-            className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-slate-900 transition"
-          >
-            Cloud Services
-            <ChevronDown
-              className={`h-4 w-4 transition-transform duration-200 ${
-                openSection === "cloud" ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-          {openSection === "cloud" && (
-            <div className="mt-1 ml-3 space-y-1 border-l border-slate-200 pl-3">
-              {cloudProducts.map((p) => (
-                <Link
-                  key={p.href}
-                  href={p.href}
-                  onClick={onClose}
-                  className="block rounded-lg px-3 py-2.5 text-base text-slate-600 hover:text-slate-900 transition"
-                >
-                  {p.label}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* Servers accordion */}
-        <div>
-          <button
-            onClick={() => toggleSection("servers")}
-            className="flex w-full items-center justify-between rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-slate-900 transition"
-          >
-            Servers
-            <ChevronDown
-              className={`h-4 w-4 transition-transform duration-200 ${
-                openSection === "servers" ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-          {openSection === "servers" && (
-            <div className="mt-1 ml-3 space-y-1 border-l border-slate-200 pl-3">
-              {serverProducts.map((p) => (
-                <Link
-                  key={p.href}
-                  href={p.href}
-                  onClick={onClose}
-                  className="block rounded-lg px-3 py-2.5 text-base text-slate-600 hover:text-slate-900 transition"
-                >
-                  {p.label}
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <Link
-          href="/about"
-          onClick={onClose}
-          className="block rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-slate-900 transition"
-        >
-          About
-        </Link>
-
-        <Link
-          href="/contact"
-          onClick={onClose}
-          className="block rounded-lg px-3 py-3 text-base font-medium text-slate-700 hover:bg-blue-50 hover:text-slate-900 transition"
-        >
-          Contact
-        </Link>
-      </div>
-
-      {/* Auth */}
-      <div className="border-t border-slate-200 px-6 py-5 space-y-3">
-        <div className="mb-4">
-  <p className="text-sm text-slate-500 mb-2">
-    Currency
-  </p>
-
-  <CurrencySwitcher />
-</div>
-        <Link
-          href="https://my.kloud101.com/login"
-          onClick={onClose}
-          className="block w-full rounded-lg border border-slate-200 px-4 py-3 text-center text-base font-medium text-slate-700 hover:border-slate-300 hover:text-slate-900 transition"
-        >
-          Login
-        </Link>
-        <Link
-          href="https://my.kloud101.com/"
-          onClick={onClose}
-          className="block w-full rounded-lg bg-blue-600 px-4 py-3 text-center text-base font-semibold text-white hover:bg-blue-500 transition"
-        >
-          Get Started
-        </Link>
-      </div>
-    </div>
+    <button
+      type="button"
+      className="inline-flex items-center"
+      aria-expanded={open}
+      onClick={onClick}
+    >
+      {label}
+      <ChevronDown className={`transition-transform ${open ? "rotate-180" : ""}`} />
+    </button>
   );
 }
 
@@ -305,218 +108,144 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState<ActiveMenu>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
-  // Scroll shadow
+  const close = () => {
+    setActiveMenu(null);
+    setMobileOpen(false);
+    setMobileSection(null);
+  };
+
+  const toggle = (menu: Exclude<ActiveMenu, null>) =>
+    setActiveMenu((current) => (current === menu ? null : menu));
+
+  // Close menus on outside click or Escape
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 8);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (!activeMenu && !mobileOpen) return;
 
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
+    const onPointerDown = (event: PointerEvent) => {
+      if (!headerRef.current?.contains(event.target as Node)) close();
+    };
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") close();
+    };
 
-  const openMenu = (menu: ActiveMenu) => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setActiveMenu(menu);
-  };
-
-  const closeMenu = () => {
-    timeoutRef.current = setTimeout(() => setActiveMenu(null), 150);
-  };
-
-  const keepOpen = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-  };
+    document.addEventListener("pointerdown", onPointerDown);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [activeMenu, mobileOpen]);
 
   return (
-    <>
-      <nav
-        className={`sticky top-0 z-40 flex items-center justify-between px-6 py-0 lg:px-10 bg-white text-slate-900 transition-shadow duration-300 ${
-          scrolled ? "shadow-lg shadow-black/10" : ""
-        }`}
-        style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}
-      >
-        {/* Logo */}
-        <Link href="/" className="flex shrink-0 items-center py-3">
-          <Image
-            src="/kloud101logo.png"
-            alt="Kloud101"
-            width={128}
-            height={40}
-            priority
-          />
-        </Link>
+    <header ref={headerRef} className="site-header print:hidden">
+      <div className="wrap nav-row">
+        <Brand onClick={close} />
 
-        {/* Desktop nav */}
-        <div className="hidden items-center gap-1 lg:flex">
-          <Link
-            href="/"
-            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition"
-          >
-            Home
-          </Link>
+        <nav className="desktop-nav" aria-label="Main navigation">
+          <div className="nav-menu">
+            <MenuButton label="Products" open={activeMenu === "products"} onClick={() => toggle("products")} />
+            {activeMenu === "products" && <ProductsDropdown items={products} onNavigate={close} />}
+          </div>
 
-          <Link
-            href="/vps"
-            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition"
-          >
-            VPS
-          </Link>
+          <div className="nav-menu">
+            <MenuButton label="Services" open={activeMenu === "services"} onClick={() => toggle("services")} />
+            {activeMenu === "services" && <ProductsDropdown items={services} onNavigate={close} />}
+          </div>
 
-          {/* Cloud Services */}
-          <div
-            className="relative"
-            onMouseEnter={() => openMenu("cloud")}
-            onMouseLeave={closeMenu}
-          >
-            <button
-              className={`flex items-center gap-1.5 rounded-lg px-4 py-2 text-base font-medium transition ${
-                activeMenu === "cloud"
-                  ? "bg-blue-50 text-slate-900"
-                  : "text-slate-600 hover:bg-blue-50 hover:text-slate-900"
-              }`}
-            >
-              Cloud Services
-              <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
-                  activeMenu === "cloud" ? "rotate-180 text-blue-600" : "text-slate-500"
-                }`}
-              />
-            </button>
+          <Link href="/data-centers" onClick={close}>Data Centers</Link>
+          <Link href="/ai-hosting-advisor" onClick={close}>AI Advisor</Link>
 
-            {activeMenu === "cloud" && (
-              <div
-                className="absolute left-1/2 top-full w-[660px] -translate-x-1/2 pt-3"
-                onMouseEnter={keepOpen}
-                onMouseLeave={closeMenu}
-              >
-                {/* Arrow */}
-                <div className="absolute left-1/2 top-1.5 -translate-x-1/2">
-                  <div className="h-2 w-4 overflow-hidden">
-                    <div className="mx-auto h-3 w-3 rotate-45 border-l border-t border-slate-200 bg-white translate-y-1" />
-                  </div>
-                </div>
-
-                <DropdownMenu
-                  title="Cloud Services"
-                  subtitle="Everything you need to host, scale and protect your business."
-                  products={cloudProducts}
-                  footer={
-                    <Link
-                      href="/pricing"
-                      className="flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-500 transition"
-                    >
-                      View all pricing
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                  }
-                />
+          <div className="nav-menu">
+            <MenuButton label="Company" open={activeMenu === "company"} onClick={() => toggle("company")} />
+            {activeMenu === "company" && (
+              <div className="company-dropdown">
+                {company.map(({ href, label }) => (
+                  <Link key={href} href={href} onClick={close}>
+                    {label}
+                  </Link>
+                ))}
               </div>
             )}
           </div>
 
-          {/* Servers */}
-          <div
-            className="relative"
-            onMouseEnter={() => openMenu("servers")}
-            onMouseLeave={closeMenu}
-          >
-            <button
-              className={`flex items-center gap-1.5 rounded-lg px-4 py-2 text-base font-medium transition ${
-                activeMenu === "servers"
-                  ? "bg-blue-50 text-slate-900"
-                  : "text-slate-600 hover:bg-blue-50 hover:text-slate-900"
-              }`}
-            >
-              Servers
-              <ChevronDown
-                className={`h-4 w-4 transition-transform duration-200 ${
-                  activeMenu === "servers" ? "rotate-180 text-blue-600" : "text-slate-500"
-                }`}
-              />
-            </button>
+          <Link href="/pricing" onClick={close}>Pricing</Link>
+        </nav>
 
-            {activeMenu === "servers" && (
-              <div
-                className="absolute left-1/2 top-full w-[560px] -translate-x-1/2 pt-3"
-                onMouseEnter={keepOpen}
-                onMouseLeave={closeMenu}
-              >
-                {/* Arrow */}
-                <div className="absolute left-1/2 top-1.5 -translate-x-1/2">
-                  <div className="h-2 w-4 overflow-hidden">
-                    <div className="mx-auto h-3 w-3 rotate-45 border-l border-t border-slate-200 bg-white translate-y-1" />
-                  </div>
-                </div>
-
-                <DropdownMenu
-                  title="Server Solutions"
-                  subtitle="Bare metal and managed dedicated infrastructure."
-                  products={serverProducts}
-                  footer={
-                    <Link
-                      href="/servers"
-                      className="flex items-center gap-1.5 text-sm font-medium text-blue-600 hover:text-blue-500 transition"
-                    >
-                      Compare server specs
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
-                  }
-                />
-              </div>
-            )}
+        <div className="nav-actions">
+          <div className="nav-currency">
+            <CurrencySwitcher />
           </div>
-
-          <Link
-            href="/about"
-            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition"
-          >
-            About
-          </Link>
-
-          <Link
-            href="/contact"
-            className="rounded-lg px-4 py-2 text-base font-medium text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition"
-          >
-            Contact
-          </Link>
-        </div>
-
-        {/* Desktop auth */}
-        <div className="hidden items-center gap-3 lg:flex">
-          <CurrencySwitcher />
-          <Link
-            href="https://my.kloud101.com/login"
-            className="rounded-lg border border-slate-200 px-4 py-2 text-base font-medium text-slate-600 hover:border-slate-300 hover:text-slate-900 transition"
-          >
-            Login
-          </Link>
-          <Link
+          <a className="login-link" href="https://my.kloud101.com/login">
+            Log in
+            <ArrowUpRight size={13} />
+          </a>
+          <a
             href="https://my.kloud101.com/register"
-            className="rounded-lg bg-blue-600 px-4 py-2 text-base font-semibold text-white hover:bg-blue-500 transition"
+            className="nav-cta inline-flex items-center justify-center gap-2 whitespace-nowrap bg-primary font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Get Started
-          </Link>
+            <ArrowRight className="size-4" />
+          </a>
+          <button
+            type="button"
+            className="mobile-toggle items-center justify-center rounded-md hover:bg-accent"
+            aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
+          </button>
         </div>
+      </div>
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMobileOpen(true)}
-          className="rounded-lg p-2 text-slate-600 hover:bg-blue-50 hover:text-slate-900 transition lg:hidden"
-          aria-label="Open menu"
-        >
-          <Menu className="h-5 w-5" />
-        </button>
-      </nav>
-
-      {/* Mobile menu overlay */}
-      {mobileOpen && <MobileMenu onClose={() => setMobileOpen(false)} />}
-    </>
+      {mobileOpen && (
+        <nav className="mobile-drawer" aria-label="Mobile navigation">
+          {mobileGroups.map((group) => {
+            const open = mobileSection === group.label;
+            return (
+              <div key={group.label} className="mobile-group">
+                <button
+                  type="button"
+                  aria-expanded={open}
+                  onClick={() => setMobileSection(open ? null : group.label)}
+                >
+                  {group.label}
+                  <ChevronDown size={16} className={`transition-transform ${open ? "rotate-180" : ""}`} />
+                </button>
+                {open && (
+                  <div className="mobile-group-links">
+                    {group.items.map(({ href, label }) => (
+                      <Link key={href} href={href} onClick={close}>
+                        {label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+          {[
+            ["Data Centers", "/data-centers"],
+            ["AI Hosting Advisor", "/ai-hosting-advisor"],
+            ["Pricing", "/pricing"],
+          ].map(([label, href]) => (
+            <Link key={href} href={href} onClick={close}>
+              {label}
+              <ArrowRight size={16} />
+            </Link>
+          ))}
+          <div className="mobile-footer">
+            <a href="https://my.kloud101.com/login">
+              Log in
+              <ArrowUpRight size={14} />
+            </a>
+            <CurrencySwitcher />
+          </div>
+        </nav>
+      )}
+    </header>
   );
 }

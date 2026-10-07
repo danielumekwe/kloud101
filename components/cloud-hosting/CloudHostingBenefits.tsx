@@ -1,115 +1,41 @@
-import {
-  Shield,
-  HardDrive,
-  Globe,
-  Zap,
-  Cloud,
-  Lock,
-  RefreshCw,
-  Headphones,
-} from "lucide-react";
+import { Cloud, Globe, HardDrive, Headphones, Lock, RefreshCw, Shield, Zap } from "lucide-react";
+import SectionHeading from "@/components/site/SectionHeading";
+import FeatureGrid from "@/components/site/FeatureGrid";
 
 const benefits = [
-  {
-    title: "High Availability",
-    description:
-      "Built on reliable cloud infrastructure designed for maximum uptime.",
-    icon: Cloud,
-  },
+  { title: "High Availability", text: "Built on reliable cloud infrastructure designed for maximum uptime.", icon: Cloud },
   {
     title: "NVMe SSD Storage",
-    description:
-      "Ultra-fast NVMe storage for faster website and application performance.",
+    text: "Ultra-fast NVMe storage for faster website and application performance.",
     icon: HardDrive,
   },
   {
     title: "Automatic Daily Backups",
-    description:
-      "Protect your data with automated backups and recovery options.",
+    text: "Protect your data with automated backups and recovery options.",
     icon: RefreshCw,
   },
-  {
-    title: "DDoS Protection",
-    description:
-      "Enterprise-grade protection against malicious attacks and threats.",
-    icon: Shield,
-  },
-  {
-    title: "Free SSL Certificates",
-    description:
-      "Secure your websites and applications with free SSL encryption.",
-    icon: Lock,
-  },
-  {
-    title: "Instant Scalability",
-    description:
-      "Scale resources as your business grows without downtime.",
-    icon: Zap,
-  },
+  { title: "DDoS Protection", text: "Enterprise-grade protection against malicious attacks and threats.", icon: Shield },
+  { title: "Free SSL Certificates", text: "Secure your websites and applications with free SSL encryption.", icon: Lock },
+  { title: "Instant Scalability", text: "Scale resources as your business grows without downtime.", icon: Zap },
   {
     title: "Global Infrastructure",
-    description:
-      "Deliver content faster through strategically located infrastructure.",
+    text: "Deliver content faster through strategically located infrastructure.",
     icon: Globe,
   },
-  {
-    title: "24/7 Expert Support",
-    description:
-      "Our technical team is available whenever you need assistance.",
-    icon: Headphones,
-  },
+  { title: "24/7 Expert Support", text: "Our technical team is available whenever you need assistance.", icon: Headphones },
 ];
 
 export default function CloudHostingBenefits() {
   return (
-    <section className="py-24 bg-blue-50">
-
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="text-center mb-16">
-
-          <span className="text-blue-500 uppercase tracking-wider font-semibold">
-            Why Choose Cloud Hosting
-          </span>
-
-          <h2 className="text-5xl font-bold mt-4 mb-4">
-            Enterprise Features Built In
-          </h2>
-
-          <p className="text-slate-600 max-w-3xl mx-auto">
-            Everything you need to host websites, applications and
-            business workloads on a modern cloud platform.
-          </p>
-
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-          {benefits.map((benefit) => (
-            <div
-              key={benefit.title}
-              className="bg-white border border-slate-200 rounded-2xl p-6"
-            >
-              <benefit.icon
-                size={40}
-                className="text-blue-500 mb-4"
-              />
-
-              <h3 className="text-lg font-semibold mb-3">
-                {benefit.title}
-              </h3>
-
-              <p className="text-slate-600 text-sm leading-relaxed">
-                {benefit.description}
-              </p>
-
-            </div>
-          ))}
-
-        </div>
-
+    <section className="section bg-card border-y">
+      <div className="wrap">
+        <SectionHeading
+          eyebrow="WHY CHOOSE CLOUD HOSTING"
+          title="Enterprise Features Built In"
+          text="Everything you need to host websites, applications and business workloads on a modern cloud platform."
+        />
+        <FeatureGrid items={benefits} />
       </div>
-
     </section>
   );
 }

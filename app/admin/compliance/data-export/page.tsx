@@ -23,7 +23,7 @@ import {
 
 const STATUS_COLORS: Record<string, string> = {
   pending: "bg-yellow-500/10 border-yellow-500/20 text-yellow-400",
-  processing: "bg-blue-500/10 border-blue-500/20 text-blue-600",
+  processing: "bg-accent border-primary text-primary",
   completed: "bg-green-500/10 border-green-500/20 text-green-400",
   rejected: "bg-red-500/10 border-red-500/20 text-red-400",
 }
@@ -93,15 +93,15 @@ export default function DataExportRequestsPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-xl font-bold text-slate-900">Data Export Requests</h1>
-          <p className="text-sm text-slate-600 mt-1">
+          <h1 className="text-xl font-bold text-foreground">Data Export Requests</h1>
+          <p className="text-sm text-muted-foreground mt-1">
             GDPR / NDPR data portability requests from users.
           </p>
         </div>
         <button
           onClick={() => load(page)}
           disabled={loading}
-          className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-100 hover:bg-blue-200 text-slate-700 rounded-xl border border-slate-200 transition-colors disabled:opacity-50"
+          className="flex items-center gap-2 px-4 py-2 text-sm bg-accent hover:bg-accent text-muted-foreground rounded border border-border transition-colors disabled:opacity-50"
         >
           <RefreshCw className={cn("w-4 h-4", loading && "animate-spin")} />
           Refresh
@@ -111,20 +111,20 @@ export default function DataExportRequestsPage() {
       {/* Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
         {[
-          { label: "Total", value: total, color: "text-slate-900" },
+          { label: "Total", value: total, color: "text-foreground" },
           { label: "Pending", value: pending, color: "text-yellow-400" },
-          { label: "Processing", value: processing, color: "text-blue-600" },
+          { label: "Processing", value: processing, color: "text-primary" },
           { label: "Completed", value: completed, color: "text-green-400" },
         ].map(({ label, value, color }) => (
-          <div key={label} className="bg-blue-50 border border-slate-200 rounded-xl p-4">
-            <p className="text-xs text-slate-500 mb-1">{label}</p>
+          <div key={label} className="bg-muted border border-border rounded p-4">
+            <p className="text-xs text-muted-foreground mb-1">{label}</p>
             <p className={cn("text-2xl font-bold", color)}>{value}</p>
           </div>
         ))}
       </div>
 
       {error && (
-        <div className="flex items-center gap-2.5 p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-sm text-red-400 mb-4">
+        <div className="flex items-center gap-2.5 p-4 bg-red-500/10 border border-red-500/20 rounded text-sm text-red-400 mb-4">
           <AlertCircle className="w-4 h-4 flex-shrink-0" />
           {error}
         </div>
@@ -132,33 +132,33 @@ export default function DataExportRequestsPage() {
 
       {loading && requests.length === 0 ? (
         <div className="flex justify-center py-16">
-          <Loader2 className="w-8 h-8 animate-spin text-slate-500" />
+          <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
         </div>
       ) : requests.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-16 text-center">
-          <Download className="w-10 h-10 text-slate-700 mb-3" />
-          <p className="text-slate-500">No data export requests.</p>
+          <Download className="w-10 h-10 text-muted-foreground mb-3" />
+          <p className="text-muted-foreground">No data export requests.</p>
         </div>
       ) : (
-        <div className="bg-blue-50 border border-slate-200 rounded-xl overflow-hidden">
+        <div className="bg-muted border border-border rounded overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm min-w-[600px]">
               <thead>
-                <tr className="border-b border-slate-200">
+                <tr className="border-b border-border">
                   {["User", "Status", "Submitted", "Completed", "Actions"].map((h) => (
-                    <th key={h} className="text-left text-xs font-semibold text-slate-500 px-4 py-3">{h}</th>
+                    <th key={h} className="text-left text-xs font-semibold text-muted-foreground px-4 py-3">{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {requests.map((req) => (
-                  <tr key={req.id} className="border-b border-slate-200 last:border-0 hover:bg-blue-100/30 transition-colors">
-                    <td className="px-4 py-3 text-slate-900">{req.email}</td>
+                  <tr key={req.id} className="border-b border-border last:border-0 hover:bg-accent/30 transition-colors">
+                    <td className="px-4 py-3 text-foreground">{req.email}</td>
                     <td className="px-4 py-3"><StatusBadge status={req.status} /></td>
-                    <td className="px-4 py-3 text-slate-600 text-xs whitespace-nowrap">
+                    <td className="px-4 py-3 text-muted-foreground text-xs whitespace-nowrap">
                       {new Date(req.createdAt).toLocaleString()}
                     </td>
-                    <td className="px-4 py-3 text-slate-600 text-xs">
+                    <td className="px-4 py-3 text-muted-foreground text-xs">
                       {req.completedAt ? new Date(req.completedAt).toLocaleDateString() : "—"}
                     </td>
                     <td className="px-4 py-3">
@@ -166,7 +166,7 @@ export default function DataExportRequestsPage() {
                         <button
                           onClick={() => handleUpdate(req.id, "processing")}
                           disabled={updating === req.id}
-                          className="px-2.5 py-1 text-xs bg-blue-600/15 border border-blue-500/20 text-blue-600 hover:bg-blue-600/25 rounded-lg transition-colors disabled:opacity-50"
+                          className="px-2.5 py-1 text-xs bg-primary/15 border border-primary text-primary hover:bg-primary/25 rounded-lg transition-colors disabled:opacity-50"
                         >
                           {updating === req.id ? <Loader2 className="w-3 h-3 animate-spin" /> : "Start processing"}
                         </button>
@@ -191,14 +191,14 @@ export default function DataExportRequestsPage() {
 
       {totalPages > 1 && (
         <div className="flex items-center justify-between mt-4">
-          <p className="text-xs text-slate-500">Page {page} of {totalPages}</p>
+          <p className="text-xs text-muted-foreground">Page {page} of {totalPages}</p>
           <div className="flex gap-2">
             <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1 || loading}
-              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-blue-100 border border-slate-200 text-slate-700 rounded-lg hover:bg-blue-200 disabled:opacity-40 transition-colors">
+              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-accent border border-border text-muted-foreground rounded-lg hover:bg-accent disabled:opacity-40 transition-colors">
               <ChevronLeft className="w-4 h-4" /> Prev
             </button>
             <button onClick={() => setPage((p) => Math.min(totalPages, p + 1))} disabled={page === totalPages || loading}
-              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-blue-100 border border-slate-200 text-slate-700 rounded-lg hover:bg-blue-200 disabled:opacity-40 transition-colors">
+              className="flex items-center gap-1 px-3 py-1.5 text-sm bg-accent border border-border text-muted-foreground rounded-lg hover:bg-accent disabled:opacity-40 transition-colors">
               Next <ChevronRight className="w-4 h-4" />
             </button>
           </div>

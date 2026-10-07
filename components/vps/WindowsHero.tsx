@@ -1,88 +1,24 @@
-"use client";
-
-import Image from "next/image";
-import { useCurrency } from "@/context/CurrencyContext";
+import { Monitor } from "lucide-react";
+import PageHero from "@/components/site/PageHero";
+import CtaLink from "@/components/site/CtaLink";
+import HeroPrice from "@/components/site/HeroPrice";
 
 export default function WindowsHero() {
-  const { formatPrice } = useCurrency();
-
   return (
-    <section className="bg-gradient-to-r from-blue-50 via-white to-blue-50 py-24">
-
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-
-          <div>
-
-            <span className="text-blue-500 uppercase tracking-wider font-semibold">
-              Windows VPS Hosting
-            </span>
-
-            <h1 className="text-6xl lg:text-7xl font-bold mt-4 mb-8">
-              Windows VPS
-              hosting with
-              Remote Desktop.
-            </h1>
-
-            <div className="max-w-xl bg-blue-50 border border-slate-200 rounded-2xl p-8 mb-8">
-
-              <div className="flex flex-col sm:flex-row sm:items-end gap-2 sm:gap-3">
-
-                <span className="text-slate-600">
-                  Starts at
-                </span>
-
-                <span className="text-6xl font-bold text-blue-500">
-                  {formatPrice(11.50)}
-                </span>
-
-                <span className="text-slate-600 mb-1">
-                  /month
-                </span>
-
-              </div>
-
-              <div className="flex gap-4 mt-6">
-
-                <a
-                  href="https://my.kloud101.com/vps/order/windows-vps"
-                  className="bg-blue-600 px-8 py-4 rounded-xl"
-                >
-                  Order Windows VPS
-                </a>
-
-                <button className="border border-slate-200 px-8 py-4 rounded-xl">
-                  Compare Plans
-                </button>
-
-              </div>
-
-            </div>
-
-            <p className="text-slate-600 text-lg">
-              Run Windows Server workloads with full administrator access,
-              Remote Desktop connectivity, MSSQL support and scalable resources.
-            </p>
-
-          </div>
-
-          <div className="flex justify-center">
-
-            <Image
-              src="/services/windows-vps.png"
-              alt="Windows VPS"
-              width={700}
-              height={700}
-              className="object-contain"
-            />
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
+    <PageHero
+      breadcrumb="Windows VPS"
+      eyebrow="WINDOWS VPS HOSTING"
+      title={"Windows VPS hosting\nwith Remote Desktop."}
+      description="Run Windows Server workloads with full administrator access, Remote Desktop connectivity, MSSQL support and scalable resources."
+      icon={Monitor}
+      actions={
+        <>
+          <CtaLink href="https://my.kloud101.com/vps/order/windows-vps">Order Windows VPS</CtaLink>
+          <CtaLink href="#plans" variant="outline">Compare Plans</CtaLink>
+        </>
+      }
+    >
+      <HeroPrice usd={11.5} />
+    </PageHero>
   );
 }

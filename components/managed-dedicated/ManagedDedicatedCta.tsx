@@ -1,140 +1,25 @@
-import Link from "next/link";
-import {
-  Server,
-  Shield,
-  Monitor,
-  CheckCircle,
-} from "lucide-react";
+import ClosingCta from "@/components/site/ClosingCta";
+import CtaLink from "@/components/site/CtaLink";
 
 export default function ManagedDedicatedCta() {
   return (
-    <section className="py-24 bg-blue-50">
-
-      <div className="max-w-6xl mx-auto px-6">
-
-        <div className="rounded-3xl border border-blue-500/30 bg-gradient-to-r from-blue-50 to-white p-12">
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-            {/* Left */}
-
-            <div>
-
-              <span className="text-blue-500 uppercase tracking-wider font-semibold">
-                Managed Dedicated Servers
-              </span>
-
-              <h2 className="text-5xl font-bold mt-4 mb-6">
-                Enterprise Infrastructure.
-                Expert Management.
-              </h2>
-
-              <p className="text-slate-600 text-lg mb-8">
-                Get dedicated hardware with cPanel, security management,
-                proactive monitoring, backups and expert technical
-                support included.
-              </p>
-
-              <div className="flex flex-wrap gap-4">
-
-                <a
-                  href="https://my.kloud101.com/"
-                  className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl font-semibold transition"
-                >
-                  Deploy Managed Dedicated
-                </a>
-
-                <Link
-                  href="/contact"
-                  className="border border-slate-200 hover:border-slate-300 px-8 py-4 rounded-xl font-semibold transition"
-                >
-                  Contact Sales
-                </Link>
-
-              </div>
-
-            </div>
-
-            {/* Right */}
-
-            <div className="grid sm:grid-cols-2 gap-4">
-
-              <div className="bg-white border border-slate-200 rounded-2xl p-6">
-
-                <Server
-                  size={40}
-                  className="text-blue-500 mb-4"
-                />
-
-                <h3 className="font-semibold mb-2">
-                  Dedicated Hardware
-                </h3>
-
-                <p className="text-slate-600 text-sm">
-                  Enterprise-grade bare metal infrastructure.
-                </p>
-
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-2xl p-6">
-
-                <Monitor
-                  size={40}
-                  className="text-blue-500 mb-4"
-                />
-
-                <h3 className="font-semibold mb-2">
-                  24/7 Monitoring
-                </h3>
-
-                <p className="text-slate-600 text-sm">
-                  Continuous monitoring and proactive response.
-                </p>
-
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-2xl p-6">
-
-                <Shield
-                  size={40}
-                  className="text-blue-500 mb-4"
-                />
-
-                <h3 className="font-semibold mb-2">
-                  Security Managed
-                </h3>
-
-                <p className="text-slate-600 text-sm">
-                  Hardening, patching and protection included.
-                </p>
-
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-2xl p-6">
-
-                <CheckCircle
-                  size={40}
-                  className="text-blue-500 mb-4"
-                />
-
-                <h3 className="font-semibold mb-2">
-                  Expert Support
-                </h3>
-
-                <p className="text-slate-600 text-sm">
-                  Experienced engineers available when needed.
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
+    <ClosingCta
+      eyebrow="MANAGED DEDICATED SERVERS"
+      title={
+        <>
+          Enterprise Infrastructure.
+          <br />
+          Expert Management.
+        </>
+      }
+      text="Get dedicated hardware with cPanel, security management, proactive monitoring, backups and expert technical support included."
+      actions={
+        <>
+          <CtaLink href="https://my.kloud101.com/">Deploy Managed Dedicated</CtaLink>
+          <CtaLink href="/contact" variant="outline">Contact Sales</CtaLink>
+        </>
+      }
+      points={["Dedicated Hardware", "24/7 Monitoring", "Security Managed", "Expert Support"]}
+    />
   );
 }

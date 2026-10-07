@@ -1,99 +1,54 @@
-import Link from "next/link";
-import { Globe, ScanLine, FileCheck, Bell } from "lucide-react";
+import { Check } from "lucide-react";
+import Eyebrow from "@/components/site/Eyebrow";
+import CtaLink from "@/components/site/CtaLink";
+import SentinelPreview from "@/components/site/SentinelPreview";
+
+const highlights = [
+  "WordPress Ready — works with any WordPress site out of the box.",
+  "Malware Scanning — scan files, plugins and themes for threats.",
+  "Integrity Monitoring — get notified of unauthorized file changes.",
+  "Security Reports — clear reports on your site's security status.",
+];
+
 
 export default function SentinelDownloadCta() {
   return (
-    <section id="download" className="py-24 bg-white scroll-mt-16">
-
-      <div className="max-w-6xl mx-auto px-6">
-
-        <div className="rounded-3xl border border-blue-500/30 bg-gradient-to-r from-blue-50 to-white p-12">
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-            <div>
-
-              <span className="text-blue-500 uppercase tracking-wider font-semibold">
-                Free WordPress Plugin
-              </span>
-
-              <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6">
-                Start Protecting Your WordPress Website Today
-              </h2>
-
-              <p className="text-slate-600 text-lg mb-8">
-                Download KloudSentinel WordPress Plugin and get malware
-                scanning, file integrity monitoring and security reports
-                running on your site in minutes.
-              </p>
-
-              <div className="flex flex-wrap gap-4 mb-6">
-
-                <Link
-                  href="/kloud101-sentinel.zip"
-                  download
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition"
-                >
-                  Download Free Version
-                </Link>
-
-                <Link
-                  href="/contact"
-                  className="border border-slate-200 hover:border-slate-300 px-8 py-4 rounded-xl font-semibold transition"
-                >
-                  Contact Sales
-                </Link>
-
-              </div>
-
-              <p className="text-slate-500 text-sm">
-                Free forever for personal and small business websites.
-              </p>
-
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-
-              <div className="bg-white border border-slate-200 rounded-2xl p-6">
-                <Globe size={40} className="text-blue-500 mb-4" />
-                <h3 className="font-semibold mb-2">WordPress Ready</h3>
-                <p className="text-slate-600 text-sm">
-                  Works with any WordPress site out of the box.
-                </p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-2xl p-6">
-                <ScanLine size={40} className="text-blue-500 mb-4" />
-                <h3 className="font-semibold mb-2">Malware Scanning</h3>
-                <p className="text-slate-600 text-sm">
-                  Scan files, plugins and themes for threats.
-                </p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-2xl p-6">
-                <FileCheck size={40} className="text-blue-500 mb-4" />
-                <h3 className="font-semibold mb-2">Integrity Monitoring</h3>
-                <p className="text-slate-600 text-sm">
-                  Get notified of unauthorized file changes.
-                </p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-2xl p-6">
-                <Bell size={40} className="text-blue-500 mb-4" />
-                <h3 className="font-semibold mb-2">Security Reports</h3>
-                <p className="text-slate-600 text-sm">
-                  Clear reports on your site&apos;s security status.
-                </p>
-              </div>
-
-            </div>
-
+    <section id="download" className="section sentinel-section scroll-mt-16">
+      <div className="wrap sentinel-layout">
+        <div>
+          <Eyebrow>FREE WORDPRESS PLUGIN</Eyebrow>
+          <h2>
+            Start Protecting Your
+            <br />
+            <span>WordPress Website Today</span>
+          </h2>
+          <p>
+            Download KloudSentinel WordPress Plugin and get malware scanning, file integrity monitoring and
+            security reports running on your site in minutes.
+          </p>
+          <ul className="feature-list">
+            {highlights.map((item) => (
+              <li key={item}>
+                <Check />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div className="actions">
+            <a
+              href="/kloud101-sentinel.zip"
+              download
+              className="cta-button inline-flex items-center justify-center gap-2 whitespace-nowrap bg-primary font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              Download Free Version
+            </a>
+            <CtaLink href="/contact" variant="outline">Contact Sales</CtaLink>
           </div>
-
+          <p className="sentinel-note">Free forever for personal and small business websites.</p>
         </div>
 
+        <SentinelPreview />
       </div>
-
     </section>
   );
 }

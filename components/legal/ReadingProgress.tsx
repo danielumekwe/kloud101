@@ -20,7 +20,7 @@ export default function ReadingProgress() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[60] h-1 bg-slate-200"
+      className="fixed top-0 left-0 right-0 z-[60] h-1 bg-border"
       role="progressbar"
       aria-valuemin={0}
       aria-valuemax={100}
@@ -28,7 +28,7 @@ export default function ReadingProgress() {
       aria-label="Reading progress"
     >
       <div
-        className="h-full bg-blue-500 transition-all duration-75 ease-out"
+        className="h-full bg-primary transition-all duration-75 ease-out"
         style={{ width: `${progress}%` }}
       />
     </div>

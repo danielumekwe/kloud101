@@ -1,7 +1,6 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-
-import DedicatedNavigation from "@/components/dedicated/DedicatedNavigation";
+import ProductTabs, { dedicatedFamily } from "@/components/site/ProductTabs";
 
 import ManagedDedicatedHero from "@/components/managed-dedicated/ManagedDedicatedHero";
 import ManagedDedicatedPricing from "@/components/managed-dedicated/ManagedDedicatedPricing";
@@ -13,28 +12,17 @@ import ManagedDedicatedCta from "@/components/managed-dedicated/ManagedDedicated
 
 export default function ManagedDedicatedPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-
+    <main className="min-h-screen">
       <Navbar />
-
       <ManagedDedicatedHero />
-
-      <DedicatedNavigation active="managed" />
-
+      <ProductTabs active="/managed-dedicated" items={dedicatedFamily} label="Dedicated server products" />
       <ManagedDedicatedPricing />
-
       <ManagedDedicatedFeatures />
-
       <ManagedDedicatedCpanel />
-
       <ManagedDedicatedComparison />
-
       <ManagedDedicatedFaq />
-
       <ManagedDedicatedCta />
-
       <Footer />
-
     </main>
   );
 }

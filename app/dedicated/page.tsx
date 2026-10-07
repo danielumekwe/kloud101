@@ -1,54 +1,29 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import DedicatedNavigation from "@/components/dedicated/DedicatedNavigation";
+import ProductTabs, { dedicatedFamily } from "@/components/site/ProductTabs";
 import DedicatedHero from "@/components/dedicated/DedicatedHero";
 import DedicatedPricing from "@/components/dedicated/DedicatedPricing";
 import DedicatedBenefits from "@/components/dedicated/DedicatedBenefits";
 import DedicatedUseCases from "@/components/dedicated/DedicatedUseCases";
-
 import DedicatedLocations from "@/components/dedicated/DedicatedLocations";
-import DedicatedOperatingSystems from "@/components/dedicated/DedicatedOperatingSystems";
 import DedicatedManagement from "@/components/dedicated/DedicatedManagement";
-
 import DedicatedFaq from "@/components/dedicated/DedicatedFaq";
 import DedicatedCta from "@/components/dedicated/DedicatedCta";
 
 export default function DedicatedPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-
+    <main className="min-h-screen">
       <Navbar />
-
-      {/* Hero */}
       <DedicatedHero />
-      <DedicatedNavigation active="dedicated" />
-
-      {/* Pricing */}
+      <ProductTabs active="/dedicated" items={dedicatedFamily} label="Dedicated server products" />
       <DedicatedPricing />
-
-      {/* Why Dedicated */}
       <DedicatedBenefits />
-
-      {/* Use Cases */}
       <DedicatedUseCases />
-
-      {/* Datacenter Locations */}
       <DedicatedLocations />
-
-      {/* Supported Operating Systems */}
-      <DedicatedOperatingSystems />
-
-      {/* Management Options */}
       <DedicatedManagement />
-
-      {/* FAQ */}
       <DedicatedFaq />
-
-      {/* CTA */}
       <DedicatedCta />
-
       <Footer />
-
     </main>
   );
 }

@@ -10,7 +10,7 @@ import BusinessEmailCta from "@/components/business-email/BusinessEmailCta";
 
 export default function BusinessEmailPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main className="min-h-screen">
 
       <Navbar />
 
