@@ -8,6 +8,7 @@ import SentinelSecurity from "@/components/home/SentinelSecurity";
 import WhyKloud101 from "@/components/home/WhyKloud101";
 import GlobalInfrastructure from "@/components/home/GlobalInfrastructure";
 import SupportResources from "@/components/home/SupportResources";
+import HomeBlog from "@/components/home/HomeBlog";
 import HomeCTA from "@/components/home/HomeCTA";
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
       <WhyKloud101 />
       <GlobalInfrastructure />
       <SupportResources />
+      <HomeBlog />
       <HomeCTA />
       <Footer />
     </main>
