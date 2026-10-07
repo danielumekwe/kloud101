@@ -4975,3 +4975,109 @@ caption {
   object-fit: cover;
   object-position: right center;
 }
+
+/* ══ Home — infrastructure paths ══════════════════════════════════════════ */
+
+.paths-heading {
+  max-width: 820px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.paths-heading h2 {
+  color: #0b2447;
+}
+
+.section .paths-heading p {
+  margin-top: 18px;
+}
+
+.paths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1300px;
+  margin-inline: auto;
+}
+
+.path-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.04);
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.path-card:hover {
+  border-color: color-mix(in oklch, var(--primary), #fff 55%);
+  box-shadow: 0 18px 40px rgb(15 23 42 / 0.08);
+  transform: translateY(-2px);
+}
+
+.path-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid;
+  border-radius: 8px;
+}
+
+.path-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke-width: 2px;
+}
+
+.tone-green { background: #ecfdf3; border-color: #bbf7d0; color: #16a34a; }
+.tone-blue { background: #eff6ff; border-color: #bfdbfe; color: #2563eb; }
+.tone-navy { background: #eef2ff; border-color: #c7d2fe; color: #1e3a8a; }
+.tone-orange { background: #fff7ed; border-color: #fed7aa; color: #ea580c; }
+.tone-teal { background: #ecfeff; border-color: #a5f3fc; color: #0e7490; }
+.tone-slate { background: #f1f5f9; border-color: #cbd5e1; color: #475569; }
+
+.path-card h3 {
+  margin-top: 24px;
+  color: #0b2447;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+
+.section .path-card p {
+  flex: 1;
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.path-card strong {
+  margin-top: 22px;
+  color: #0b2447;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.path-card:hover strong {
+  color: var(--primary);
+}
+
+@media (width <= 980px) {
+  .paths-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (width <= 700px) {
+  .paths-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .path-card h3 {
+    font-size: 21px;
+  }
+}

@@ -1,139 +1,89 @@
 import Link from "next/link";
-import { ArrowUpRight, HardDrive, Mail, Monitor, Server, Shield, Terminal, type LucideIcon } from "lucide-react";
-import SectionHeading from "@/components/site/SectionHeading";
-import RackVisual from "@/components/site/RackVisual";
-import PriceBadge from "@/components/site/PriceBadge";
+import { Cloud, Database, Globe, Mail, Server, Settings, type LucideIcon } from "lucide-react";
+import PriceFrom from "@/components/site/PriceFrom";
 
-const smallProducts: { icon: LucideIcon; label: string; title: string; text: string; href: string }[] = [
+interface Path {
+  icon: LucideIcon;
+  tone: "green" | "blue" | "navy" | "orange" | "teal" | "slate";
+  title: string;
+  text: string;
+  href: string;
+  link: React.ReactNode;
+}
+
+const paths: Path[] = [
   {
-    icon: Monitor,
-    label: "WINDOWS SERVER",
-    title: "Windows VPS",
-    text: "Windows Server VPS with full administrator access and Remote Desktop connectivity.",
-    href: "/vps/windows",
+    icon: Globe,
+    tone: "green",
+    title: "Cloud Hosting",
+    text: "Best for websites, stores, blogs and business platforms that need speed, daily backups and free SSL.",
+    href: "/cloud-hosting",
+    link: <PriceFrom label="Cloud hosting from" usd={9.99} period="/month" />,
   },
   {
-    icon: HardDrive,
-    label: "STORAGE OPTIMIZED",
-    title: "Storage VPS",
-    text: "Massive storage for backups, archives, media libraries and file hosting.",
-    href: "/vps/storage",
+    icon: Cloud,
+    tone: "blue",
+    title: "Cloud Compute / VPS",
+    text: "Predictable KVM slices for apps, databases, staging, Windows workloads and full root control.",
+    href: "/vps",
+    link: <PriceFrom label="Cloud VPS from" usd={4.5} period="/month" />,
+  },
+  {
+    icon: Server,
+    tone: "navy",
+    title: "Dedicated Servers",
+    text: "Bare metal hardware for production workloads, high traffic, virtualization and custom stacks.",
+    href: "/dedicated",
+    link: "Browse dedicated servers",
+  },
+  {
+    icon: Settings,
+    tone: "orange",
+    title: "Managed VPS",
+    text: "Fully managed VPS with cPanel, monitoring, security updates, backups and expert support included.",
+    href: "/managed-vps",
+    link: <PriceFrom label="Managed VPS from" usd={13.5} period="/month" />,
   },
   {
     icon: Mail,
-    label: "BUSINESS EMAIL",
+    tone: "teal",
     title: "Business Email",
-    text: "Professional email on your own domain. Secure, reliable and accessible anywhere.",
+    text: "Professional email on your own domain with webmail, mobile sync and spam protection.",
     href: "/business-email",
+    link: <PriceFrom label="Business email from" usd={1.99} period="/month" />,
   },
   {
-    icon: Shield,
-    label: "BACKUP & SECURITY",
-    title: "Backup & Security",
-    text: "Automated backups, DDoS protection, SSL and disaster recovery.",
+    icon: Database,
+    tone: "slate",
+    title: "Storage & Backup",
+    text: "Storage VPS and automated backup services for websites, servers and business data.",
     href: "/backup-security",
+    link: "Explore storage & backup",
   },
 ];
 
-function ExploreLink({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <Link href={href} className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline underline-offset-4">
-      {children}
-      <ArrowUpRight className="size-4" />
-    </Link>
-  );
-}
-
 export default function HomeProducts() {
   return (
-    <section className="section products-section">
+    <section className="section paths-section">
       <div className="wrap">
-        <SectionHeading
-          eyebrow="OUR SERVICES"
-          title={
-            <>
-              Infrastructure for
-              <br />
-              every workload.
-            </>
-          }
-          aside={
-            <p className="heading-aside">
-              From managed VPS hosting and dedicated servers
-              <br className="desktop-break" /> to business email and backup solutions.
-            </p>
-          }
-        />
+        <div className="paths-heading">
+          <h2>Choose the infrastructure path that fits the workload.</h2>
+          <p>
+            Start simple with cloud hosting, scale into cloud compute, move to bare metal when you need the whole
+            machine, or let our team manage it for you.
+          </p>
+        </div>
 
-        <div className="product-grid">
-          <article className="product-feature linux-feature">
-            <div className="product-label">
-              <Terminal />
-              <span>LINUX VPS</span>
-              <PriceBadge usd={4.5} />
-            </div>
-            <h3>
-              Fast KVM virtual servers
-              <br />
-              with full root access.
-            </h3>
-            <p>
-              Instant provisioning, NVMe SSD storage
-              <br />
-              and flexible resource scaling.
-            </p>
-            <ExploreLink href="/vps">Explore Linux VPS</ExploreLink>
-            <div className="terminal-preview" aria-label="Example Linux server terminal">
-              <div>
-                <span />
-                <span />
-                <span />
-                <small>root@kloud101:~</small>
-              </div>
-              <code>
-                <span className="text-primary">$</span> ssh root@your-server
-                <br />
-                <span className="terminal-muted">Welcome to Ubuntu 24.04 LTS</span>
-                <br />
-                <br />
-                <span className="terminal-muted">System ready. Deployed in under 60 seconds.</span>
-                <br />
-                <span className="text-primary">root@kloud101</span>:~# <span className="terminal-cursor" />
-              </code>
-            </div>
-          </article>
-
-          <article className="product-feature dedicated-feature">
-            <div className="product-label">
-              <Server />
-              <span>DEDICATED SERVERS</span>
-            </div>
-            <h3>
-              Bare metal servers built
-              <br />
-              for maximum performance.
-            </h3>
-            <p>
-              Full hardware resources, NVMe SSD storage
-              <br />
-              and complete control.
-            </p>
-            <ExploreLink href="/dedicated">Explore Dedicated Servers</ExploreLink>
-            <div className="mini-racks">
-              <RackVisual />
-            </div>
-          </article>
-
-          {smallProducts.map(({ icon: Icon, label, title, text, href }) => (
-            <article key={title} className="product-small">
-              <div className="product-small-top">
+        <div className="paths-grid">
+          {paths.map(({ icon: Icon, tone, title, text, href, link }) => (
+            <Link key={title} href={href} className="path-card">
+              <span className={`path-icon tone-${tone}`}>
                 <Icon />
-                <span>{label}</span>
-              </div>
+              </span>
               <h3>{title}</h3>
               <p>{text}</p>
-              <ExploreLink href={href}>Explore {title}</ExploreLink>
-            </article>
+              <strong>{link}</strong>
+            </Link>
           ))}
         </div>
       </div>
