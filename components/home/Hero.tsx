@@ -28,11 +28,6 @@ export default function Hero() {
 
       <div className="wrap bold-hero-inner">
         <div className="bold-hero-copy">
-          <span className="bold-hero-badge">
-            <span className="status-dot" />
-            8+ global locations across 3 continents
-          </span>
-
           <h1>
             Global NVMe SSD VPS Hosting in <span>8+ Locations</span>
           </h1>
